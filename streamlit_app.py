@@ -28,8 +28,14 @@ st.plotly_chart(fig)
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
 
+age_dict = {18: 0, 19: 1/6, 20: 2/6, 21: 3/6, 22: 4/6, 23: 5/6, 24: 1}
+df['color_value'] = df['AGE'].map(lambda age: age_dict[age])
+
+colorscale = [[0, 'red'], [1/6, 'orange'], [2/6, 'yellow'], [3/6, 'green'], [4/6, 'blue'], [5/6, 'indigo'], [1, 'violet']] 
+
+
 levels = ['IN EVENT?', 'LOCATION', 'Q1','Why 1','Q2','Why 2','USE SPIN ?','THINK SPIN','LIVE CAMPUS?','Where','AGE','SEX']
-color_columns = ['AGE']
+color_column = ['color_value']
 value_column = 'YEAR'
 
 def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
@@ -58,22 +64,23 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     df_all_trees = df_all_trees.append(total, ignore_index=True)
     return df_all_trees
 
-df_all_trees = build_hierarchical_dataframe(df, levels, value_column, color_columns)
+df_all_trees = build_hierarchical_dataframe(df, levels, value_column, color_column)
 average_score = df['sales'].sum() / df['calls'].sum()
 
 # Create a sunburst chart
-fig = go.Figure(go.Sunburst(
+fig.add_trace(go.Sunburst(
+    ids=df_all_trees['id'],
     labels=df_all_trees['id'],
     parents=df_all_trees['parent'],
     values=df_all_trees['value'],
     branchvalues='total',
     marker=dict(
-        colors=df_all_trees['color'],
-        colorscale='RdBu',
-        cmid=average_score),
-    hovertemplate='<b>%{label} </b> <br> Sales: %{value}<br> Success rate: %{color:.2f}',
+        colors=df_all_trees[color_column],  # use 'color_value' instead of 'AGE'
+        colorscale=colorscale,
+    ),
+    hovertemplate='<b>%{label} </b> <br> Sales: %{value}',
     maxdepth=2
-    ))
+))
 
 fig.update_layout(margin=dict(t=10, b=10, r=10, l=10))
 fig.show()
