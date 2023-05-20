@@ -62,7 +62,7 @@ def build_hierarchical_dataframe(df, levels, value_column, color_column=None):
         df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
     total = pd.Series(dict(id='total', parent='',
                            value=df[value_column].sum(),
-                           color=df[color_column].sum()))
+                           color=df[color_column].sum() if color_column else None))
     df_all_trees = df_all_trees.append(total, ignore_index=True)
     return df_all_trees
 
