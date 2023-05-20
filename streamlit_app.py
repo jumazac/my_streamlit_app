@@ -18,7 +18,7 @@ levels = ['IN EVENT?', 'LOCATION', 'Q1','Why 1','Q2','Why 2','USE SPIN ?','THINK
 color_column = 'color_value'
 value_column = 'YEAR'
 
-def build_hierarchical_dataframe(df, levels, value_column, color_column=None):
+def build_hierarchical_dataframe(df, levels, color_column=None):
     """
     Build a hierarchy of levels for Sunburst or Treemap charts.
 
@@ -28,18 +28,19 @@ def build_hierarchical_dataframe(df, levels, value_column, color_column=None):
     df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
     for i, level in enumerate(levels):
         df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
-        dfg = df.groupby(levels[i:]).sum(numeric_only=True)
-        dfg = dfg.reset_index()
+        dfg = df.groupby(levels[i:]).size().reset_index(name='value')  # Use size here instead of sum
         df_tree['id'] = dfg[level].copy()
         if i < len(levels) - 1:
             df_tree['parent'] = dfg[levels[i+1]].copy()
         else:
             df_tree['parent'] = 'total'
-        df_tree['value'] = dfg[value_column]
+        df_tree['value'] = dfg['value']
         if color_column:
             df_tree['color'] = dfg[color_column]
         df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
-    total = pd.Series(dict(id='total', parent='', value=df[value_column].sum(), color=df[color_column].sum()))
+    total = pd.Series(dict(id='total', parent='', 
+                           value=df.shape[0],   # Use shape[0] here to get the total count
+                           color=df[color_column].sum() if color_column else None))
     df_all_trees = df_all_trees.append(total, ignore_index=True)
     return df_all_trees
 
