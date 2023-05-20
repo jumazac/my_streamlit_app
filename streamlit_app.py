@@ -44,7 +44,7 @@ def build_hierarchical_dataframe(df, levels, color_column=None):
     df_all_trees = df_all_trees.append(total, ignore_index=True)
     return df_all_trees
 
-df_all_trees = build_hierarchical_dataframe(df, levels, value_column, color_column)
+df_all_trees = build_hierarchical_dataframe(df, levels, color_column)
 
 fig = go.Figure()
 
