@@ -37,7 +37,10 @@ def build_hierarchical_dataframe(df, levels, color_column=None):
         df_tree['value'] = dfg['value']
         if color_column:
             df_tree['color'] = dfg[color_column]
+
+            print(type(df_all_trees)) 
         df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
+        
     total = pd.Series(dict(id='total', parent='', 
                            value=df.shape[0],   # Use shape[0] here to get the total count
                            color=df[color_column].sum() if color_column else None))
