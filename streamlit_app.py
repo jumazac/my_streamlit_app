@@ -38,7 +38,8 @@ levels = ['IN EVENT?', 'LOCATION', 'Q1','Why 1','Q2','Why 2','USE SPIN ?','THINK
 color_column = ['color_value']
 value_column = 'YEAR'
 
-def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
+
+def build_hierarchical_dataframe(df, levels, value_column, color_column=None):
     """
     Build a hierarchy of levels for Sunburst or Treemap charts.
 
@@ -48,7 +49,7 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
     for i, level in enumerate(levels):
         df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
-        dfg = df.groupby(levels[i:]).sum()
+        dfg = df.groupby(levels[i:]).sum(numeric_only=False)
         dfg = dfg.reset_index()
         df_tree['id'] = dfg[level].copy()
         if i < len(levels) - 1:
@@ -56,29 +57,27 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
         else:
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg[value_column]
-        df_tree['color'] = dfg[color_columns[0]] / dfg[color_columns[1]]
+        df_tree['color'] = dfg[color_column]
         df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
     total = pd.Series(dict(id='total', parent='',
                               value=df[value_column].sum(),
-                              color=df[color_columns[0]].sum() / df[color_columns[1]].sum()))
+                              color=df[color_column].mean()))
     df_all_trees = df_all_trees.append(total, ignore_index=True)
     return df_all_trees
 
 df_all_trees = build_hierarchical_dataframe(df, levels, value_column, color_column)
-average_score = df['sales'].sum() / df['calls'].sum()
+total_value = df[value_column].sum()
 
-# Create a sunburst chart
 fig.add_trace(go.Sunburst(
-    ids=df_all_trees['id'],
     labels=df_all_trees['id'],
     parents=df_all_trees['parent'],
     values=df_all_trees['value'],
     branchvalues='total',
     marker=dict(
-        colors=df_all_trees[color_column],  # use 'color_value' instead of 'AGE'
-        colorscale=colorscale,
+        colors=df_all_trees['color'],
+        colorscale='RdBu',
     ),
-    hovertemplate='<b>%{label} </b> <br> Sales: %{value}',
+    hovertemplate='<b>%{label} </b> <br> Value: %{value}<br> Percentage of Total: %{percent:.2%}',
     maxdepth=2
 ))
 
