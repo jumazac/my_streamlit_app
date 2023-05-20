@@ -14,7 +14,7 @@ age_dict = {18: 0, 19: 1/6, 20: 2/6, 21: 3/6, 22: 4/6, 23: 5/6, 24: 1}
 df['color_value'] = df['AGE'].map(lambda age: age_dict[age])
 
 # Specify the levels, color column, and value column
-levels = ['IN EVENT?', 'LOCATION', 'Q1','Why 1','Q2','Why 2','USE SPIN ?','THINK SPIN','LIVE CAMPUS?','Where','AGE','SEX']
+levels = ['IN EVENT?', 'LOCATION', 'Q1','Why 1','Q2','Why 2','USE SPIN ?','THINK SPIN','LIVE CAMPUS?','Where','AGE','SEX','color_value']
 color_column = 'color_value'
 value_column = 'YEAR'
 
