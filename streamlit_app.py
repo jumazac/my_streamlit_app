@@ -29,8 +29,8 @@ st.plotly_chart(fig)
 df = pd.read_csv("TOTAL1.csv")
 
 levels = ['IN EVENT?', 'LOCATION', 'Q1','Why 1','Q2','Why 2','USE SPIN ?','THINK SPIN','LIVE CAMPUS?','Where','AGE','SEX']
-color_columns = ['Year']
-value_column = 'Year'
+color_columns = ['YEAR']
+value_column = 'YEAR'
 
 def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     """
