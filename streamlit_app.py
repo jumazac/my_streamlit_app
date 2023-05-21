@@ -78,7 +78,18 @@ st.plotly_chart(fig)
 
 print(df.columns)
 
-import streamlit as st
+df = pd.read_csv("TOTAL1.csv")
+df = df.fillna('Unknown')  # Fill NaNs with 'Unknown'
 
-st.write("Hello, world!")
+# Iterate over each column in the DataFrame
+for col in df.columns:
+    # Create a frequency table for this column
+    freq_table = df[col].value_counts()
+    
+    # Convert the frequency table to a DataFrame
+    freq_df = pd.DataFrame(freq_table).reset_index()
+    freq_df.columns = [col, 'Count']
+
+    # Display the DataFrame as a bar chart in Streamlit
+    st.bar_chart(freq_df)
 
