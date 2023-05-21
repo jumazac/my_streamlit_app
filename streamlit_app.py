@@ -7,22 +7,13 @@ import plotly.graph_objects as go
 
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
-df = df.fillna('Unknown')
-print(df)
-
-# Ensure AGE is numeric (int or float)
-df['AGE'] = pd.to_numeric(df['AGE'], errors='coerce')
-
-# Replace AGE with a mapped color value
-age_dict = {18: 0, 19: 1/6, 20: 2/6, 21: 3/6, 22: 4/6, 23: 5/6, 24: 1}
-df['color_value'] = df['AGE'].map(lambda age: age_dict[age])
 
 # Specify the levels, color column, and value column
-levels = ['YEAR', 'SEX', 'AGE', 'Where', 'LIVE CAMPUS?', 'THINK SPIN', 'USE SPIN ?', 'Why 2', 'Q2', 'Why 1', 'Q1', 'LOCATION', 'IN EVENT?']
-color_column = 'color_value'
+levels = ['YEAR', 'SEX', 'AGE']  # Use a smaller subset of levels for clarity
+color_column = 'AGE'  # We'll color the segments based on AGE
 value_column = 'YEAR'
 
-def build_hierarchical_dataframe(df, levels, color_column=None):
+def build_hierarchical_dataframe(df, levels, value_column, color_column=None):
     """
     Build a hierarchy of levels for Sunburst or Treemap charts.
 
@@ -32,30 +23,24 @@ def build_hierarchical_dataframe(df, levels, color_column=None):
     df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
     for i, level in enumerate(levels):
         df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
-        dfg = df.groupby(levels[i:]).size().reset_index(name='value')  # Use size here instead of sum
+        dfg = df.groupby(levels[i:]).size().reset_index(name='value')
         df_tree['id'] = dfg[level].copy()
         if i < len(levels) - 1:
             df_tree['parent'] = dfg[levels[i+1]].copy()
         else:
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg['value']
-
-        # Check if the color_column exists in dfg
-        if color_column in dfg.columns:
+        if color_column:
             df_tree['color'] = dfg[color_column]
-        else:
-            print(f"'{color_column}' does not exist in the DataFrame.")
-
         df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
-        
+
     total = pd.Series(dict(id='total', parent='', 
-                           value=df.shape[0],   # Use shape[0] here to get the total count
-                           color=df[color_column].sum() if color_column else None))
+                           value=df[value_column].nunique(),  
+                           color=df[color_column].nunique() if color_column else None))
     df_all_trees = pd.concat([df_all_trees, pd.DataFrame(total).T], ignore_index=True)
     return df_all_trees
 
-df_all_trees = build_hierarchical_dataframe(df, levels, color_column)
-print(df_all_trees)
+df_all_trees = build_hierarchical_dataframe(df, levels, value_column, color_column)
 
 fig = go.Figure()
 
@@ -75,8 +60,6 @@ fig.add_trace(go.Sunburst(
 fig.update_layout(margin=dict(t=10, b=10, r=10, l=10))
 
 st.plotly_chart(fig)
-
-print(df.columns)
 
 
 # Load your data
