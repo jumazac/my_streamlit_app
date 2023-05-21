@@ -22,7 +22,7 @@ fig = px.sunburst(df_tree,
                   values='value')
 
 # Show the chart
-fig.show()
+st.plotly_chart(fig)
 
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
