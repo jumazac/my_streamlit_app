@@ -7,11 +7,14 @@ import plotly.graph_objects as go
 df = pd.read_csv("TOTAL1.csv")
 
 # Handle missing values and make sure the LOCATION column is a string
+df['IN EVENT?'] = df['IN EVENT?'].fillna('Unknown')
+df['IN EVENT?'] = df['IN EVENT?'].astype(str)
+
 df['LOCATION'] = df['LOCATION'].fillna('Unknown')
 df['LOCATION'] = df['LOCATION'].astype(str)
 
 # Specify the levels
-levels = ['LOCATION']
+levels = ['IN EVENT?', 'LOCATION']
 
 def build_hierarchical_dataframe(df, levels):
     """
