@@ -38,8 +38,13 @@ def build_hierarchical_dataframe(df, levels, color_column=None):
         else:
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg['value']
-        if color_column:
+
+        # Check if the color_column exists in dfg
+        if color_column in dfg.columns:
             df_tree['color'] = dfg[color_column]
+        else:
+            print(f"'{color_column}' does not exist in the DataFrame.")
+
         df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
         
     total = pd.Series(dict(id='total', parent='', 
