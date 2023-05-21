@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 df = pd.read_csv("TOTAL1.csv")
 
 # Specify the levels
-levels = ['YEAR', 'SEX', 'AGE']
+levels = ['SEX', 'AGE', 'YEAR']
 
 def build_hierarchical_dataframe(df, levels):
     """
