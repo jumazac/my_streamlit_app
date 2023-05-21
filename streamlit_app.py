@@ -85,4 +85,3 @@ df = pd.read_csv("TOTAL1.csv")
 # Display the DataFrame in Streamlit
 st.dataframe(df)
 
-pd.read_csv()
