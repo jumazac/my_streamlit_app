@@ -3,9 +3,8 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
+# Load data
 df = pd.read_csv("TOTAL1.csv")
-
-
 
 # Generate counts for 'IN EVENT?'
 df_tree = df['IN EVENT?'].value_counts().reset_index()
@@ -16,14 +15,24 @@ total = df_tree['value'].sum()
 
 # Calculate percentage
 df_tree['percentage'] = df_tree['value'] / total * 100
+df_tree['parent'] = ''
+
+# Generate counts for 'LOCATION' grouped by 'IN EVENT?'
+df_tree2 = df.groupby(['IN EVENT?', 'LOCATION']).size().reset_index(name='value')
+df_tree2['id'] = df_tree2['LOCATION']
+df_tree2['parent'] = df_tree2['IN EVENT?']
+df_tree2['percentage'] = df_tree2.groupby('IN EVENT?')['value'].apply(lambda x: x / x.sum() * 100)
+
+# Concatenate dataframes
+df_sunburst = pd.concat([df_tree, df_tree2], ignore_index=True)
 
 # Create the sunburst chart
 fig = go.Figure(go.Sunburst(
-    labels=df_tree['id'],
-    parents=['' for _ in df_tree['id']],
-    values=df_tree['value'],
+    labels=df_sunburst['id'],
+    parents=df_sunburst['parent'],
+    values=df_sunburst['value'],
     hovertemplate='%{label}<br>Count: %{value}<br>Percentage: %{text}%',
-    text=['{:.2f}%'.format(p) for p in df_tree['percentage']],
+    text=['{:.2f}%'.format(p) for p in df_sunburst['percentage']],
 ))
 
 # Update layout for the figure
