@@ -8,21 +8,18 @@ import plotly.graph_objects as go
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
 
-# Specify the levels, color column, and value column
-levels = ['YEAR', 'SEX', 'AGE']  # Use a smaller subset of levels for clarity
-color_column = 'AGE'  # We'll color the segments based on AGE
-value_column = 'YEAR'
+# Specify the levels
+levels = ['YEAR', 'SEX', 'AGE']
 
-def build_hierarchical_dataframe(df, levels, value_column, color_column=None):
+def build_hierarchical_dataframe(df, levels):
     """
     Build a hierarchy of levels for Sunburst or Treemap charts.
-
     Levels are given starting from the bottom to the top of the hierarchy,
     ie the last level corresponds to the root.
     """
-    df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
+    df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value'])
     for i, level in enumerate(levels):
-        df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
+        df_tree = pd.DataFrame(columns=['id', 'parent', 'value'])
         dfg = df.groupby(levels[i:]).size().reset_index(name='value')
         df_tree['id'] = dfg[level].copy()
         if i < len(levels) - 1:
@@ -30,17 +27,14 @@ def build_hierarchical_dataframe(df, levels, value_column, color_column=None):
         else:
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg['value']
-        if color_column:
-            df_tree['color'] = dfg[color_column]
         df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
 
     total = pd.Series(dict(id='total', parent='', 
-                           value=df[value_column].nunique(),  
-                           color=df[color_column].nunique() if color_column else None))
+                           value=df['YEAR'].nunique()))  # Use Year here to count the unique years
     df_all_trees = pd.concat([df_all_trees, pd.DataFrame(total).T], ignore_index=True)
     return df_all_trees
 
-df_all_trees = build_hierarchical_dataframe(df, levels, value_column, color_column)
+df_all_trees = build_hierarchical_dataframe(df, levels)
 
 fig = go.Figure()
 
@@ -49,10 +43,6 @@ fig.add_trace(go.Sunburst(
     parents=df_all_trees['parent'],
     values=df_all_trees['value'],
     branchvalues='total',
-    marker=dict(
-        colors=df_all_trees['color'],
-        colorscale='RdBu',
-    ),
     hovertemplate='<b>%{label} </b> <br> Value: %{value}<br> Percentage of Total: %{percent:.2%}',
     maxdepth=2
 ))
