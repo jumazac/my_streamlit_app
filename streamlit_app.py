@@ -47,6 +47,18 @@ fig.update_layout(margin=dict(t=10, b=10, r=10, l=10))
 
 st.plotly_chart(fig)
 
+
+fig = go.Figure(go.Sunburst(
+    labels=["A", "B", "C", "D", "E", "F"],
+    parents=["", "A", "A", "B", "B", "C"],
+    values=[10, 20, 30, 40, 50, 60],
+))
+
+fig.update_layout(margin = dict(t=0, l=0, r=0, b=0))
+
+st.plotly_chart(fig)
+
 import streamlit as st
 
 st.write("Hello, world!")
+
