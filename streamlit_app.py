@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-# Load data
 df = pd.read_csv("TOTAL1.csv")
 
 # Generate counts for 'IN EVENT?'
@@ -21,7 +20,9 @@ df_tree['parent'] = ''
 df_tree2 = df.groupby(['IN EVENT?', 'LOCATION']).size().reset_index(name='value')
 df_tree2['id'] = df_tree2['LOCATION']
 df_tree2['parent'] = df_tree2['IN EVENT?']
-df_tree2['percentage'] = df_tree2.groupby('IN EVENT?')['value'].apply(lambda x: x / x.sum() * 100)
+
+# Calculate percentage within each group and reset index
+df_tree2['percentage'] = df_tree2.groupby('IN EVENT?')['value'].apply(lambda x: x / x.sum() * 100).reset_index(drop=True)
 
 # Concatenate dataframes
 df_sunburst = pd.concat([df_tree, df_tree2], ignore_index=True)
