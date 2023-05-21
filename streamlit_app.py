@@ -82,9 +82,6 @@ print(df.columns)
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
 
-# Highlight NaNs with a color
-df = df.style.highlight_null(null_color='red')
-
 # Display the DataFrame in Streamlit
 st.dataframe(df)
 
