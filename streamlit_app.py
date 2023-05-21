@@ -87,3 +87,5 @@ df = df.style.highlight_null(null_color='red')
 
 # Display the DataFrame in Streamlit
 st.dataframe(df)
+
+pd.read_csv()

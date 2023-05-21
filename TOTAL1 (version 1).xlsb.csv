@@ -1,0 +1,127 @@
+IN EVENT?,LOCATION,Q1,Why 1,Q2,Why 2,USE SPIN?,THINK SPIN,LIVE CAMPUS?,Where,AGE,SEX,YEAR
+NO,UNION,NO,n/a,MAYBE,If late ,no,n/a,No,n/a,20,M,2ND
+NO,UNION,NO,n/a,MAYBE,If late ,no,n/a,Yes,KALHERT,19,F,1ST
+NO,UNION,NO,n/a,MAYBE,If late ,no,n/a,Yes,KALHERT,19,M,2ND
+NO,LASSONDE,YES,n/a,MAYBE,If late ,no,n/a,No,n/a,22,M,4TH
+NO,LASSONDE,YES,n/a,MAYBE,leisure,no,n/a,Yes,Honor,21,M,1ST
+NO,LASSONDE,NO,n/a,NO,Time no concern,no,n/a,Yes,KALHERT,19,M,1ST
+NO,LASSONDE,YES,n/a,YES,leisure,no,n/a,Yes,LASSONDE,18,F,1ST
+NO,LASSONDE,YES,n/a,MAYBE,If late ,no,n/a,Yes,LASSONDE,19,F,1ST
+NO,LASSONDE,NO,n/a,MAYBE,weekly,no,n/a,No,n/a,20,F,2ND
+NO,LASSONDE,YES,n/a,YES,n/a,no,n/a,Yes,KALHERT,19,F,1ST
+NO,LASSONDE,MAYBE,Need efficient,MAYBE,weekly,no,n/a,No,n/a,19,M,1ST
+NO,KALHERT,NO,n/a,NO,n/a,no,n/a,Yes,KALHERT,18,F,1ST
+NO,UP CAMPUS,YES,n/a,YES,n/a,no,n/a,Yes,UP CAMPUS,19,F,1ST
+NO,UP CAMPUS,YES,n/a,YES,if late ,no,n/a,Yes,UP CAMPUS,19,F,1ST
+NO,UP CAMPUS,NO,n/a,MAYBE,If late ,no,n/a,Yes,UP CAMPUS,19,F,1ST
+NO,UP CAMPUS,YES,n/a,MAYBE,If late ,no,n/a,Yes,UP CAMPUS,19,F,1ST
+NO,UP CAMPUS,YES,n/a,YES,long distance,no,n/a,Yes,UP CAMPUS,20,M,2ND
+NO,UP CAMPUS,NO,n/a,MAYBE,If late ,no,n/a,Yes,UP CAMPUS,19,M,1ST
+NO,UP CAMPUS,NO,n/a,NO,Enjoy walk,no,n/a,Yes,UP CAMPUS,19,M,1ST
+NO,KALHERT,NO,Short time,NO,n/a,no,n/a,No,n/a,21,F,4TH
+NO,LASSONDE,NO,n/a,NO,n/a,no,n/a,Yes,UP CAMPUS,19,F,1ST
+NO,LASSONDE,YES,Long time ,YES,If late ,no,n/a,Yes,LASSONDE,19,M,2ND
+NO,LASSONDE,YES,Bus,YES,n/a,no,n/a,Yes,UP CAMPUS,20,F,2ND
+NO,Honor ,NO,n/a,YES,Daily ,no,n/a,Yes,KALHERT,19,F,1ST
+NO,Honor ,NO,n/a,MAYBE,convenience over all,yes,$$$ expnsiv,Yes,KALHERT,19,F,2ND
+NO,LASSONDE,YES,Long time ,YES,weekly ,no,n/a,Yes,UP CAMPUS,21,F,4TH
+NO,LASSONDE,YES,Long time ,YES,convenience over all,no,n/a,Yes,KALHERT,18,F,1ST
+NO,LASSONDE,NO,n/a,NO,Time no concern,no,n/a,No,n/a,19,M,1ST
+YES,UP CAMPUS,YES,bus,MAYBE,leisure,yes,$$$ expnsiv,Yes,UP CAMPUS,22,M,4TH
+YES,UP CAMPUS,MAYBE,Need efficient,NO,$ no money,yes,$$$ expnsiv,No,n/a,22,M,3RD
+YES,UP CAMPUS,MAYBE,Need efficient,YES,convenience over all,no,n/a,Yes,LASSONDE,19,M,1ST
+YES,UP CAMPUS,YES,Long time ,YES,weekly,yes,$$$ expnsiv,Yes,UP CAMPUS,20,F,3RD
+YES,UP CAMPUS,MAYBE,Need efficient,MAYBE,If late ,no,n/a,Yes,Honor,20,M,2ND
+YES,UP CAMPUS,NO,Long time ,MAYBE,If late ,no,n/a,Yes,UP CAMPUS,20,F,3RD
+YES,UP CAMPUS,YES,n/a,YES,n/a,yes,$$$ expnsiv,Yes,UP CAMPUS,18,F,1ST
+YES,UP CAMPUS,NO,Likes walking ,YES,n/a,yes,$$$ expnsiv,Yes,UP CAMPUS,23,F,4TH
+YES,UP CAMPUS,NO,n/a,YES,If late ,no,n/a,Yes,Honor,20,F,2ND
+YES,UP CAMPUS,NO,n/a,YES,leisure,yes,$$$ expnsiv,Yes,KALHERT,18,M,1ST
+YES,UP CAMPUS,MAYBE,Need efficient,MAYBE,If late ,no,n/a,No,n/a,21,M,3RD
+YES,UP CAMPUS,MAYBE,Need efficient,YES,enjoy walk,no,n/a,Yes,KALHERT,19,M,1ST
+YES,UP CAMPUS,YES,n/a,YES,weekly,no,n/a,Yes,LASSONDE,20,F,2ND
+YES,UP CAMPUS,MAYBE,Need efficient,YES,weekly ,yes,$$$ expnsiv,Yes,UP CAMPUS,21,M,4TH
+YES,UP CAMPUS,YES,n/a,YES,Daily ,no,n/a,Yes,UP CAMPUS,19,F,1ST
+YES,UP CAMPUS,YES,n/a,NO,n/a,yes,$$$ expnsiv,No,n/a,18,M,1ST
+NO,LASSONDE,YES,Parking ,NO,n/a,yes,$$$ expnsiv,No,n/a,20,M,3RD
+NO,LASSONDE,NO,n/a,NO,Time no concern,no,n/a,No,n/a,21,M,4TH
+NO,LASSONDE,YES,Long time ,NO,n/a,yes,$$$ expnsiv,No,n/a,21,M,2ND
+NO,Library ,MAYBE,Need efficient,MAYBE,leisure,no,n/a,Yes,UP CAMPUS,20,F,4TH
+NO,Library ,MAYBE,Need efficient,MAYBE,monthly ,yes,$$$ expnsiv,No,n/a,20,F,2ND
+NO,Library ,NO,n/a,MAYBE,weekly,no,n/a,No,n/a,20,F,2ND
+NO,Library ,YES,Parking ,MAYBE,If late ,no,n/a,No,n/a,21,F,3RD
+NO,LASSONDE,MAYBE,Need efficient,YES,n/a,yes,$$$ expnsiv,Yes,LASSONDE,18,F,1ST
+NO,LASSONDE,NO,n/a,MAYBE,If late ,no,n/a,Yes,UP CAMPUS,19,M,1ST
+NO,Gym ,MAYBE,Parking ,YES,convenience over all,yes,$$$ expnsiv,No,n/a,22,F,4TH
+NO,UP CAMPUS,NO,n/a,MAYBE,If late ,no,n/a,Yes,UP CAMPUS,19,M,1ST
+NO,UP CAMPUS,NO,n/a,MAYBE,If late ,no,n/a,Yes,UP CAMPUS,20,M,1ST
+NO,UP CAMPUS,MAYBE,Need efficient,YES,n/a,yes,$$$ expnsiv,Yes,UP CAMPUS,18,M,1ST
+NO,UP CAMPUS,MAYBE,Need efficient,MAYBE,weekly ,no,n/a,Yes,UP CAMPUS,21,M,2ND
+NO,UP CAMPUS,YES,Long time ,MAYBE,if late ,no,Injury risk ,Yes,UP CAMPUS,19,M,1ST
+NO,UP CAMPUS,MAYBE,Need efficient,NO,Time no concern,yes,$$$ expnsiv,Yes,UP CAMPUS,19,M,1ST
+NO,UP CAMPUS,YES,n/a,YES,n/a,no,n/a,Yes,UP CAMPUS,22,F,4TH
+NO,KALHERT,NO,n/a,NO,Time no concern,yes,$$$ expnsiv,Yes,KALHERT,19,M,1ST
+NO,KALHERT,NO,n/a,YES,n/a,no,n/a,Yes,KALHERT,18,M,1ST
+NO,LASSONDE,NO,n/a,YES,n/a,yes,$$$ expnsiv,No,n/a,19,F,1ST
+NO,LASSONDE,MAYBE,n/a,MAYBE,If late ,no,Injury risk ,No,n/a,22,M,2ND
+NO,KALHERT,MAYBE,Need efficient,MAYBE,If late ,yes,$$$ expnsiv,Yes,KALHERT,19,F,1ST
+NO,KALHERT,YES,n/a,NO,n/a,no,n/a,Yes,UP CAMPUS,18,F,1ST
+NO,KALHERT,YES,n/a,MAYBE,long distance,yes,$$$ expnsiv,Yes,KALHERT,18,F,1ST
+NO,KALHERT,YES,n/a,MAYBE,convenience over all,no,n/a,Yes,UP CAMPUS,19,F,1ST
+NO,KALHERT,MAYBE,n/a,NO,n/a,yes,$$$ expnsiv,Yes,Honor,21,F,3RD
+NO,LASSONDE,NO,n/a,NO,n/a,No,n/a,Yes,LASSONDE,20,M,1ST
+NO,LASSONDE,YES,Bus,YES,n/a,Yes,$$$ expnsiv,Yes,UP CAMPUS,19,M,1ST
+NO,KALHERT,MAYBE,Need efficient,MAYBE,n/a,Yes,enjoy walk,No,UP CAMPUS,18,M,1ST
+NO,KALHERT,MAYBE,Need efficient,MAYBE,weekly,No,n/a,No,n/a,24,F,MASTER
+NO,KALHERT,MAYBE,Need efficient,MAYBE,If late ,Yes,$$$ expnsiv,Yes,UP CAMPUS,19,M,1ST
+NO,KALHERT,NO,n/a,NO,n/a,No,n/a,No,n/a,19,F,2ND
+NO,LASSONDE,MAYBE,bus,YES,n/a,No,n/a,Yes,UP CAMPUS,21,F,3RD
+NO,UNION,YES,parking ,YES,n/a,No,n/a,No,n/a,22,M,4TH
+NO,UNION,YES,bus,MAYBE,If late ,No,n/a,Yes,UP CAMPUS,20,F,2ND
+NO,LASSONDE,YES,Long time ,MAYBE,If late ,No,n/a,Yes,LASSONDE,20,M,2ND
+NO,KALHERT,YES,n/a,YES,n/a,Yes,$$$ expnsiv ,Yes,KALHERT,20,M,1ST
+NO,KALHERT,MAYBE,n/a,YES,n/a,Yes,Software issue ,Yes,KALHERT,18,M,1ST
+NO,KALHERT,MAYBE,n/a,YES,n/a,Yes,Injury risk ,Yes,UP CAMPUS,19,F,1ST
+NO,KALHERT,MAYBE,n/a,YES,If late ,Yes,parking problem,Yes,KALHERT,19,F,1ST
+NO,KALHERT,YES,n/a,YES,Weekly ,Yes,n/a,Yes,KALHERT,18,M,1ST
+NO,Library ,YES,bus,YES,n/a,Yes,$$$ expnsiv,No,n/a,21,M,2ND
+NO,Library ,YES,n/a,YES,n/a,No,$$$ expnsiv,No,n/a,22,F,4TH
+NO,Library ,YES,bus,NO,n/a,No,n/a,No,n/a,19,F,2ND
+NO,Library ,YES,n/a,YES,n/a,No,n/a,No,n/a,21,F,3RD
+NO,UP CAMPUS,YES,n/a,YES,n/a,No,$$$ expnsiv,Yes,UP CAMPUS,20,F,2ND
+NO,UP CAMPUS,YES,n/a,NO,n/a,Yes,$$$ expnsiv,Yes,UP CAMPUS,20,M,2ND
+NO,UP CAMPUS,NO,n/a,MAYBE,If late ,Yes,n/a,Yes,UP CAMPUS,19,F,1ST
+NO,UP CAMPUS,YES,n/a,NO,n/a,No,n/a,Yes,UP CAMPUS,18,F,1ST
+NO,UP CAMPUS,MAYBE,n/a,MAYBE,If late ,No,n/a,Yes,UP CAMPUS,19,F,1ST
+NO,UP CAMPUS,YES,n/a,YES,n/a,Yes,$$$ expnsiv,Yes,UP CAMPUS,21,M,3RD
+NO,UP CAMPUS,MAYBE,bus,NO,n/a,Yes,n/a,Yes,UP CAMPUS,19,M,1ST
+NO,UP CAMPUS,MAYBE,n/a,NO,n/a,No,n/a,Yes,UP CAMPUS,18,M,1ST
+NO,KALHERT,MAYBE,n/a,YES,If late ,Yes,$$$ expnsiv,Yes,KALHERT,19,F,1ST
+NO,KALHERT,YES,n/a,NO,n/a,Yes,$$$ expnsiv,Yes,KALHERT,19,M,1ST
+NO,KALHERT,YES,n/a,YES,n/a,No,n/a,Yes,KALHERT,19,F,1ST
+NO,KALHERT,MAYBE,n/a,YES,Daily ,No,$$$ expnsiv,Yes,KALHERT,19,M,1ST
+NO,KALHERT,MAYBE,n/a,NO,n/a,Yes,$$$ expnsiv,Yes,UP CAMPUS,21,M,4TH
+NO,LASSONDE,YES,n/a,YES,n/a,Yes,$$$ expnsiv,No,n/a,21,M,2ND
+NO,LASSONDE,YES,n/a,YES,n/a,Yes,$$$ expnsiv,Yes,KALHERT,19,M,1ST
+NO,LASSONDE,YES,n/a,YES,n/a,No,n/a,Yes,UP CAMPUS,23,F,4TH
+NO,LASSONDE,MAYBE,n/a,YES,n/a,Yes,$$$ expnsiv,Yes,LASSONDE,20,F,1ST
+NO,UP CAMPUS,YES,n/a,YES,n/a,No,n/a,Yes,UP CAMPUS,19,F,1ST
+NO,UP CAMPUS,YES,n/a,YES,n/a,No,$$$ expnsiv,Yes,UP CAMPUS,19,M,1ST
+NO,UP CAMPUS,MAYBE,n/a,NO,enjoy walk,No,n/a,Yes,UP CAMPUS,19,M,1ST
+NO,UP CAMPUS,YES,n/a,YES,n/a,No,$$$ expnsiv,Yes,UP CAMPUS,19,F,1ST
+NO,KALHERT,MAYBE,n/a,NO,n/a,Yes,$$$ expnsiv,Yes,KALHERT,19,M,1ST
+NO,KALHERT,YES,n/a,YES,n/a,Yes,n/a,No,n/a,19,F,1ST
+NO,UP CAMPUS,MAYBE,n/a,NO,n/a,No,n/a,Yes,UP CAMPUS,21,M,4TH
+NO,UP CAMPUS,MAYBE,n/a,YES,n/a,No,n/a,Yes,UP CAMPUS,19,F,1ST
+NO,UP CAMPUS,NO,n/a,YES,n/a,Yes,$$$ expnsiv,Yes,UP CAMPUS,19,M,1ST
+NO,UP CAMPUS,MAYBE,n/a,YES,n/a,No,n/a,Yes,UP CAMPUS,21,F,3RD
+NO,UP CAMPUS,YES,n/a,YES,n/a,Yes,$$$ expnsiv,Yes,UP CAMPUS,18,F,1ST
+NO,UP CAMPUS,MAYBE,n/a,YES,n/a,Yes,$$$ expnsiv,Yes,UP CAMPUS,18,F,1ST
+NO,UP CAMPUS,MAYBE,n/a,YES,n/a,Yes,n/a,Yes,UP CAMPUS,22,F,3RD
+NO,UP CAMPUS,YES,n/a,YES,n/a,Yes,$$$ expnsiv,Yes,UP CAMPUS,19,F,1ST
+NO,UP CAMPUS,MAYBE,n/a,YES,n/a,No,n/a,Yes,LASSONDE,19,F,1ST
+NO,KALHERT,MAYBE,n/a,NO,enjoy walk,No,n/a,No,n/a,19,M,1ST
+NO,KALHERT,YES,n/a,YES,n/a,No,n/a,Yes,KALHERT,19,F,1ST
+NO,LASSONDE,YES,Parking ,NO,n/a,Yes,Injury risk ,No,n/a,22,F,4TH
+NO,KALHERT,MAYBE,n/a,NO,n/a,Yes,n/a,Yes,LASSONDE,18,M,1ST
+NO,KALHERT,MAYBE,n/a,YES,n/a,Yes,$$$ expnsiv,Yes,UP CAMPUS,19,M,1ST
