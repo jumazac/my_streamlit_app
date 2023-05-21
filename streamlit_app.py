@@ -6,31 +6,13 @@ import plotly.graph_objects as go
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
 
-# Specify the levels
-levels = ['IN EVENT?', 'LOCATION', 'USE SPIN ?']
+# Specify the levels, color column, and value column
+levels = ['IN EVENT?']
 
-def build_hierarchical_dataframe(df, levels):
-    """
-    Build a hierarchy of levels for Sunburst or Treemap charts.
-    """
-    df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value'])
-    for i, level in enumerate(levels):
-        df_tree = pd.DataFrame(columns=['id', 'parent', 'value'])
-        dfg = df.groupby(levels[i:]).size().reset_index(name='value')
-        df_tree['id'] = dfg[level].copy()
-        if i < len(levels) - 1:
-            df_tree['parent'] = dfg[levels[i+1]].copy()
-        else:
-            df_tree['parent'] = 'total'
-        df_tree['value'] = dfg['value']
-
-        df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
-
-    total = pd.Series(dict(id='total', parent='', value=df.shape[0]))
-    df_all_trees = pd.concat([df_all_trees, pd.DataFrame(total).T], ignore_index=True)
-    return df_all_trees
-
-df_all_trees = build_hierarchical_dataframe(df, levels)
+df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value'])
+df_all_trees['id'] = df[levels[0]]
+df_all_trees['parent'] = ""
+df_all_trees['value'] = 1
 
 fig = go.Figure()
 
@@ -48,15 +30,7 @@ fig.update_layout(margin=dict(t=10, b=10, r=10, l=10))
 st.plotly_chart(fig)
 
 
-fig = go.Figure(go.Sunburst(
-    labels=["A", "B", "C", "D", "E", "F"],
-    parents=["", "A", "A", "B", "B", "C"],
-    values=[10, 20, 30, 40, 50, 60],
-))
 
-fig.update_layout(margin = dict(t=0, l=0, r=0, b=0))
-
-st.plotly_chart(fig)
 
 import streamlit as st
 
