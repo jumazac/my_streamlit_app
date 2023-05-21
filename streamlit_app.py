@@ -11,7 +11,7 @@ df['LOCATION'] = df['LOCATION'].fillna('Unknown')
 df['LOCATION'] = df['LOCATION'].astype(str)
 
 # Specify the levels
-levels = ['LOCATION', 'IN EVENT?']
+levels = ['LOCATION']
 
 def build_hierarchical_dataframe(df, levels):
     """
