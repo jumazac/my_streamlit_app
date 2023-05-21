@@ -6,6 +6,10 @@ import plotly.graph_objects as go
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
 
+# Handle missing values and make sure the LOCATION column is a string
+df['LOCATION'] = df['LOCATION'].fillna('Unknown')
+df['LOCATION'] = df['LOCATION'].astype(str)
+
 # Specify the levels
 levels = ['LOCATION', 'IN EVENT?']
 
@@ -47,7 +51,6 @@ fig.add_trace(go.Sunburst(
 fig.update_layout(margin=dict(t=10, b=10, r=10, l=10))
 
 st.plotly_chart(fig)
-
 
 
 import streamlit as st
