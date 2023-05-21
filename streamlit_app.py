@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
+print(df)
 
 # Ensure AGE is numeric (int or float)
 df['AGE'] = pd.to_numeric(df['AGE'], errors='coerce')
@@ -48,6 +49,7 @@ def build_hierarchical_dataframe(df, levels, color_column=None):
     return df_all_trees
 
 df_all_trees = build_hierarchical_dataframe(df, levels, color_column)
+print(df_all_trees)
 
 fig = go.Figure()
 
