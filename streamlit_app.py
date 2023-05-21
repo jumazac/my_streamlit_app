@@ -4,57 +4,31 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # Load your data
+
+# Load your data
 df = pd.read_csv("TOTAL1.csv")
+print(df)
 
-# Handle missing values and make sure the LOCATION column is a string
-df['IN EVENT?'] = df['IN EVENT?'].fillna('Unknown')
-df['IN EVENT?'] = df['IN EVENT?'].astype(str)
+# Ensure AGE is numeric (int or float)
+df['AGE'] = pd.to_numeric(df['AGE'], errors='coerce')
 
-df['LOCATION'] = df['LOCATION'].fillna('Unknown')
-df['LOCATION'] = df['LOCATION'].astype(str)
+# Replace AGE with a mapped color value
+age_dict = {18: 0, 19: 1/6, 20: 2/6, 21: 3/6, 22: 4/6, 23: 5/6, 24: 1}
+df['color_value'] = df['AGE'].map(lambda age: age_dict[age])
 
-# Specify the levels
-levels = ['IN EVENT?', 'LOCATION']
+# Group data
+df_grouped = df.groupby(['IN EVENT?', 'LOCATION']).size().reset_index(name='counts')
 
-def build_hierarchical_dataframe(df, levels):
-    """
-    Build a hierarchy of levels for Sunburst or Treemap charts.
-    """
-    df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value'])
-    dfg = df.groupby(levels).size().reset_index(name='value')  # Use size here instead of sum
-    for i, level in enumerate(levels):
-        df_tree = pd.DataFrame(columns=['id', 'parent', 'value'])
-        df_tree['id'] = dfg[level].copy()
-        if i < len(levels) - 1:
-            df_tree['parent'] = dfg[levels[i+1]].copy()
-        else:
-            df_tree['parent'] = 'total'
-        df_tree['value'] = dfg['value']
-
-        df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
-        
-    total = pd.Series(dict(id='total', parent='', 
-                           value=df.shape[0]))   # Use shape[0] here to get the total count
-    df_all_trees = pd.concat([df_all_trees, pd.DataFrame(total).T], ignore_index=True)
-    return df_all_trees
-
-df_all_trees = build_hierarchical_dataframe(df, levels)
-
-fig = go.Figure()
-
-fig.add_trace(go.Sunburst(
-    labels=df_all_trees['id'],
-    parents=df_all_trees['parent'],
-    values=df_all_trees['value'],
+fig = go.Figure(go.Sunburst(
+    labels=df_grouped['LOCATION'],
+    parents=df_grouped['IN EVENT?'],
+    values=df_grouped['counts'],
     branchvalues='total',
-    hovertemplate='<b>%{label} </b> <br> Value: %{value}<br> Percentage of Total: %{percent:.2%}',
-    maxdepth=2
 ))
-
-fig.update_layout(margin=dict(t=10, b=10, r=10, l=10))
 
 st.plotly_chart(fig)
 
+print(df.columns)
 
 import streamlit as st
 
