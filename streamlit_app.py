@@ -9,12 +9,12 @@ import plotly.graph_objects as go
 df = pd.read_csv("TOTAL1.csv")
 print(df)
 
-# Ensure AGE is numeric (int or float)
-df['AGE'] = pd.to_numeric(df['AGE'], errors='coerce')
+# Simplified Data
+data = {'IN EVENT?': ['NO', 'NO', 'YES', 'YES', 'NO', 'NO'],
+        'LOCATION': ['UNION', 'UNION', 'LASSONDE', 'LASSONDE', 'KALHERT', 'KALHERT'],
+        'AGE': [18, 19, 20, 21, 22, 23]}
 
-# Replace AGE with a mapped color value
-age_dict = {18: 0, 19: 1/6, 20: 2/6, 21: 3/6, 22: 4/6, 23: 5/6, 24: 1}
-df['color_value'] = df['AGE'].map(lambda age: age_dict[age])
+df = pd.DataFrame(data)
 
 # Group data
 df_grouped = df.groupby(['IN EVENT?', 'LOCATION']).size().reset_index(name='counts')
@@ -25,6 +25,8 @@ fig = go.Figure(go.Sunburst(
     values=df_grouped['counts'],
     branchvalues='total',
 ))
+
+st.plotly_chart(fig)
 
 st.plotly_chart(fig)
 
