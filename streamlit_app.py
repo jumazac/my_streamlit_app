@@ -12,7 +12,9 @@ df_tree.columns = ['id', 'value']
 
 # Add a 'total' row to the DataFrame
 total = df_tree['value'].sum()
-df_tree = df_tree.append({'id': 'total', 'value': total}, ignore_index=True)
+
+total_row = pd.DataFrame({'id': ['total'], 'value': [total]})
+df_tree = pd.concat([df_tree, total_row], ignore_index=True)
 
 # Create the sunburst chart
 fig = px.sunburst(df_tree, 
