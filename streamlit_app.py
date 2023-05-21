@@ -10,16 +10,19 @@ df = pd.read_csv("TOTAL1.csv")
 df_tree = df['IN EVENT?'].value_counts().reset_index()
 df_tree.columns = ['id', 'value']
 
-# Add a 'total' row to the DataFrame
+
+# Calculate total for percentage calculation
 total = df_tree['value'].sum()
 
-total_row = pd.DataFrame({'id': ['total'], 'value': [total]})
-df_tree = pd.concat([df_tree, total_row], ignore_index=True)
+# Calculate percentage
+df_tree['percentage'] = df_tree['value'] / total * 100
 
 # Create the sunburst chart
-fig = px.sunburst(df_tree, 
-                  path=['id'], 
-                  values='value')
+fig = px.sunburst(df_tree, path=['id'], values='value',
+                  hover_data={'id': True,
+                              'value': True,
+                              'percentage': ':.2f'},
+                  hovertemplate='<b>%{label}</b><br>Count: %{value}<br>Percentage: %{customdata[2]}%')
 
 # Show the chart
 st.plotly_chart(fig)
