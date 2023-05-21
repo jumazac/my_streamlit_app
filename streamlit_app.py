@@ -5,6 +5,8 @@ import plotly.graph_objects as go
 
 df = pd.read_csv("TOTAL1.csv")
 
+df = pd.read_csv("TOTAL1.csv")
+
 # Generate counts for 'IN EVENT?'
 df_tree = df['IN EVENT?'].value_counts().reset_index()
 df_tree.columns = ['id', 'value']
@@ -20,12 +22,13 @@ fig = go.Figure(go.Sunburst(
     labels=df_tree['id'],
     parents=['' for _ in df_tree['id']],
     values=df_tree['value'],
-    hovertext=['{:.2f}%'.format(p) for p in df_tree['percentage']],
-    hoverinfo="label+text+value"
+    hovertemplate='%{label}<br>Count: %{value}<br>Percentage: %{text}%',
+    text=['{:.2f}%'.format(p) for p in df_tree['percentage']],
 ))
 
 # Update layout for the figure
-fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
+fig.update_layout(margin=dict(t=0, l=0, r=0, b=0),
+                  hoverlabel=dict(font=dict(size=16)))
 
 # Display the chart in Streamlit
 st.plotly_chart(fig)
