@@ -7,6 +7,7 @@ import plotly.graph_objects as go
 
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
+df = df.fillna('Unknown')
 print(df)
 
 # Ensure AGE is numeric (int or float)
