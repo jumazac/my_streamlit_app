@@ -5,16 +5,18 @@ import plotly.graph_objects as go
 
 
 
-# Load your data
 
-# Load your data
 df = pd.read_csv("TOTAL1.csv")
 
-# Reduce to two levels for simplicity
-levels = ['SEX', 'YEAR']
+# Specify the levels
+levels = ['YEAR', 'SEX', 'AGE']
 
-# Simplify the dataframe building function
 def build_hierarchical_dataframe(df, levels):
+    """
+    Build a hierarchy of levels for Sunburst or Treemap charts.
+    Levels are given starting from the bottom to the top of the hierarchy,
+    ie the last level corresponds to the root.
+    """
     df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value'])
     for i, level in enumerate(levels):
         df_tree = pd.DataFrame(columns=['id', 'parent', 'value'])
@@ -27,24 +29,13 @@ def build_hierarchical_dataframe(df, levels):
         df_tree['value'] = dfg['value']
         df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
         
-    total = pd.Series(dict(id='total', parent='', 
-                           value=df.shape[0]))  # Count total rows as the root value
+    total = pd.Series(dict(id='total', parent='', value=df.shape[0]))
     df_all_trees = pd.concat([df_all_trees, pd.DataFrame(total).T], ignore_index=True)
     return df_all_trees
 
 df_all_trees = build_hierarchical_dataframe(df, levels)
 
-fig = go.Figure()
-
-fig.add_trace(go.Sunburst(
-    ids=df_all_trees['id'],
-    parents=df_all_trees['parent'],
-    values=df_all_trees['value'],
-    hovertemplate='<b>%{label} </b> <br> Value: %{value}<br> Percentage of Total: %{percent:.2%}',
-    maxdepth=2
-))
-
-fig.update_layout(margin=dict(t=10, b=10, r=10, l=10))
+fig = px.sunburst(df_all_trees, path=['parent', 'id'], values='value')
 
 st.plotly_chart(fig)
 
