@@ -32,7 +32,7 @@ fig = go.Figure(go.Sunburst(
     labels=df_sunburst['id'],
     parents=df_sunburst['parent'],
     values=df_sunburst['value'],
-    hovertemplate='<b>%{parent}</b><br>%{label}<br>Count: %{value}<br>Percentage: %{text}%',
+    hovertemplate='%{label}<br>Count: %{value}<br>Percentage: %{text}%',
     text=['{:.2f}%'.format(p) for p in df_sunburst['percentage']],
 ))
 
