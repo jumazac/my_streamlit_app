@@ -69,3 +69,7 @@ fig.update_layout(margin=dict(t=10, b=10, r=10, l=10))
 st.plotly_chart(fig)
 
 print(df.columns)
+
+import streamlit as st
+
+st.write("Hello, world!")
