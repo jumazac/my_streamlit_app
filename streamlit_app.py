@@ -25,7 +25,10 @@ for i, level in enumerate(levels[:-1]):
 df_tree = pd.concat(data, ignore_index=True)
 
 # Calculate percentage within each group
-df_tree['percentage'] = df_tree.groupby('parent')['value'].apply(lambda x: x / x.sum() * 100)
+df_percentage = df_tree.groupby('parent')['value'].apply(lambda x: x / x.sum() * 100).reset_index(name='percentage')
+
+# Merge the percentage into df_tree
+df_tree = pd.merge(df_tree, df_percentage, how='left', on=['parent', 'value'])
 
 # Create the sunburst chart
 fig = go.Figure(go.Sunburst(
