@@ -3,40 +3,38 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
+# Load data
 df = pd.read_csv("TOTAL1.csv")
 
 # Generate counts for 'IN EVENT?'
-levels = ['IN EVENT?', 'LOCATION']
+df_tree = df['IN EVENT?'].value_counts().reset_index()
+df_tree.columns = ['id', 'value']
 
-# Add an overall root
-df['all'] = 'all'
-levels.insert(0, 'all')
+# Calculate total for percentage calculation
+total = df_tree['value'].sum()
 
-# Initialize an empty list to store the data
-data = []
+# Calculate percentage
+df_tree['percentage'] = df_tree['value'] / total * 100
+df_tree['parent'] = ''
 
-# Generate counts for each level and append to the list
-for i, level in enumerate(levels[:-1]):
-    dfg = df.groupby(levels[i: i + 2]).size().reset_index(name='value')
-    dfg.columns = ['parent', 'id', 'value']
-    data.append(dfg)
+# Generate counts for 'LOCATION' grouped by 'IN EVENT?'
+df_tree2 = df.groupby(['IN EVENT?', 'LOCATION']).size().reset_index(name='value')
+df_tree2['id'] = df_tree2['LOCATION']
+df_tree2['parent'] = df_tree2['IN EVENT?']
 
-# Concatenate all data into a single DataFrame
-df_tree = pd.concat(data, ignore_index=True)
+# Calculate percentage within each group and reset index
+df_tree2['percentage'] = df_tree2.groupby('IN EVENT?')['value'].apply(lambda x: x / x.sum() * 100).reset_index(drop=True)
 
-# Calculate percentage within each group
-df_percentage = df_tree.groupby('parent')['value'].apply(lambda x: x / x.sum() * 100).reset_index(name='percentage')
-
-# Merge the percentage into df_tree
-df_tree = pd.merge(df_tree, df_percentage, how='left', on=['parent', 'id'])
+# Concatenate dataframes
+df_sunburst = pd.concat([df_tree, df_tree2], ignore_index=True)
 
 # Create the sunburst chart
 fig = go.Figure(go.Sunburst(
-    labels=df_tree['id'],
-    parents=df_tree['parent'],
-    values=df_tree['value'],
-    hovertemplate='<b>%{parent}</b><br>Count: %{value}<br>Percentage: %{text}%',
-    text=['{:.2f}%'.format(p) for p in df_tree['percentage']],
+    labels=df_sunburst['id'],
+    parents=df_sunburst['parent'],
+    values=df_sunburst['value'],
+    hovertemplate='%{label}<br>Count: %{value}<br>Percentage: %{text}%',
+    text=['{:.2f}%'.format(p) for p in df_sunburst['percentage']],
 ))
 
 # Update layout for the figure
