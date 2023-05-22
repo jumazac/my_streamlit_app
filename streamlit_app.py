@@ -5,7 +5,6 @@ import plotly.graph_objects as go
 
 # Load data
 df = pd.read_csv("TOTAL1.csv")
-
 df_counts = df.groupby(['IN EVENT?', 'LOCATION', 'Q1']).size().reset_index(name='counts')
 
 def build_hierarchical_dataframe(df, levels, value_column):
@@ -27,9 +26,9 @@ def build_hierarchical_dataframe(df, levels, value_column):
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg[value_column]
         df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
-    total = pd.Series(dict(id='total', parent='',
-                              value=df[value_column].sum()))
-    df_all_trees = df_all_trees.append(total, ignore_index=True)
+    total = pd.Series(dict(id='total', parent='', value=df[value_column].sum()))
+    total_df = pd.DataFrame(total).T  # Convert series to DataFrame
+    df_all_trees = df_all_trees.append(total_df, ignore_index=True)
     return df_all_trees
 
 levels = ['Q1', 'LOCATION', 'IN EVENT?']  # levels used for the hierarchical chart
@@ -50,7 +49,8 @@ fig = go.Figure(go.Sunburst(
 
 fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
-fig.show()
+st.plotly_chart(fig)
+
 
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
