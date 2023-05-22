@@ -5,7 +5,12 @@ import plotly.graph_objects as go
 
 # Load data
 df = pd.read_csv("TOTAL1.csv")
+
+# Count the occurrences for each combination of "IN EVENT?", "LOCATION", and "Q1".
 df_counts = df.groupby(['IN EVENT?', 'LOCATION', 'Q1']).size().reset_index(name='counts')
+
+levels = ['Q1', 'LOCATION', 'IN EVENT?']  # levels used for the hierarchical chart
+value_column = 'counts'
 
 def build_hierarchical_dataframe(df, levels, value_column):
     """
@@ -25,14 +30,12 @@ def build_hierarchical_dataframe(df, levels, value_column):
         else:
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg[value_column]
-        df_all_trees = pd.concat([df_all_trees, df_tree])
-    total = pd.Series(dict(id='total', parent='', value=df[value_column].sum()))
-    total_df = pd.DataFrame(total).T  # Convert series to DataFrame
-    df_all_trees = pd.concat([df_all_trees, df_tree])
+        df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
+    total = pd.Series(dict(id='total', parent='',
+                              value=df[value_column].sum()))
+    df_all_trees = df_all_trees.append(total, ignore_index=True)
     return df_all_trees
 
-levels = ['Q1', 'LOCATION', 'IN EVENT?']  # levels used for the hierarchical chart
-value_column = 'counts'
 df_all_trees = build_hierarchical_dataframe(df_counts, levels, value_column)
 
 # Create the sunburst chart
@@ -48,8 +51,6 @@ fig = go.Figure(go.Sunburst(
 ))
 
 fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
-
-st.plotly_chart(fig)
 
 
 # Load your data
