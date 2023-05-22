@@ -5,13 +5,14 @@ import plotly.graph_objects as go
 
 df = pd.read_csv("TOTAL1.csv")
 
-# Generate counts for 'IN EVENT?'
+# Levels in the hierarchy
 levels = ['IN EVENT?', 'LOCATION']
 
 # Add an overall root
 df['all'] = 'all'
 levels.insert(0, 'all')
 
+# Build the hierarchical dataframe
 df_tree = pd.DataFrame(columns=['id', 'parent', 'value'])
 
 for i, level in enumerate(levels[:-1]):
@@ -22,12 +23,15 @@ for i, level in enumerate(levels[:-1]):
 # Calculate percentage within each group
 df_tree['percentage'] = df_tree.groupby('parent')['value'].apply(lambda x: x / x.sum() * 100)
 
+# Exclude 'all' level from visualization
+df_tree = df_tree[df_tree['parent'] != 'all']
+
 # Create the sunburst chart
 fig = go.Figure(go.Sunburst(
     labels=df_tree['id'],
     parents=df_tree['parent'],
     values=df_tree['value'],
-    hovertemplate='<b>%{parent}</b><br>Count: %{value}<br>Percentage: %{text}%',
+    hovertemplate='<b>%{label}</b><br>Count: %{value}<br>Percentage: %{text}%',
     text=['{:.2f}%'.format(p) for p in df_tree['percentage']],
 ))
 
