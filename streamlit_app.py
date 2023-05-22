@@ -6,44 +6,51 @@ import plotly.graph_objects as go
 # Load data
 df = pd.read_csv("TOTAL1.csv")
 
-# Generate counts for 'IN EVENT?'
-df_tree = df['IN EVENT?'].value_counts().reset_index()
-df_tree.columns = ['id', 'value']
+df_counts = df.groupby(['IN EVENT?', 'LOCATION', 'Q1']).size().reset_index(name='counts')
 
-# Calculate total for percentage calculation
-total = df_tree['value'].sum()
+def build_hierarchical_dataframe(df, levels, value_column):
+    """
+    Build a hierarchy of levels for Sunburst or Treemap charts.
 
-# Calculate percentage
-df_tree['percentage'] = df_tree['value'] / total * 100
-df_tree['parent'] = ''
+    Levels are given starting from the bottom to the top of the hierarchy,
+    ie the last level corresponds to the root.
+    """
+    df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value'])
+    for i, level in enumerate(levels):
+        df_tree = pd.DataFrame(columns=['id', 'parent', 'value'])
+        dfg = df.groupby(levels[i:]).sum()
+        dfg = dfg.reset_index()
+        df_tree['id'] = dfg[level].copy()
+        if i < len(levels) - 1:
+            df_tree['parent'] = dfg[levels[i+1]].copy()
+        else:
+            df_tree['parent'] = 'total'
+        df_tree['value'] = dfg[value_column]
+        df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
+    total = pd.Series(dict(id='total', parent='',
+                              value=df[value_column].sum()))
+    df_all_trees = df_all_trees.append(total, ignore_index=True)
+    return df_all_trees
 
-# Generate counts for 'LOCATION' grouped by 'IN EVENT?'
-df_tree2 = df.groupby(['IN EVENT?', 'LOCATION']).size().reset_index(name='value')
-df_tree2['id'] = df_tree2['LOCATION']
-df_tree2['parent'] = df_tree2['IN EVENT?']
-
-# Calculate percentage within each group and reset index
-df_tree2['percentage'] = df_tree2.groupby('IN EVENT?')['value'].apply(lambda x: x / x.sum() * 100).reset_index(drop=True)
-
-# Concatenate dataframes
-df_sunburst = pd.concat([df_tree, df_tree2], ignore_index=True)
+levels = ['Q1', 'LOCATION', 'IN EVENT?']  # levels used for the hierarchical chart
+value_column = 'counts'
+df_all_trees = build_hierarchical_dataframe(df_counts, levels, value_column)
 
 # Create the sunburst chart
 fig = go.Figure(go.Sunburst(
-    labels=df_sunburst['id'],
-    parents=df_sunburst['parent'],
-    values=df_sunburst['value'],
-    hovertemplate='%{label}<br>Count: %{value}<br>Percentage: %{text}%',
-    text=['{:.2f}%'.format(p) for p in df_sunburst['percentage']],
+    labels=df_all_trees['id'],
+    parents=df_all_trees['parent'],
+    values=df_all_trees['value'],
+    branchvalues='total',
+    marker=dict(
+        colors=df_all_trees['value'],
+        colorscale='RdBu'),
+    hovertemplate='<b>%{label} </b> <br> Count: %{value}',
 ))
 
-# Update layout for the figure
-fig.update_layout(margin=dict(t=0, l=0, r=0, b=0),
-                  hoverlabel=dict(font=dict(size=16)))
+fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
-# Display the chart in Streamlit
-st.plotly_chart(fig)
-
+fig.show()
 
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
