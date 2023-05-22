@@ -25,10 +25,10 @@ def build_hierarchical_dataframe(df, levels, value_column):
         else:
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg[value_column]
-        df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
+        df_all_trees = pd.concat([df_all_trees, df_tree])
     total = pd.Series(dict(id='total', parent='', value=df[value_column].sum()))
     total_df = pd.DataFrame(total).T  # Convert series to DataFrame
-    df_all_trees = df_all_trees.append(total_df, ignore_index=True)
+    df_all_trees = pd.concat([df_all_trees, df_tree])
     return df_all_trees
 
 levels = ['Q1', 'LOCATION', 'IN EVENT?']  # levels used for the hierarchical chart
