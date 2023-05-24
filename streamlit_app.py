@@ -34,6 +34,9 @@ def build_hierarchical_dataframe(df, levels, value_column, color_column=None):
 
     return df_all_trees
 
+for column in df.columns:
+    print(f"Number of unique values in {column}: {df[column].nunique()}")
+
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
 
