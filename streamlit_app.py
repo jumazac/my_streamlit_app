@@ -6,36 +6,37 @@ import plotly.graph_objects as go
 # Load data
 df = pd.read_csv("TOTAL1.csv")
 
-
-def build_hierarchical_dataframe(df, levels, value_column, color_column=None):
-    """
-    Build a hierarchy of levels for Sunburst or Treemap charts.
-    """
-    df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value'])
-
+def build_hierarchical_dataframe(df, levels, color_column):
+    df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
     for i, level in enumerate(levels):
-        df_tree = df.groupby(levels[:i + 1]).sum().reset_index()
-        if i < len(levels) - 1: 
-            # Not the last level
-            parents = levels[:i + 1]
-            df_tree.columns = parents + ['value']
+        df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
+        dfg = df.groupby(levels[i:]).size().reset_index(name='counts')
+        df_tree['id'] = dfg[level].copy().astype(str)
+        if i < len(levels) - 1:
+            df_tree['parent'] = dfg[levels[i+1]].copy().astype(str)
         else:
-            # This is the last level, so add 'id' and 'parent' columns
-            parents = levels[:i] if i > 0 else ['']
-            df_tree.columns = ['id'] + parents + ['value']
+            df_tree['parent'] = 'total'
+        df_tree['value'] = dfg['counts']
+        df_tree['color'] = dfg[color_column].astype(str)
+        # df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
 
-        df_all_trees = pd.concat([df_all_trees, df_tree], axis=0, ignore_index=True)
+        print(df_tree.dtypes)
+        print(df_all_trees.dtypes)
 
-    total = pd.DataFrame(dict(id='total', parent='',
-                              value=df[value_column].sum(),
-                              color='white' if color_column is None else df[color_column].sum()), 
-                              index=[0])
-    df_all_trees = pd.concat([df_all_trees, total], axis=0, ignore_index=True)
+    # total = pd.Series(dict(id='total', parent='',
+    #                           value=df.shape[0],
+    #                           color=df[color_column].astype(str).iloc[0]))
+    # df_all_trees = df_all_trees.append(total, ignore_index=True)
+    # return df_all_trees
 
-    return df_all_trees
 
-for column in df.columns:
-    print(f"Number of unique values in {column}: {df[column].nunique()}")
+# Usage
+levels = ['LOCATION', 'Q2', 'Q1', 'LIVE CAMPUS?', 'USE SPIN?', 'SEX', 'YEAR'] # levels used for the hierarchical chart
+color_column = 'YEAR' 
+# df_hierarchical = build_hierarchical_dataframe(df, levels, color_column)
+build_hierarchical_dataframe(df, levels, color_column)  # Just run the function without assigning the output to a variable
+
+
 
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
