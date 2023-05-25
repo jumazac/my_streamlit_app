@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 # Load data
 df = pd.read_csv("TOTAL1.csv")
 
+
 def build_hierarchical_dataframe(df, levels, color_column):
     df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
     for i, level in enumerate(levels):
@@ -18,23 +19,20 @@ def build_hierarchical_dataframe(df, levels, color_column):
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg['counts']
         df_tree['color'] = dfg[color_column].astype(str)
-        # df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
+        df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
 
-        print(df_tree.dtypes)
-        print(df_all_trees.dtypes)
-
-    # total = pd.Series(dict(id='total', parent='',
-    #                           value=df.shape[0],
-    #                           color=df[color_column].astype(str).iloc[0]))
-    # df_all_trees = df_all_trees.append(total, ignore_index=True)
-    # return df_all_trees
+        
+    total = pd.Series(dict(id='total', parent='',
+                              value=df.shape[0],
+                              color=df[color_column].astype(str).iloc[0]))
+    df_all_trees = df_all_trees.append(total, ignore_index=True)
+    return df_all_trees
 
 
 # Usage
 levels = ['LOCATION', 'Q2', 'Q1', 'LIVE CAMPUS?', 'USE SPIN?', 'SEX', 'YEAR'] # levels used for the hierarchical chart
 color_column = 'YEAR' 
-# df_hierarchical = build_hierarchical_dataframe(df, levels, color_column)
-build_hierarchical_dataframe(df, levels, color_column)  # Just run the function without assigning the output to a variable
+df_hierarchical = build_hierarchical_dataframe(df, levels, color_column)
 
 
 
