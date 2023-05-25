@@ -31,7 +31,11 @@ levels = ['LOCATION', 'Q2', 'Q1', 'LIVE CAMPUS?', 'USE SPIN?', 'SEX', 'YEAR'] # 
 color_column = 'YEAR' 
 df_hierarchical = build_hierarchical_dataframe(df, levels, color_column)
 
-st.dataframe(df)
+# Create the sunburst chart using plotly.express
+fig = px.sunburst(df_hierarchical, path=['id'], values='value', color='color')
+
+# Display the sunburst chart in Streamlit
+st.plotly_chart(fig)
 
 
 # Load your data
