@@ -65,11 +65,7 @@ fig.add_trace(go.Sunburst(
     hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Year: %{color}'
 ))
 
-fig = go.Figure(go.Sunburst(
-    labels=df_hierarchical['id'],
-    parents=df_hierarchical['parent'],
-    values=df_hierarchical['value']
-))
+
 
 # Display the sunburst chart in Streamlit
 st.plotly_chart(fig)
