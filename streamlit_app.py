@@ -92,3 +92,15 @@ df = pd.read_csv("TOTAL1.csv")
 # Display the DataFrame in Streamlit
 st.dataframe(df)
 
+
+
+
+labels = ["A1", "A2", "B1", "B2", "C1", "C2"]
+parents = ["", "", "A1", "A1", "A2", "A2"]
+
+fig = go.Figure(go.Sunburst(
+    labels=labels,
+    parents=parents,
+))
+
+st.plotly_chart(fig)
