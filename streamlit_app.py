@@ -24,7 +24,7 @@ def build_hierarchical_dataframe(df, levels, color_column):
         df_tree['color'] = dfg[color_column].astype(str)
         df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
 
-    total = pd.Series(dict(id='total', parent='', value=df.shape[0], color=df[color_column].astype(str).iloc[0]))
+    total = pd.Series(dict(id='total', parent='', value=df.shape[0]))
     df_all_trees = pd.concat([df_all_trees, total.to_frame().T], ignore_index=True)
     return df_all_trees
 
