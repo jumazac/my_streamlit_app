@@ -7,10 +7,6 @@ import plotly.graph_objects as go
 df = pd.read_csv("TOTAL1.csv")
 
 
-
-
-
-
 def build_hierarchical_dataframe(df, levels, color_column):
     df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
     for i, level in enumerate(levels):
@@ -34,6 +30,23 @@ def build_hierarchical_dataframe(df, levels, color_column):
 levels = ['LOCATION', 'Q2', 'Q1', 'LIVE CAMPUS?', 'USE SPIN?', 'SEX', 'YEAR'] # levels used for the hierarchical chart
 color_column = 'YEAR' 
 df_hierarchical = build_hierarchical_dataframe(df, levels, color_column)
+
+
+
+
+# Define your color mapping
+color_mapping = {
+    '1ST': 'red',
+    '2ND': 'blue',
+    '3RD': 'green',
+    '4TH': 'yellow',
+    'MASTER' : 'purple'
+    # Add more if needed
+}
+
+# Apply the color mapping to your data
+df_hierarchical['color'] = df_hierarchical['color'].map(color_mapping)
+
 
 # Create the sunburst chart using plotly.express
 fig = px.sunburst(df_hierarchical, path=['id'], values='value', color='color')
