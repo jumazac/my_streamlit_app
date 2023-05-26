@@ -48,8 +48,21 @@ color_mapping = {
 df_hierarchical['color'] = df_hierarchical['color'].map(color_mapping)
 
 
-# Create the sunburst chart using plotly.express
-fig = px.sunburst(df_hierarchical, path=['id'], values='value', color='color')
+# Create the sunburst chart
+fig = go.Figure()
+
+fig.add_trace(go.Sunburst(
+    labels=df_hierarchical['id'],
+    parents=df_hierarchical['parent'],
+    values=df_hierarchical['value'],
+    branchvalues='total',
+    marker=dict(
+        colors=df_hierarchical['color'],  # Now, these are specific color names
+        colorscale=None  # Setting to None since we're using specific color names
+    ),
+    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Year: %{color}'
+))
+
 
 # Display the sunburst chart in Streamlit
 st.plotly_chart(fig)
