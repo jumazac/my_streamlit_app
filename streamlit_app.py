@@ -47,6 +47,9 @@ color_mapping = {
 # Apply the color mapping to your data
 df_hierarchical['color'] = df_hierarchical['color'].map(color_mapping)
 
+st.dataframe(df_hierarchical)
+
+
 # Create the sunburst chart
 fig = go.Figure()
 
@@ -65,8 +68,7 @@ fig.add_trace(go.Sunburst(
 # Display the sunburst chart in Streamlit
 st.plotly_chart(fig)
 
-print(df_hierarchical['color'].unique())
-df_hierarchical['color'] = df_hierarchical['color'].map(color_mapping)
+
 
 
 
