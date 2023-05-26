@@ -40,6 +40,7 @@ color_mapping = {
     '2ND': 'blue',
     '3RD': 'green',
     '4TH': 'yellow',
+    'MASTER' : 'purple'
     # Add more if needed
 }
 
@@ -65,6 +66,11 @@ fig.add_trace(go.Sunburst(
 
 # Display the sunburst chart in Streamlit
 st.plotly_chart(fig)
+
+print(df_hierarchical['color'].unique())
+df_hierarchical['color'] = df_hierarchical['color'].map(color_mapping)
+
+
 
 
 # Load your data
