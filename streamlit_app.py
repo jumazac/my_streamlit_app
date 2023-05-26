@@ -50,16 +50,6 @@ df_hierarchical['color'] = df_hierarchical['color'].map(color_mapping)
 st.dataframe(df_hierarchical)
 
 
-# Create a simplified sunburst chart
-fig = go.Figure(go.Sunburst(
-    labels=df_hierarchical['id'],
-    parents=df_hierarchical['parent'],
-    values=df_hierarchical['value']
-))
-
-# Display the sunburst chart in Streamlit
-st.plotly_chart(fig)
-
 
 # Create the sunburst chart
 fig = go.Figure()
@@ -93,6 +83,35 @@ df = pd.read_csv("TOTAL1.csv")
 st.dataframe(df)
 
 
+
+
+
+color_mapping = {
+    '1ST': 'red',
+    '2ND': 'blue',
+    '3RD': 'green',
+    '4TH': 'yellow',
+    'MASTER' : 'purple'
+    # Add more if needed
+}
+
+# Apply the color mapping to your data
+df_hierarchical['color'] = df_hierarchical['color'].map(color_mapping)
+
+# Create the sunburst chart
+fig = go.Figure(go.Sunburst(
+    labels=df_hierarchical['id'],
+    parents=df_hierarchical['parent'],
+    values=df_hierarchical['value'],
+    branchvalues='total',
+    marker=dict(
+        colors=df_hierarchical['color'],  # Now, these are specific color names
+        colorscale=None  # Setting to None since we're using specific color names
+    ),
+    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Year: %{color}'
+))
+
+st.plotly_chart(fig)
 
 
 labels = ["A1", "A2", "B1", "B2", "C1", "C2"]
