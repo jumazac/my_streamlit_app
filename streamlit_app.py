@@ -35,12 +35,12 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg[value_column]
         df_tree['color'] = [color_mapping[x] for x in dfg[value_column].tolist()]
-        df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
+        df_all_trees = df_all_trees.concat(df_tree, ignore_index=True)
     total = pd.Series(dict(id='total', parent='',
                               value=df[value_column].count(),
                               color="white"
                               ))
-    df_all_trees = df_all_trees.append(total, ignore_index=True)
+    df_all_trees = df_all_trees.concat(total, ignore_index=True)
     return df_all_trees
 
 # Usage
