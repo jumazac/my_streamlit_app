@@ -50,7 +50,8 @@ value_column = 'YEAR'
 color_column = ['YEAR'] 
 
 df_hierarchical = build_hierarchical_dataframe(df, levels, value_column)
-df_hierarchical['percentage'] = df_hierarchical.groupby(['parent'])['value'].apply(lambda x: x / x.sum() * 100)
+df_hierarchical['percentage'] = df_hierarchical.groupby('parent')['value'].apply(lambda x: x / x.sum() * 100)
+print(df_hierarchical.to_string())
 # Create the sunburst chart
 fig = go.Figure()
 
@@ -61,10 +62,10 @@ fig.add_trace(go.Sunburst(
     values=df_hierarchical['value'],
     branchvalues='total',
     marker=dict(
-        colors=df_hierarchical['color'],  # Now, these are specific color names
+        colors=df_hierarchical['percentage'],  # Now, these are specific color names
         colorscale='RdBu'  # Setting to None since we're using specific color names
     ),
-    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br>',
+    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> Percentage: %{color:.2f}',
     maxdepth=2
 ))
 
