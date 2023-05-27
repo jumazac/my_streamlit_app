@@ -44,13 +44,16 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     return df_all_trees
 
 # Usage
-# levels = list(reversed(['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?','SEX','YEAR'])) # levels used for the hierarchical chart
 levels = list(reversed(['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?', 'SEX','YEAR'])) # levels used for the hierarchical chart
 value_column = 'YEAR' 
 color_column = ['YEAR'] 
 
 df_hierarchical = build_hierarchical_dataframe(df, levels, value_column)
 df_hierarchical['percentage'] = df_hierarchical.groupby('parent')['value'].transform(lambda x: x / x.sum() * 100)
+
+df_hierarchical['global_percentage'] = (df_hierarchical['value'] / 126) * 100
+
+
 print(df_hierarchical.to_string())
 # Create the sunburst chart
 fig = go.Figure()
@@ -65,7 +68,7 @@ fig.add_trace(go.Sunburst(
         colors=df_hierarchical['percentage'],  # Now, these are specific color names
         colorscale='Greys'  # Setting to None since we're using specific color names
     ),
-    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> Percentage: %{color:.2f}',
+    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> Percentage: %{color:.2f}<br> Global Percentage: %{customdata:.2f}',
     maxdepth=8
 ))
 
