@@ -74,7 +74,7 @@ fig.add_trace(go.Sunburst(
     ),
     hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> Percentage: %{color:.2f}<br> global_percentage: %{customdata:.2f}',
     customdata=df_hierarchical['global_percentage'],  # Here is where you include the 'global_percentage'
-    maxdepth=8
+    maxdepth=2
 ))
 
 
