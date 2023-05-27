@@ -26,15 +26,13 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     for i in range(len(levels)):
         level = levels[i]
         df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
-        dfg = df.groupby(levels[:i+1]).count()
-        dfg = dfg.reset_index()
+        dfg = df.groupby(levels[:i+1]).size().reset_index(name='counts')
         df_tree['id'] = dfg[level].copy()
-        print(dfg)
         if i != 0:
             df_tree['parent'] = dfg[levels[i-1]].copy()
         else:
             df_tree['parent'] = 'total'
-        df_tree['value'] = dfg[value_column]
+        df_tree['value'] = dfg['counts']
         df_tree['color'] = [color_mapping[x] for x in dfg[value_column].tolist()]
         df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
     total = pd.Series(dict(id='total', parent='',
@@ -50,7 +48,7 @@ value_column = 'YEAR'
 color_column = ['YEAR'] 
 
 df_hierarchical = build_hierarchical_dataframe(df, levels, value_column)
-print(df_hierarchical)
+print(df_hierarchical.to_string())
 
 # Create the sunburst chart
 fig = go.Figure()
