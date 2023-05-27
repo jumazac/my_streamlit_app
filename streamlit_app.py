@@ -50,7 +50,7 @@ value_column = 'YEAR'
 color_column = ['YEAR'] 
 
 df_hierarchical = build_hierarchical_dataframe(df, levels, value_column)
-df_hierarchical['percentage'] = df_hierarchical.groupby('parent')['value'].apply(lambda x: x / x.sum() * 100)
+df_hierarchical.groupby('parent')['value'].apply(lambda x: x / x.sum() * 100).reset_index(name='percentage')
 print(df_hierarchical.to_string())
 # Create the sunburst chart
 fig = go.Figure()
