@@ -48,7 +48,6 @@ value_column = 'YEAR'
 color_column = ['YEAR'] 
 
 df_hierarchical = build_hierarchical_dataframe(df, levels, value_column)
-print(df_hierarchical.to_string())
 
 # Create the sunburst chart
 fig = go.Figure()
