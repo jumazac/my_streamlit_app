@@ -66,7 +66,7 @@ fig.add_trace(go.Sunburst(
         colorscale='Greys'  # Setting to None since we're using specific color names
     ),
     hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> Percentage: %{color:.2f}',
-    maxdepth=3
+    maxdepth=8
 ))
 
 
