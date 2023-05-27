@@ -26,7 +26,7 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     for i in range(len(levels)):
         level = levels[i]
         df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
-        dfg = df.groupby(levels[:i+1]).size().reset_index(name='counts')
+        dfg = df.applymap(lambda s: s.upper() if type(s) == str else s).groupby(levels[:i+1]).size().reset_index(name='counts')
         df_tree['id'] = dfg[level].copy()
         if i != 0:
             df_tree['parent'] = dfg[levels[i-1]].copy()
@@ -44,7 +44,7 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
 
 # Usage
 # levels = list(reversed(['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?','SEX','YEAR'])) # levels used for the hierarchical chart
-levels = list(reversed(['SEX','YEAR'])) # levels used for the hierarchical chart
+levels = list(reversed(['USE_SPIN?', 'SEX','YEAR'])) # levels used for the hierarchical chart
 value_column = 'YEAR' 
 color_column = ['YEAR'] 
 
