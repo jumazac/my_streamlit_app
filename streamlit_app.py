@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # Load data
-df = pd.read_csv("TOTAL1.csv")
+df = pd.read_csv("TOTAL1NOTEPAD.txt")
 
 
 def build_hierarchical_dataframe(df, levels, color_column):
@@ -27,7 +27,7 @@ def build_hierarchical_dataframe(df, levels, color_column):
 
 
 # Usage
-levels = ['LOCATION', 'Q2', 'Q1', 'LIVE CAMPUS?', 'USE SPIN?', 'SEX', 'YEAR'] # levels used for the hierarchical chart
+levels = ['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?','SEX','YEAR'] # levels used for the hierarchical chart
 color_column = 'YEAR' 
 df_hierarchical = build_hierarchical_dataframe(df, levels, color_column)
 
