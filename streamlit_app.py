@@ -68,7 +68,7 @@ fig.add_trace(go.Sunburst(
         colors=df_hierarchical['percentage'],  # Now, these are specific color names
         colorscale='Greys'  # Setting to None since we're using specific color names
     ),
-    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> Percentage: %{color:.2f}<br> Global Percentage: %{customdata:.2f}',
+    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> Percentage: %{color:.2f}<br> global_percentage: %{customdata:.2f}',
     maxdepth=8
 ))
 
