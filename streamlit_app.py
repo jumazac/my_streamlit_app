@@ -13,15 +13,7 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     Levels are given starting from the bottom to the top of the hierarchy,
     ie the last level corresponds to the root.
     """
-    # Define your color mapping
-    color_mapping = {
-        '1ST': 'red',
-        '2ND': 'blue',
-        '3RD': 'green',
-        '4TH': 'yellow',
-        'MASTER' : 'purple'
-        # Add more if needed
-    }
+    
     df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
     for i in range(len(levels)):
         level = levels[i]
@@ -43,6 +35,15 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     df_all_trees = pd.concat([df_all_trees, total.to_frame().T], ignore_index=True)
     return df_all_trees
 
+# Define your color mapping
+color_mapping = {
+    '1ST': 'red',
+    '2ND': 'blue',
+    '3RD': 'green',
+    '4TH': 'yellow',
+    'MASTER' : 'purple'
+    # Add more if needed
+}
 # Usage
 levels = list(reversed(['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?', 'SEX','YEAR'])) # levels used for the hierarchical chart
 value_column = 'YEAR' 
@@ -52,6 +53,10 @@ df_hierarchical = build_hierarchical_dataframe(df, levels, value_column)
 df_hierarchical['percentage'] = df_hierarchical.groupby('parent')['value'].transform(lambda x: x / x.sum() * 100)
 
 df_hierarchical['global_percentage'] = (df_hierarchical['value'] / 126) * 100
+
+df_hierarchical['color'] = df_hierarchical['value'].map(color_mapping)
+
+
 
 
 print(df_hierarchical.to_string())
@@ -65,8 +70,7 @@ fig.add_trace(go.Sunburst(
     values=df_hierarchical['value'],
     branchvalues='total',
     marker=dict(
-        colors=df_hierarchical['percentage'],  # Now, these are specific color names
-        colorscale='Greys'  # Setting to None since we're using specific color names
+        colors=df_hierarchical['color']
     ),
     hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> Percentage: %{color:.2f}<br> global_percentage: %{customdata:.2f}',
     customdata=df_hierarchical['global_percentage'],  # Here is where you include the 'global_percentage'
