@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # Load data
-df = pd.read_csv("TOTAL1NOTEPAD.txt")
+df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
 
 
 def build_hierarchical_dataframe(df, levels, color_column):
