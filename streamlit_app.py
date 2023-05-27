@@ -29,10 +29,10 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
         dfg = df.applymap(lambda s: s.upper() if type(s) == str else s).groupby(levels[:i+1]).size().reset_index(name='counts')
         df_tree['label'] = dfg[level].copy()
         if i != 0:
-            df_tree['parent'] = dfg[levels[:i]].copy().apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
+            df_tree['parent'] = dfg[levels[:i]].copy().apply(lambda row: '->'.join(row.values.astype(str)), axis=1)
         else:
             df_tree['parent'] = 'total'
-        df_tree['id'] = dfg[levels[:i+1]].copy().apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
+        df_tree['id'] = dfg[levels[:i+1]].copy().apply(lambda row: '->'.join(row.values.astype(str)), axis=1)
         df_tree['value'] = dfg['counts']
         df_tree['color'] = [color_mapping[x] for x in dfg[value_column].tolist()]
         df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
@@ -64,10 +64,8 @@ fig.add_trace(go.Sunburst(
         colors=df_hierarchical['color'],  # Now, these are specific color names
         colorscale=None  # Setting to None since we're using specific color names
     ),
-    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br>}',
-    insidetextorientation='radial',
-    maxdepth=2
-
+    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}}',
+    maxdepth=3
 ))
 
 
