@@ -56,7 +56,7 @@ df_hierarchical['global_percentage'] = (df_hierarchical['value'] / 126) * 100
 
 df_hierarchical['color'] = df_hierarchical['value'].map(color_mapping)
 
-
+df_hierarchical['custom_data'] = list(zip(df_hierarchical.percentage, df_hierarchical.global_percentage))
 
 
 print(df_hierarchical.to_string())
@@ -72,8 +72,8 @@ fig.add_trace(go.Sunburst(
     marker=dict(
         colors=df_hierarchical['color']
     ),
-    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> percentage: %{color:.2f}<br> global_percentage: %{customdata:.2f}',
-    customdata=df_hierarchical['global_percentage'],  # Here is where you include the 'global_percentage'
+    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> percentage: %{customdata[0]:.2f}<br> global_percentage: %{customdata[1]:.2f}',
+    customdata=df_hierarchical['custom_data'],  # Here is where you include both 'percentage' and 'global_percentage'
     maxdepth=2
 ))
 
