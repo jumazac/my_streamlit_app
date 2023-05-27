@@ -44,12 +44,12 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
 
 # Usage
 # levels = list(reversed(['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?','SEX','YEAR'])) # levels used for the hierarchical chart
-levels = list(reversed(['USE_SPIN?', 'SEX','YEAR'])) # levels used for the hierarchical chart
+levels = list(reversed(['SEX','YEAR'])) # levels used for the hierarchical chart
 value_column = 'YEAR' 
 color_column = ['YEAR'] 
 
 df_hierarchical = build_hierarchical_dataframe(df, levels, value_column)
-
+print(df_hierarchical.to_string())
 # Create the sunburst chart
 fig = go.Figure()
 
