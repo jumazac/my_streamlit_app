@@ -27,11 +27,12 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
         level = levels[i]
         df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
         dfg = df.applymap(lambda s: s.upper() if type(s) == str else s).groupby(levels[:i+1]).size().reset_index(name='counts')
-        df_tree['id'] = dfg[level].copy()
+        df_tree['label'] = dfg[level].copy()
         if i != 0:
-            df_tree['parent'] = dfg[levels[i-1]].copy()
+            df_tree['parent'] = dfg[levels[:i]].copy().apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
         else:
             df_tree['parent'] = 'total'
+        df_tree['id'] = dfg[level].copy()
         df_tree['value'] = dfg['counts']
         df_tree['color'] = [color_mapping[x] for x in dfg[value_column].tolist()]
         df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
@@ -44,7 +45,7 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
 
 # Usage
 # levels = list(reversed(['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?','SEX','YEAR'])) # levels used for the hierarchical chart
-levels = list(reversed(['USE_SPIN?', 'YEAR'])) # levels used for the hierarchical chart
+levels = list(reversed(['USE_SPIN?', 'SEX','YEAR'])) # levels used for the hierarchical chart
 value_column = 'YEAR' 
 color_column = ['YEAR'] 
 
@@ -54,7 +55,7 @@ print(df_hierarchical.to_string())
 fig = go.Figure()
 
 fig.add_trace(go.Sunburst(
-    labels=df_hierarchical['id'],
+    labels=df_hierarchical['label'],
     parents=df_hierarchical['parent'],
     values=df_hierarchical['value'],
     branchvalues='total',
