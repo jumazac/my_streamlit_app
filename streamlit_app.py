@@ -55,7 +55,7 @@ print(df_hierarchical.to_string())
 fig = go.Figure()
 
 fig.add_trace(go.Sunburst(
-    labels=df_hierarchical['label'],
+    labels=df_hierarchical['id'],
     parents=df_hierarchical['parent'],
     values=df_hierarchical['value'],
     branchvalues='total',
