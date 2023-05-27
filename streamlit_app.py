@@ -29,8 +29,9 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
         dfg = df.groupby(levels[:i+1]).count()
         dfg = dfg.reset_index()
         df_tree['id'] = dfg[level].copy()
-        if i < len(levels) - 1:
-            df_tree['parent'] = dfg[levels[i+1]].copy()
+        print(dfg)
+        if i != 0:
+            df_tree['parent'] = dfg[levels[i-1]].copy()
         else:
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg[value_column]
