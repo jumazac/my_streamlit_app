@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-# Load data
+# Load data 
 df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
 
 def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
@@ -72,7 +72,7 @@ fig.add_trace(go.Sunburst(
     marker=dict(
         colors=df_hierarchical['color']
     ),
-    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> Percentage: %{color:.2f}<br> global_percentage: %{customdata:.2f}',
+    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> percentage: %{color:.2f}<br> global_percentage: %{customdata:.2f}',
     customdata=df_hierarchical['global_percentage'],  # Here is where you include the 'global_percentage'
     maxdepth=2
 ))
