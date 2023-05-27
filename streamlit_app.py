@@ -64,7 +64,8 @@ fig.add_trace(go.Sunburst(
         colors=df_hierarchical['color'],  # Now, these are specific color names
         colorscale=None  # Setting to None since we're using specific color names
     ),
-    maxdepth=2
+    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Year: %{color}',
+    
 
 ))
 
