@@ -6,47 +6,50 @@ import plotly.graph_objects as go
 # Load data
 df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
 
+def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
+    """
+    Build a hierarchy of levels for Sunburst or Treemap charts.
 
-def build_hierarchical_dataframe(df, levels, color_column):
+    Levels are given starting from the bottom to the top of the hierarchy,
+    ie the last level corresponds to the root.
+    """
+    # Define your color mapping
+    color_mapping = {
+        '1ST': 'red',
+        '2ND': 'blue',
+        '3RD': 'green',
+        '4TH': 'yellow',
+        'MASTER' : 'purple'
+        # Add more if needed
+    }
     df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
-    for i, level in enumerate(levels):
+    for i in range(len(levels)):
+        level = levels[i]
         df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
-        dfg = df.groupby(levels[i:]).size().reset_index(name='counts')
-        df_tree['id'] = dfg[level].copy().astype(str)
+        dfg = df.groupby(levels[:i+1]).count()
+        dfg = dfg.reset_index()
+        df_tree['id'] = dfg[level].copy()
         if i < len(levels) - 1:
-            df_tree['parent'] = dfg[levels[i+1]].copy().astype(str)
+            df_tree['parent'] = dfg[levels[i+1]].copy()
         else:
             df_tree['parent'] = 'total'
-        df_tree['value'] = dfg['counts']
-        df_tree['color'] = dfg[color_column].astype(str)
-        df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
-
-    total = pd.Series(dict(id='total', parent='', value=df.shape[0], color=df[color_column].astype(str).iloc[0]))
-    df_all_trees = pd.concat([df_all_trees, total.to_frame().T], ignore_index=True)
+        df_tree['value'] = dfg[value_column]
+        df_tree['color'] = [color_mapping[x] for x in dfg[value_column].tolist()]
+        df_all_trees = df_all_trees.append(df_tree, ignore_index=True)
+    total = pd.Series(dict(id='total', parent='',
+                              value=df[value_column].count(),
+                              color="white"
+                              ))
+    df_all_trees = df_all_trees.append(total, ignore_index=True)
     return df_all_trees
 
-
 # Usage
-levels = ['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?','SEX','YEAR'] # levels used for the hierarchical chart
-color_column = 'YEAR' 
-df_hierarchical = build_hierarchical_dataframe(df, levels, color_column)
+levels = list(reversed(['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?','SEX','YEAR'])) # levels used for the hierarchical chart
+value_column = 'YEAR' 
+color_column = ['YEAR'] 
 
-
-
-
-# Define your color mapping
-color_mapping = {
-    '1ST': 'red',
-    '2ND': 'blue',
-    '3RD': 'green',
-    '4TH': 'yellow',
-    'MASTER' : 'purple'
-    # Add more if needed
-}
-
-# Apply the color mapping to your data
-df_hierarchical['color'] = df_hierarchical['color'].map(color_mapping)
-
+df_hierarchical = build_hierarchical_dataframe(df, levels, value_column)
+print(df_hierarchical)
 
 # Create the sunburst chart
 fig = go.Figure()
