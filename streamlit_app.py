@@ -96,12 +96,12 @@ st.plotly_chart(fig)
 def dummy_sunburst():
 
     test_df = pd.DataFrame({
-        'id': ['Yes-Reason1', 'Yes-Reason2', 'No-Reason1', 'No-Reason2'],
-        'Q1': ['Yes', 'Yes', 'No', 'No'],
-        'Why_1': ['Reason1', 'Reason2', 'Reason1', 'Reason2'],
-        'counts': [100, 200, 150, 250],
-        'global_percentage': [20, 40, 30, 60],
-        'percentage': [20, 40, 30, 60]
+        'id': ['Root-Yes', 'Root-No', 'Yes-Reason1', 'Yes-Reason2', 'No-Reason1', 'No-Reason2'],
+        'Q1': ['Root', 'Root', 'Yes', 'Yes', 'No', 'No'],
+        'Why_1': ['Yes', 'No', 'Reason1', 'Reason2', 'Reason1', 'Reason2'],
+        'counts': [300, 400, 100, 200, 150, 250],
+        'global_percentage': [20, 30, 10, 15, 12.5, 20.8],
+        'percentage': [20, 30, 10, 15, 12.5, 20.8]
     })
 
     fig = go.Figure(go.Sunburst(
