@@ -11,13 +11,13 @@ df = df.fillna("N/A")
 
 
 def create_sunburst(df):
-    df['id'] = df.index.astype(str) + "-" + df['Q1'].astype(str)
+    # Group the dataframe by 'Q1' and count the number of each unique value
+    grouped_df = df.groupby('Q1').size().reset_index(name='counts')
 
     fig = go.Figure(go.Sunburst(
-        labels=df['Q1'],  # Labels are Q1 values
-        parents=[""] * len(df),  # Parents are empty, as Q1 is the top level
-        ids=df['id'],  # ids are the unique identifiers we created
-        hovertext=df['Q1'],
+        labels=grouped_df['Q1'],  # Labels are unique 'Q1' values
+        parents=[""] * len(grouped_df),  # Parents are empty, as 'Q1' is the top level
+        values=grouped_df['counts'],  # The size of each slice is determined by the count of each unique value in 'Q1'
     ))
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
     return fig
