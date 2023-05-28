@@ -21,10 +21,6 @@ def create_sunburst(df):
     grouped_df['global_percentage'] = (grouped_df['counts'] / total_counts) * 100
     grouped_df['percentage'] = (grouped_df['counts'] / grouped_df['counts'].sum()) * 100
 
-
-
-
-
     fig = go.Figure(go.Sunburst(
         labels=grouped_df['Q1'],  # Labels are unique 'Q1' values
         parents=[""] * len(grouped_df),  # Parents are empty, as 'Q1' is the top level
@@ -36,5 +32,3 @@ def create_sunburst(df):
     return fig
 
 sunburst_chart = create_sunburst(df)
-
-st.plotly_chart(sunburst_chart)
