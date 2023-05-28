@@ -35,6 +35,20 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     df_all_trees = pd.concat([df_all_trees, total.to_frame().T], ignore_index=True)
     return df_all_trees
 
+
+# Create a sunburst chart for 'Why_1' and 'Why_2'
+def create_sunburst(df):
+    fig = go.Figure(go.Sunburst(
+        labels=df['Why_2'], 
+        parents=df['Why_1'],
+        hovertext=df['Why_2'],
+    ))
+    fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
+    return fig
+
+sunburst_chart = create_sunburst(df)
+st.plotly_chart(sunburst_chart)
+
 # Define your color mapping
 color_mapping = {
     '1ST': 'red',
@@ -44,6 +58,7 @@ color_mapping = {
     'MASTER' : 'purple'
     # Add more if needed
 }
+
 
 
 # Specify the hierarchy levels
@@ -80,6 +95,7 @@ fig.add_trace(go.Sunburst(
     customdata=df_hierarchical['custom_data'],  # Here is where you include both 'percentage' and 'global_percentage'
     maxdepth=2
 ))
+
 
 
 # Display the sunburst chart in Streamlit
