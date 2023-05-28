@@ -8,7 +8,7 @@ df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
 df = df.fillna("N/A")
 
 # Create a unique id for each row
-df['id'] = df.index.astype(str) + "-" + df['Q1'] + "-" + df['Why_1'] + "-" + df['Q2'] + "-" + df['Why_2']
+df['id'] = df.index.astype(str) + "-" + df['Q1'].astype(str) + "-" + df['Why_1'].astype(str) + "-" + df['Q2'].astype(str) + "-" + df['Why_2'].astype(str)
 print(df.head())
 
 
