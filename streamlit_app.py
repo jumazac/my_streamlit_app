@@ -1,4 +1,3 @@
-from Q1sunburst import create_sunburst
 from Q1sunburst import test_df
 
 import streamlit as st
