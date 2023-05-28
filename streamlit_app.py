@@ -44,16 +44,15 @@ color_mapping = {
     'MASTER' : 'purple'
     # Add more if needed
 }
-# Usage
+
+
+# Specify the hierarchy levels
 levels = list(reversed(['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?', 'SEX','YEAR'])) # levels used for the hierarchical chart
 value_column = 'YEAR' 
 color_column = ['YEAR'] 
 
 #build the heirachical data frame 
 df_hierarchical = build_hierarchical_dataframe(df, levels, value_column)
-
-# Include the extra_info column in the hierarchical dataframe
-df_hierarchical['extra_info'] = df['extra_info']
 
 # Compute the percentage and global_percentage columns
 df_hierarchical['percentage'] = df_hierarchical.groupby('parent')['value'].transform(lambda x: x / x.sum() * 100)
