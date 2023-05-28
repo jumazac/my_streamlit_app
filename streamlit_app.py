@@ -92,36 +92,6 @@ fig.add_trace(go.Sunburst(
 # Display the sunburst chart in Streamlit
 st.plotly_chart(fig)
 
-# Create a new sunburst chart for 'Why_1' and 'Why_2'
-def create_sunburst(df):
-    fig = go.Figure(go.Sunburst(
-        labels=df['Why_2'], 
-        parents=df['Why_1'],
-        hovertext=df['Why_2'],
-    ))
-    fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
-    return fig
-
-sunburst_chart = create_sunburst(df)
-
-# Display the new sunburst chart in Streamlit
-st.plotly_chart(sunburst_chart)
-
-# Create a new sunburst chart for 'Why_1' and 'Why_2'
-def create_sunburst(df):
-    fig = go.Figure(go.Sunburst(
-        labels=df['Why_2'], 
-        parents=df['Why_1'],
-        hovertext=df['Why_2'],
-    ))
-    fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
-    return fig
-
-sunburst_chart = create_sunburst(df)
-
-# Display the new sunburst chart in Streamlit
-st.plotly_chart(sunburst_chart)
-
 
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
