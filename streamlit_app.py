@@ -44,10 +44,7 @@ color_mapping = {
     'MASTER' : 'purple'
     # Add more if needed
 }
-# Generate the extra_info column
-df['extra_info'] = df[['THINK_SPIN', 'Where', 'Why_1', 'Why_2']].apply(lambda row: ' | '.join(row.values.astype(str)), axis=1)
-
-# Specify the hierarchy levels
+# Usage
 levels = list(reversed(['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?', 'SEX','YEAR'])) # levels used for the hierarchical chart
 value_column = 'YEAR' 
 color_column = ['YEAR'] 
@@ -64,7 +61,7 @@ df_hierarchical['global_percentage'] = (df_hierarchical['value'] / 126) * 100
 # Map the color values
 df_hierarchical['color'] = df_hierarchical['value'].map(color_mapping)
 # Build the custom_data column
-df_hierarchical['custom_data'] = list(zip(df_hierarchical.percentage, df_hierarchical.global_percentage, df_hierarchical.extra_info))
+df_hierarchical['custom_data'] = list(zip(df_hierarchical.percentage, df_hierarchical.global_percentage))
 
 
 print(df_hierarchical.to_string())
@@ -80,8 +77,7 @@ fig.add_trace(go.Sunburst(
     marker=dict(
         colors=df_hierarchical['color']
     ),
-    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> percentage: %{customdata[0]:.2f}<br> global_percentage: %{customdata[1]:.2f}<br> Extra info: %{customdata[2]}',
-
+    hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> percentage: %{customdata[0]:.2f}<br> global_percentage: %{customdata[1]:.2f}',
     customdata=df_hierarchical['custom_data'],  # Here is where you include both 'percentage' and 'global_percentage'
     maxdepth=2
 ))
