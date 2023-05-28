@@ -122,8 +122,6 @@ sunburst_chart = create_sunburst(df)
 # Display the new sunburst chart in Streamlit
 st.plotly_chart(sunburst_chart)
 
-# Display the DataFrame in Streamlit
-st.dataframe(df)
 
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
