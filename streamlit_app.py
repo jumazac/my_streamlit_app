@@ -1,10 +1,17 @@
+from Q1sunburst import create_sunburst
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
+
 # Load data 
 df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
+
+fig = create_sunburst(df)
+st.plotly_chart(fig)
+
 
 # Replace NaNs with 'N/A' in 'Why_1' and 'Why_2' columns
 df['Why_1'] = df['Why_1'].fillna('N/A')
