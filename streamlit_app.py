@@ -9,12 +9,6 @@ import plotly.graph_objects as go
 df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
 
 
-# Create the sunburst chart
-fig = create_sunburst(df)
-
-# Display the chart in Streamlit
-st.plotly_chart(fig)
-
 # Replace NaNs with 'N/A' in 'Why_1' and 'Why_2' columns
 df['Why_1'] = df['Why_1'].fillna('N/A')
 df['Why_2'] = df['Why_2'].fillna('N/A')
