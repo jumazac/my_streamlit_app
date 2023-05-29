@@ -19,3 +19,4 @@ def create_sunburst(df):
     ))
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
     return fig
+

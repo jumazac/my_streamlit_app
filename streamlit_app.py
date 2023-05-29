@@ -1,5 +1,4 @@
 from Q1sunburst import create_sunburst
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -14,8 +13,9 @@ df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
 df['Why_1'] = df['Why_1'].fillna('N/A')
 df['Why_2'] = df['Why_2'].fillna('N/A')
 
-fig = create_sunburst(df)
-st.plotly_chart(fig)
+df2 = df.copy()  # Let's assume df2 has some differences to df, for example different NaNs filled
+fig2 = create_sunburst(df2)  # Here, you choose a different variable name, fig2
+st.plotly_chart(fig2)
 
 def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     """
@@ -95,7 +95,8 @@ fig.add_trace(go.Sunburst(
     maxdepth=2
 ))
 # Display the sunburst chart in Streamlit
-st.plotly_chart(fig)
+fig1 = create_sunburst(df)
+st.plotly_chart(fig1)
 
 
 
