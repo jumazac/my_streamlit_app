@@ -96,18 +96,18 @@ st.plotly_chart(fig)
 def dummy_sunburst():
 
     test_df = pd.DataFrame({
-        'id': ['Root-Yes', 'Root-No', 'Yes-Reason1', 'Yes-Reason2', 'No-Reason1', 'No-Reason2'],
-        'Q1': ['Root', 'Root', 'Yes', 'Yes', 'No', 'No'],
-        'Why_1': ['Yes', 'No', 'Reason1', 'Reason2', 'Reason1', 'Reason2'],
-        'counts': [300, 400, 100, 200, 150, 250],
-        'global_percentage': [20, 30, 10, 15, 12.5, 20.8],
-        'percentage': [20, 30, 10, 15, 12.5, 20.8]
+        'id': ['Total', 'Total-Yes', 'Total-No', 'Yes-Reason1', 'Yes-Reason2', 'No-Reason1', 'No-Reason2'],
+        'parents': ['', 'Total', 'Total', 'Total-Yes', 'Total-Yes', 'Total-No', 'Total-No'],
+        'labels': ['Total', 'Yes', 'No', 'Reason1', 'Reason2', 'Reason1', 'Reason2'],
+        'counts': [700, 300, 400, 100, 200, 150, 250],
+        'global_percentage': [100, 30, 40, 10, 20, 15, 25],
+        'percentage': [100, 30, 40, 10, 20, 15, 25]
     })
 
     fig = go.Figure(go.Sunburst(
         ids=test_df['id'],
-        labels=test_df['Why_1'],
-        parents=test_df['Q1'],
+        labels=test_df['labels'],
+        parents=test_df['parents'],
         values=test_df['counts'],
         hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> percentage: %{customdata[0]:.2f}<br> global_percentage: %{customdata[1]:.2f}',
         customdata=list(zip(test_df.percentage, test_df.global_percentage)),
