@@ -22,12 +22,15 @@ def create_sunburst(df):
     df_why1 = df_counts.copy()
     df_why1.columns = ['parent', 'id', 'counts']
 
+    # Calculate local and global percentages for 'df_q1' and 'df_why1'
+    df_q1['percentage'] = df_q1['counts'] / df_q1['counts'].sum() * 100
+    df_q1['global_percentage'] = df_q1['counts'] / df_counts['counts'].sum() * 100
+
+    df_why1['percentage'] = df_why1.groupby('parent')['counts'].apply(lambda x: x / x.sum() * 100)
+    df_why1['global_percentage'] = df_why1['counts'] / df_counts['counts'].sum() * 100
+
     # Concatenate all DataFrames
     df_sunburst = pd.concat([df_total, df_q1, df_why1])
-
-    # Calculate local and global percentages
-    df_sunburst['percentage'] = df_sunburst.groupby('parent')['counts'].apply(lambda x: x / x.sum() * 100)
-    df_sunburst['global_percentage'] = df_sunburst['counts'] / df_sunburst['counts'].sum() * 100
 
     # Create sunburst chart
     fig = go.Figure(go.Sunburst(
