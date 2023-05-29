@@ -22,13 +22,6 @@ def create_sunburst(df):
     df_why1 = df_counts.copy()
     df_why1.columns = ['parent', 'id', 'counts']
 
-    # Calculate local and global percentages for 'df_q1' and 'df_why1'
-    df_q1['percentage'] = df_q1['counts'] / df_q1['counts'].sum() * 100
-    df_q1['global_percentage'] = df_q1['counts'] / df_counts['counts'].sum() * 100
-
-    df_why1['percentage'] = df_why1.groupby('parent')['counts'].apply(lambda x: x / x.sum() * 100)
-    df_why1['global_percentage'] = df_why1['counts'] / df_counts['counts'].sum() * 100
-
     # Concatenate all DataFrames
     df_sunburst = pd.concat([df_total, df_q1, df_why1])
 
@@ -39,8 +32,6 @@ def create_sunburst(df):
         parents=df_sunburst['parent'],
         values=df_sunburst['counts'], 
         branchvalues='total',
-        hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Percentage: %{customdata[0]:.2f}%<br> Global Percentage: %{customdata[1]:.2f}%',
-        customdata=df_sunburst[['percentage', 'global_percentage']].values,
     ))
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
