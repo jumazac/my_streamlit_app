@@ -9,27 +9,31 @@ def create_sunburst(df):
     df = df.copy()
     df.fillna("N/A", inplace=True)
 
-    # Group the dataframe by 'Q1', 'Why_1', and 'Q2' to get counts
-    df_counts = df.groupby(['Q1', 'Why_1', 'Q2']).size().reset_index(name='counts')
+    # Create the combined ID columns
+    df['id_q1'] = df['Q1']
+    df['id_why1'] = df['Q1'] + "-" + df['Why_1']
+    df['id_q2'] = df['Q1'] + "-" + df['Why_1'] + "-" + df['Q2']
+
+    # Group the dataframe by combined IDs to get counts
+    df_counts_q1 = df.groupby(['id_q1']).size().reset_index(name='counts')
+    df_counts_why1 = df.groupby(['id_why1']).size().reset_index(name='counts')
+    df_counts_q2 = df.groupby(['id_q2']).size().reset_index(name='counts')
 
     # Create a DataFrame for the root 'Total'
     df_total = pd.DataFrame({"id": ["Total"], "parent": [""], "counts": [df.shape[0]]})
 
-    # Create DataFrames for 'Q1' and 'Why_1' levels
-    df_q1 = df_counts[['Q1', 'counts']].groupby('Q1').sum().reset_index()
-    df_q1.columns = ['id', 'counts']
+    # Create DataFrames for each level
+    df_q1 = df_counts_q1.copy()
     df_q1['parent'] = 'Total'
+    df_q1.columns = ['id', 'counts', 'parent']
 
-    df_why1 = df_counts[['Q1', 'Why_1', 'counts']].copy()
-    df_why1['id'] = df_why1['Q1'] + '-' + df_why1['Why_1']
-    df_why1['parent'] = df_why1['Q1']
-    df_why1 = df_why1[['parent', 'id', 'counts']]
+    df_why1 = df_counts_why1.copy()
+    df_why1['parent'] = df_why1['id_why1'].apply(lambda x: x.split("-")[0])
+    df_why1.columns = ['id', 'counts', 'parent']
 
-    # Prepare the 'Q2' level data:
-    df_q2 = df_counts.copy()
-    df_q2['id'] = df_counts['Q1'] + "-" + df_counts['Why_1'] + "-" + df_counts['Q2'] 
-    df_q2['parent'] = df_counts['Q1'] + "-" + df_counts['Why_1']
-    df_q2 = df_q2[['id', 'parent', 'counts']]   
+    df_q2 = df_counts_q2.copy()
+    df_q2['parent'] = df_q2['id_q2'].apply(lambda x: "-".join(x.split("-")[:-1]))
+    df_q2.columns = ['id', 'counts', 'parent']
 
     # Concatenate all DataFrames
     df_sunburst = pd.concat([df_total, df_q1, df_why1, df_q2])
