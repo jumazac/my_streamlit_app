@@ -1,3 +1,4 @@
+from Q1sunburst import create_sunburst
 
 import streamlit as st
 import pandas as pd
@@ -12,6 +13,9 @@ df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
 # Replace NaNs with 'N/A' in 'Why_1' and 'Why_2' columns
 df['Why_1'] = df['Why_1'].fillna('N/A')
 df['Why_2'] = df['Why_2'].fillna('N/A')
+
+fig = create_sunburst(df)
+st.plotly_chart(fig)
 
 def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     """
@@ -92,27 +96,6 @@ fig.add_trace(go.Sunburst(
 ))
 # Display the sunburst chart in Streamlit
 st.plotly_chart(fig)
-
-def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
-    df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
-    for i in range(len(levels)):
-        level = levels[i]
-        df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
-        dfg = df.groupby(levels[:i+1]).size().reset_index(name='counts')
-        df_tree['label'] = dfg[level].copy()
-        if i == 0:
-            df_tree['parent'] = 'total'
-        else:
-            df_tree['parent'] = dfg[levels[:i]].copy().apply(lambda row: '->'.join(row.values.astype(str)), axis=1)
-        df_tree['id'] = dfg[levels[:i+1]].copy().apply(lambda row: '->'.join(row.values.astype(str)), axis=1)
-        df_tree['value'] = dfg['counts']
-        df_tree['color'] = df_tree['value'].apply(lambda x: color_mapping.get(x, 'white'))
-        df_all_trees = pd.concat([df_all_trees, df_tree], axis=0)
-
-    total = pd.Series(dict(id='total', parent='', value=df[value_column].count(), color='white'))
-    df_all_trees = pd.concat([df_all_trees, total.to_frame().T], axis=0)
-    return df_all_trees
-
 
 
 
