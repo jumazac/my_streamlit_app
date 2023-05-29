@@ -12,15 +12,19 @@ def create_sunburst(df):
     df_counts = df.groupby(['Q1', 'Why_1']).size().reset_index(name='counts')
 
     # Create a DataFrame for the root 'Total'
-    df_total = pd.DataFrame({"id": ["Total"], "parent": [""], "counts": [df.shape[0]]})
+    df_total = pd.DataFrame({"id": ["Total"], "parent": [""], "counts": [df.shape[0]], "percentage": [100]})
 
     # Create DataFrames for 'Q1' and 'Why_1' levels
     df_q1 = df_counts[['Q1', 'counts']].groupby('Q1').sum().reset_index()
     df_q1.columns = ['id', 'counts']
     df_q1['parent'] = 'Total'
+    df_q1['percentage'] = (df_q1['counts'] / df.shape[0]) * 100 # Global Percentage
+
 
     df_why1 = df_counts.copy()
     df_why1.columns = ['parent', 'id', 'counts']
+    df_why1['percentage'] = df_why1.groupby('parent')['counts'].apply(lambda x: x / x.sum() * 100) # Local Percentage
+
 
     # Concatenate all DataFrames
     df_sunburst = pd.concat([df_total, df_q1, df_why1])
