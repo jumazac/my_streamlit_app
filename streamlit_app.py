@@ -95,8 +95,8 @@ fig.add_trace(go.Sunburst(
     maxdepth=2
 ))
 # Display the sunburst chart in Streamlit
-fig1 = create_sunburst(df)
-st.plotly_chart(fig1)
+fig = create_sunburst(df)
+st.plotly_chart(fig)
 
 
 
