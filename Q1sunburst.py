@@ -3,41 +3,40 @@ import plotly.graph_objects as go
 import streamlit as st
 
 
+import pandas as pd
+import plotly.graph_objects as go
+
 def create_sunburst(df):
     # Preprocessing steps
     df = df.copy()
     df.fillna("N/A", inplace=True)
 
-    # Adding unique identifier
-    df.reset_index(inplace=True)
+    # Group the dataframe by 'Q1' and 'Why_1' to get counts
+    df_counts = df.groupby(['Q1', 'Why_1']).size().reset_index(name='counts')
 
-    # Group the dataframe by 'Q1', 'Why_1', 'Q2' and 'Why_2' to get counts
-    df_q1 = df.groupby(['index', 'Q1']).size().reset_index(name='counts')
-    df_why1 = df.groupby(['index', 'Q1', 'Why_1']).size().reset_index(name='counts')
-    df_q2 = df.groupby(['index', 'Q1', 'Why_1', 'Q2']).size().reset_index(name='counts')
-    df_why2 = df.groupby(['index', 'Q1', 'Why_1', 'Q2', 'Why_2']).size().reset_index(name='counts')
+    # Create a DataFrame for the root 'Total'
+    df_total = pd.DataFrame({"id": ["Total"], "parent": [""], "counts": [df.shape[0]]})
 
-    # Create unique identifiers based on the index and the labels
-    df_q1['id'] = df_q1['index'].astype(str) + "-" + df_q1['Q1']
-    df_why1['id'] = df_why1['index'].astype(str) + "-" + df_why1['Why_1']
-    df_q2['id'] = df_q2['index'].astype(str) + "-" + df_q2['Q2']
-    df_why2['id'] = df_why2['index'].astype(str) + "-" + df_why2['Why_2']
+    # Create DataFrames for 'Q1' and 'Why_1' levels
+    df_q1 = df_counts[['Q1', 'counts']].groupby('Q1').sum().reset_index()
+    df_q1.columns = ['id', 'counts']
+    df_q1['parent'] = 'Total'
 
-    # Create parent identifiers
-    df_q1['parent'] = "Total"
-    df_why1['parent'] = df_why1['index'].astype(str) + "-" + df_why1['Q1']
-    df_q2['parent'] = df_q2['index'].astype(str) + "-" + df_q2['Why_1']
-    df_why2['parent'] = df_why2['index'].astype(str) + "-" + df_why2['Q2']
+    df_why1 = df_counts.copy()
+    df_why1.columns = ['parent', 'id', 'counts']
 
-    # Concatenate all dataframes
-    df_sunburst = pd.concat([df_q1, df_why1, df_q2, df_why2], ignore_index=True)
+    # Concatenate all DataFrames
+    df_sunburst = pd.concat([df_total, df_q1, df_why1])
 
-    # Create sunburst
+    # Create sunburst chart
     fig = go.Figure(go.Sunburst(
-        labels=df_sunburst['parent'], 
-        parents=df_sunburst['id'],
-        values=df_sunburst['counts'],
+        ids=df_sunburst['id'],
+        labels=df_sunburst['id'], 
+        parents=df_sunburst['parent'],
+        values=df_sunburst['counts'], 
+        branchvalues='total',
     ))
-    
+    fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
+
     return fig
 
