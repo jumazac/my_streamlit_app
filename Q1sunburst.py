@@ -35,8 +35,12 @@ def create_sunburst(df):
     df_q2['parent'] = df_q2['id_q2'].apply(lambda x: "-".join(x.split("-")[:-1]))
     df_q2.columns = ['id', 'counts', 'parent']
 
+    df_why2 = df_counts_why2.copy()
+    df_why2['parent'] = df_why2['id_why2'].apply(lambda x: "-".join(x.split("-")[:-1]))
+    df_why2.columns = ['id', 'counts', 'parent']
+
     # Concatenate all DataFrames
-    df_sunburst = pd.concat([df_total, df_q1, df_why1, df_q2])
+    df_sunburst = pd.concat([df_total, df_q1, df_why1, df_q2, df_why2])
     print(df_sunburst)  # print statement to check the DataFrame
 
     # Create sunburst chart
@@ -50,9 +54,3 @@ def create_sunburst(df):
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
     return fig
-
-
-
-
-
-
