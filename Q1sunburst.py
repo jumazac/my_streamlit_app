@@ -44,7 +44,7 @@ def create_sunburst(df):
     print(df_q2.head())
 
     df_why2 = df_counts.copy()
-    df_why2.columns = ['parent', 'id', 'child_id', 'counts']
+    df_why2.columns = ['Q1', 'Why_1', 'Q2', 'Why_2', 'child_id', 'counts']
 
     print("\n=== df_why2 ===")
     print(df_why2.head())
