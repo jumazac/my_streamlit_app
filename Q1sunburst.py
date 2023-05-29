@@ -13,26 +13,33 @@ def create_sunburst(df):
 
     # Create a DataFrame for the root 'Total'
     df_total = pd.DataFrame({"id": ["Total"], "parent": [""], "counts": [df.shape[0]]})
+    print(df_total)
 
     # Create DataFrames for 'Q1', 'Why_1', 'Q2', 'Why_2' levels
     df_q1 = df_counts[['Q1', 'counts']].groupby('Q1').sum().reset_index()
     df_q1.columns = ['id', 'counts']
     df_q1['parent'] = 'Total'
+    print(df_q1)
 
     df_why1 = df_counts[['Q1', 'Why_1', 'counts']].groupby(['Q1', 'Why_1']).sum().reset_index()
     df_why1.columns = ['parent', 'id', 'counts']
-    df_why1['parent'] = df_why1['parent'] + ' - ' + df_why1['id']
+    print(df_why1)
 
     df_q2 = df_counts[['Q1', 'Why_1', 'Q2', 'counts']].groupby(['Q1', 'Why_1', 'Q2']).sum().reset_index()
-    df_q2.columns = ['parent', 'id', 'counts']
-    df_q2['parent'] = df_q2['parent'] + ' - ' + df_q2['id']
+    df_q2.columns = ['parent_1', 'parent_2', 'id', 'counts']
+    df_q2['parent'] = df_q2['parent_1'] + ' - ' + df_q2['parent_2']
+    df_q2.drop(['parent_1', 'parent_2'], axis=1, inplace=True)
+    print(df_q2)
 
-    df_why2 = df_counts.copy()
-    df_why2.columns = ['parent', 'id', 'counts']
-    df_why2['parent'] = df_why2['parent'] + ' - ' + df_why2['id']
+    df_why2 = df_counts[['Q1', 'Why_1', 'Q2', 'Why_2', 'counts']].copy()
+    df_why2.columns = ['parent_1', 'parent_2', 'parent_3', 'id', 'counts']
+    df_why2['parent'] = df_why2['parent_1'] + ' - ' + df_why2['parent_2'] + ' - ' + df_why2['parent_3']
+    df_why2.drop(['parent_1', 'parent_2', 'parent_3'], axis=1, inplace=True)
+    print(df_why2)
 
     # Concatenate all DataFrames
     df_sunburst = pd.concat([df_total, df_q1, df_why1, df_q2, df_why2])
+    print(df_sunburst)
 
     # Create sunburst chart
     fig = go.Figure(go.Sunburst(
