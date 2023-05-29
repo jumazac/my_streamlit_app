@@ -7,63 +7,41 @@ def create_sunburst(df):
     # Preprocessing steps
     df = df.copy()
     df.fillna("N/A", inplace=True)
+    df['unique_id'] = df['Q1'] + '-' + df['Why_1'] + '-' + df['Q2'] + '-' + df['Why_2'] + '-' + df.index.astype(str)
 
-    # Add an unique identifier column
-    df['id'] = range(1, len(df) + 1)
+    # Total level
+    df_total = pd.DataFrame({'id': ['Total'], 'counts': [df.shape[0]]})
+    df_total['parent'] = ''
+    df_total['unique_id'] = 'Total'
 
-    # Group the dataframe by 'Q1', 'Why_1', 'Q2', 'Why_2' to get counts
-    df_counts = df.groupby(['Q1', 'Why_1', 'Q2', 'Why_2', 'id']).size().reset_index(name='counts')
-
-    print("\n=== df_counts ===")
-    print(df_counts.head())
-
-    # Create a DataFrame for the root 'Total'
-    df_total = pd.DataFrame({"id": ["Total"], "parent": [""], "counts": [df.shape[0]]})
-
-    print("\n=== df_total ===")
-    print(df_total)
-
-    # Create DataFrames for 'Q1', 'Why_1', 'Q2', 'Why_2' levels
-    df_q1 = df_counts[['Q1', 'id', 'counts']].groupby(['Q1', 'id']).sum().reset_index()
-    df_q1.columns = ['id', 'child_id', 'counts']
+    # Q1 level
+    df_q1 = df.groupby('Q1').size().reset_index(name='counts')
     df_q1['parent'] = 'Total'
+    df_q1['unique_id'] = df_q1['Q1']
 
-    print("\n=== df_q1 ===")
-    print(df_q1.head())
+    # Why_1 level
+    df_why1 = df.groupby(['Q1', 'Why_1']).size().reset_index(name='counts')
+    df_why1['parent'] = df_why1['Q1']
+    df_why1['unique_id'] = df_why1['Q1'] + '-' + df_why1['Why_1']
 
-    df_why1 = df_counts[['Q1', 'Why_1', 'id', 'counts']].groupby(['Q1', 'Why_1', 'id']).sum().reset_index()
-    df_why1.columns = ['parent', 'id', 'child_id', 'counts']
+    # Q2 level
+    df_q2 = df.groupby(['Q1', 'Why_1', 'Q2']).size().reset_index(name='counts')
+    df_q2['parent'] = df_q2['Q1'] + '-' + df_q2['Why_1']
+    df_q2['unique_id'] = df_q2['Q1'] + '-' + df_q2['Why_1'] + '-' + df_q2['Q2']
 
-    print("\n=== df_why1 ===")
-    print(df_why1.head())
+    # Why_2 level
+    df_why2 = df.groupby(['Q1', 'Why_1', 'Q2', 'Why_2']).size().reset_index(name='counts')
+    df_why2['parent'] = df_why2['Q1'] + '-' + df_why2['Why_1'] + '-' + df_why2['Q2']
+    df_why2['unique_id'] = df_why2['Q1'] + '-' + df_why2['Why_1'] + '-' + df_why2['Q2'] + '-' + df_why2['Why_2']
 
-    df_q2 = df_counts[['Why_1', 'Q2', 'id', 'counts']].groupby(['Why_1', 'Q2', 'id']).sum().reset_index()
-    df_q2.columns = ['parent', 'id', 'child_id', 'counts']
+    # Combine all levels
+    df_sunburst = pd.concat([df_total, df_q1, df_why1, df_q2, df_why2], ignore_index=True)
 
-    print("\n=== df_q2 ===")
-    print(df_q2.head())
-
-    df_why2 = df_counts.copy()
-    df_why2.columns = ['Q1', 'Why_1', 'Q2', 'Why_2', 'child_id', 'counts']
-
-    print("\n=== df_why2 ===")
-    print(df_why2.head())
-
-    # Concatenate all DataFrames
-    df_sunburst = pd.concat([df_total, df_q1, df_why1, df_q2, df_why2])
-
-    print("\n=== df_sunburst ===")
-    print(df_sunburst.head())
-
-    # Create sunburst chart
     fig = go.Figure(go.Sunburst(
-        ids=df_sunburst['id'],
-        labels=df_sunburst['id'],
-        parents=df_sunburst['parent'],
-        values=df_sunburst['counts'],
-        branchvalues='total',
-    ))
-    fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
-
+    ids=df_sunburst['id'],
+    labels=df_sunburst['id'],
+    parents=df_sunburst['parent'],
+    values=df_sunburst['counts'],
+))
     return fig
 

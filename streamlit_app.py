@@ -76,7 +76,6 @@ df_hierarchical['color'] = df_hierarchical['value'].map(color_mapping)
 df_hierarchical['custom_data'] = list(zip(df_hierarchical.percentage, df_hierarchical.global_percentage))
 
 
-print(df_hierarchical.to_string())
 # Create the sunburst chart
 fig = go.Figure()
 
