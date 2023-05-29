@@ -93,29 +93,25 @@ fig.add_trace(go.Sunburst(
 # Display the sunburst chart in Streamlit
 st.plotly_chart(fig)
 
-def dummy_sunburst():
+def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
+    df_all_trees = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
+    for i in range(len(levels)):
+        level = levels[i]
+        df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
+        dfg = df.groupby(levels[:i+1]).size().reset_index(name='counts')
+        df_tree['label'] = dfg[level].copy()
+        if i == 0:
+            df_tree['parent'] = 'total'
+        else:
+            df_tree['parent'] = dfg[levels[:i]].copy().apply(lambda row: '->'.join(row.values.astype(str)), axis=1)
+        df_tree['id'] = dfg[levels[:i+1]].copy().apply(lambda row: '->'.join(row.values.astype(str)), axis=1)
+        df_tree['value'] = dfg['counts']
+        df_tree['color'] = df_tree['value'].apply(lambda x: color_mapping.get(x, 'white'))
+        df_all_trees = pd.concat([df_all_trees, df_tree], axis=0)
 
-    test_df = pd.DataFrame({
-        'id': ['Total', 'Total-Yes', 'Total-No', 'Yes-Reason1', 'Yes-Reason2', 'No-Reason1', 'No-Reason2'],
-        'parents': ['', 'Total', 'Total', 'Total-Yes', 'Total-Yes', 'Total-No', 'Total-No'],
-        'labels': ['Total', 'Yes', 'No', 'Reason1', 'Reason2', 'Reason1', 'Reason2'],
-        'counts': [700, 300, 400, 100, 200, 150, 250],
-        'global_percentage': [100, 30, 40, 10, 20, 15, 25],
-        'percentage': [100, 30, 40, 10, 20, 15, 25]
-    })
-
-    fig = go.Figure(go.Sunburst(
-        ids=test_df['id'],
-        labels=test_df['labels'],
-        parents=test_df['parents'],
-        values=test_df['counts'],
-        hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> percentage: %{customdata[0]:.2f}<br> global_percentage: %{customdata[1]:.2f}',
-        customdata=list(zip(test_df.percentage, test_df.global_percentage)),
-    ))
-    fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
-
-    st.plotly_chart(fig)
-dummy_sunburst()
+    total = pd.Series(dict(id='total', parent='', value=df[value_column].count(), color='white'))
+    df_all_trees = pd.concat([df_all_trees, total.to_frame().T], axis=0)
+    return df_all_trees
 
 
 
