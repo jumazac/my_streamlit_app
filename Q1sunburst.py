@@ -52,6 +52,7 @@ def create_sunburst(df):
         parents=df_sunburst['parent'],
         values=df_sunburst['counts'], 
         branchvalues='total',
+        maxdepth=2,
     ))
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
