@@ -4,7 +4,7 @@ import streamlit as st
 
 
 
-def create_sunburst(df):
+def create_sunburst_chartQs(df):
     # Preprocessing steps
     df = df.copy()
     df.fillna("N/A", inplace=True)
@@ -66,6 +66,56 @@ def create_sunburst(df):
         hovertext=df_sunburst['hoverinfo'],  # using hoverinfo for hover text
         branchvalues='total',
         maxdepth=3,
+    ))
+    fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
+
+    return fig
+
+
+
+
+
+#######################################################
+
+
+def create_sunburst_chartCampus(df):
+# Preprocessing steps
+  # Preprocessing steps
+    df = df.copy()
+    df['LIVE_CAMPUS?'].fillna("N/A", inplace=True)
+    df['Where'].fillna("N/A", inplace=True)
+
+    # Create the combined ID columns
+    df['id_live_campus'] = df['LIVE_CAMPUS?']
+    df['id_where'] = df['LIVE_CAMPUS?'] + "-" + df['Where']
+
+    # Group the dataframe by combined IDs to get counts
+    df_counts_live_campus = df.groupby(['id_live_campus']).size().reset_index(name='counts')
+    df_counts_where = df.groupby(['id_where']).size().reset_index(name='counts')
+
+    # Create a DataFrame for the root 'Total'
+    df_total = pd.DataFrame({"id": ["Total"], "parent": [""], "counts": [df.shape[0]]})
+
+    df_live_campus = df_counts_live_campus.copy()
+    df_live_campus.columns = ['id', 'counts'] 
+    df_live_campus['labels'] = df_live_campus['id']
+    df_live_campus['parent'] = 'Total'
+
+    df_where = df_counts_where.copy()
+    df_where.columns = ['id', 'counts']  
+    df_where['labels'] = df_where['id'].apply(lambda x: x.split("-")[-1])
+    df_where['parent'] = df_where['id'].apply(lambda x: x.split("-")[0])
+
+    # Concatenate all DataFrames
+    df_sunburst = pd.concat([df_total, df_live_campus, df_where])
+
+    # Create sunburst chart
+    fig = go.Figure(go.Sunburst(
+        ids=df_sunburst['id'],
+        labels=df_sunburst['labels'], 
+        parents=df_sunburst['parent'],
+        values=df_sunburst['counts'], 
+        branchvalues='total',
     ))
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 

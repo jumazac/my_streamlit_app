@@ -1,4 +1,5 @@
-from Q1sunburst import create_sunburst
+from Q1sunburst import create_sunburst_chartQs
+from Q1sunburst import create_sunburst_chartCampus
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -13,7 +14,10 @@ df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
 df['Why_1'] = df['Why_1'].fillna('N/A')
 df['Why_2'] = df['Why_2'].fillna('N/A')
 
-fig = create_sunburst(df)
+fig = create_sunburst_chartQs(df)
+st.plotly_chart(fig)
+
+fig = create_sunburst_chartCampus(df)
 st.plotly_chart(fig)
 
 def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
