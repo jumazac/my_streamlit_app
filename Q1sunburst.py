@@ -26,18 +26,22 @@ def create_sunburst(df):
 
     # Create DataFrames for each level
     df_q1 = df_counts_q1.copy()
+    df_q1['labels'] = df_q1['id'].apply(lambda x: x.split("-")[-1])
     df_q1['parent'] = 'Total'
     df_q1.columns = ['id', 'counts', 'parent']
 
     df_why1 = df_counts_why1.copy()
+    df_why1['labels'] = df_why1['id'].apply(lambda x: x.split("-")[-1])
     df_why1['parent'] = df_why1['id_why1'].apply(lambda x: x.split("-")[0])
     df_why1.columns = ['id', 'counts', 'parent']
 
     df_q2 = df_counts_q2.copy()
+    df_q2['labels'] = df_q2['id'].apply(lambda x: x.split("-")[-1])
     df_q2['parent'] = df_q2['id_q2'].apply(lambda x: "-".join(x.split("-")[:-1]))
     df_q2.columns = ['id', 'counts', 'parent']
 
-    df_why2 = df_counts_why2.copy()  # corrected here
+    df_why2 = df_counts_why2.copy()
+    df_why2['labels'] = df_why2['id'].apply(lambda x: x.split("-")[-1])
     df_why2['parent'] = df_why2['id_why2'].apply(lambda x: "-".join(x.split("-")[:-1]))
     df_why2.columns = ['id', 'counts', 'parent']
 
@@ -48,7 +52,7 @@ def create_sunburst(df):
     # Create sunburst chart
     fig = go.Figure(go.Sunburst(
         ids=df_sunburst['id'],
-        labels=df_sunburst['id'], 
+        labels=df_sunburst['labels'], 
         parents=df_sunburst['parent'],
         values=df_sunburst['counts'], 
         branchvalues='total',
