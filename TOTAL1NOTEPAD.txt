@@ -71,7 +71,7 @@ NO,KALHERT,YES,,MAYBE,convenience over all,no,,Yes,UP CAMPUS,19,F,1ST
 NO,KALHERT,MAYBE,,NO,,yes,$$$ expnsiv,Yes,Honor,21,F,3RD
 NO,LASSONDE,NO,,NO,,No,,Yes,LASSONDE,20,M,1ST
 NO,LASSONDE,YES,Bus,YES,,Yes,$$$ expnsiv,Yes,UP CAMPUS,19,M,1ST
-NO,KALHERT,MAYBE,Need efficient,MAYBE,,Yes,enjoy walk,No,UP CAMPUS,18,M,1ST
+NO,KALHERT,MAYBE,Need efficient,MAYBE,,Yes,enjoy walk,No,,18,M,1ST
 NO,KALHERT,MAYBE,Need efficient,MAYBE,weekly,No,,No,,24,F,MASTER
 NO,KALHERT,MAYBE,Need efficient,MAYBE,If late ,Yes,$$$ expnsiv,Yes,UP CAMPUS,19,M,1ST
 NO,KALHERT,NO,,NO,,No,,No,,19,F,2ND
@@ -84,7 +84,7 @@ NO,KALHERT,MAYBE,,YES,,Yes,Software issue ,Yes,KALHERT,18,M,1ST
 NO,KALHERT,MAYBE,,YES,,Yes,Injury risk ,Yes,UP CAMPUS,19,F,1ST
 NO,KALHERT,MAYBE,,YES,If late ,Yes,parking problem,Yes,KALHERT,19,F,1ST
 NO,KALHERT,YES,,YES,Weekly ,Yes,,Yes,KALHERT,18,M,1ST
-NO,Library ,YES,Bus,YES,,Yes,$$$ expnsiv,No,,21,M,2ND
+NO,Library ,YES,Bus,YES,,Yes,$$$ expnsiv,Yes,UP CAMPUS,21,M,2ND
 NO,Library ,YES,,YES,,No,$$$ expnsiv,No,,22,F,4TH
 NO,Library ,YES,Bus,NO,,No,,No,,19,F,2ND
 NO,Library ,YES,,YES,,No,,No,,21,F,3RD

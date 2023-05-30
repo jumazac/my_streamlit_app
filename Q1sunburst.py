@@ -79,6 +79,9 @@ def create_sunburst_chartQs(df):
 
 
 def create_sunburst_chartCampus(df):
+    target_row = df[(df['LIVE_CAMPUS?'] == 'No') & (df['Where'] == 'UP CAMPUS')]
+
+    print(target_row)
 # Preprocessing steps
   # Preprocessing steps
     df = df.copy()
@@ -109,6 +112,8 @@ def create_sunburst_chartCampus(df):
     # Concatenate all DataFrames
     df_sunburst = pd.concat([df_total, df_live_campus, df_where])
 
+    
+
     # Create sunburst chart
     fig = go.Figure(go.Sunburst(
         ids=df_sunburst['id'],
@@ -120,3 +125,5 @@ def create_sunburst_chartCampus(df):
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
     return fig
+
+
