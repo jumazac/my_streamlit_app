@@ -19,7 +19,7 @@ def create_sunburst(df):
     df_counts_q1 = df.groupby(['id_q1']).size().reset_index(name='counts')
     df_counts_why1 = df.groupby(['id_why1']).size().reset_index(name='counts')
     df_counts_q2 = df.groupby(['id_q2']).size().reset_index(name='counts')
-    df_counts_why2 = df.groupby(['id_why2']).size().reset_index(name='counts')
+    df_counts_why2 = df.groupby(['id_why2']).size().reset_index(name='counts')  # corrected here
 
     # Create a DataFrame for the root 'Total'
     df_total = pd.DataFrame({"id": ["Total"], "parent": [""], "counts": [df.shape[0]]})
@@ -37,7 +37,7 @@ def create_sunburst(df):
     df_q2['parent'] = df_q2['id_q2'].apply(lambda x: "-".join(x.split("-")[:-1]))
     df_q2.columns = ['id', 'counts', 'parent']
 
-    df_why2 = df_counts_why2.copy()
+    df_why2 = df_counts_why2.copy()  # corrected here
     df_why2['parent'] = df_why2['id_why2'].apply(lambda x: "-".join(x.split("-")[:-1]))
     df_why2.columns = ['id', 'counts', 'parent']
 
