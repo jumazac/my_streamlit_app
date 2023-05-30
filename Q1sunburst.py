@@ -13,11 +13,13 @@ def create_sunburst(df):
     df['id_q1'] = df['Q1']
     df['id_why1'] = df['Q1'] + "-" + df['Why_1']
     df['id_q2'] = df['Q1'] + "-" + df['Why_1'] + "-" + df['Q2']
+    df['id_why2'] = df['Q1'] + "-" + df['Why_1'] + "-" + df['Q2'] + "-" + df['Why_2']
 
     # Group the dataframe by combined IDs to get counts
     df_counts_q1 = df.groupby(['id_q1']).size().reset_index(name='counts')
     df_counts_why1 = df.groupby(['id_why1']).size().reset_index(name='counts')
     df_counts_q2 = df.groupby(['id_q2']).size().reset_index(name='counts')
+    df_counts_why2 = df.groupby(['id_why2']).size().reset_index(name='counts')
 
     # Create a DataFrame for the root 'Total'
     df_total = pd.DataFrame({"id": ["Total"], "parent": [""], "counts": [df.shape[0]]})
