@@ -44,9 +44,18 @@ def create_sunburst(df):
     df_why2['labels'] = df_why2['id'].apply(lambda x: x.split("-")[-1])
     df_why2['parent'] = df_why2['id'].apply(lambda x: "-".join(x.split("-")[:-1]))
 
-    # Concatenate all DataFrames
-    df_sunburst = pd.concat([df_total, df_q1, df_why1, df_q2, df_why2])
+    
+# Concatenate all DataFrames
+    df_sunburst = pd.concat([df_total, df_q1, df_why1, df_q2, df_why2]).reset_index(drop=True)  # Reset index
     print(df_sunburst)  # print statement to check the DataFrame
+
+    # Calculate the local and global percentages
+    total_count = df_sunburst['counts'].sum()
+
+    df_sunburst['local_percent'] = df_sunburst.groupby('parent', group_keys=False)['counts'].apply(lambda x: x / x.sum() * 100)
+    df_sunburst['global_percent'] = df_sunburst['counts'] / total_count * 100
+    df_sunburst['hoverinfo'] = df_sunburst['labels'].astype(str) + '<br>Local: ' + df_sunburst['local_percent'].round(2).astype(str) + '%' + '<br>Global: ' + df_sunburst['global_percent'].round(2).astype(str) + '%'
+
 
     # Create sunburst chart
     fig = go.Figure(go.Sunburst(
@@ -54,6 +63,7 @@ def create_sunburst(df):
         labels=df_sunburst['labels'], 
         parents=df_sunburst['parent'],
         values=df_sunburst['counts'], 
+        hovertext=df_sunburst['hoverinfo'],  # using hoverinfo for hover text
         branchvalues='total',
         maxdepth=3,
     ))
