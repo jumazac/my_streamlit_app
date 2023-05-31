@@ -103,7 +103,12 @@ fig.add_trace(go.Sunburst(
     hovertemplate='<b>%{label} </b> <br> Count: %{value}<br> Path %{id}<br> percentage: %{customdata[0]:.2f}<br> global_percentage: %{customdata[1]:.2f}',
     customdata=df_hierarchical['custom_data'],  # Here is where you include both 'percentage' and 'global_percentage'
     maxdepth=2
+
+    
 ))
+
+fig.update_layout(title_text="Main chart")
+
 # Display the sunburst chart in Streamlit
 st.plotly_chart(fig)
 st.markdown("<br>", unsafe_allow_html=True)
