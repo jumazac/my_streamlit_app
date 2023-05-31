@@ -150,8 +150,8 @@ def create_sunburst_chartCampus(df):
 
 def create_sunburst_chartSpin(df):
     # Fill NA values with "N/a"
-    df['USE_SPIN?'] = df['USE_SPIN?'].fillna("N/a")
-    df['THINK_SPIN'] = df['THINK_SPIN'].fillna("N/a")
+    df = df.copy()
+    df.fillna("N/A", inplace=True)
 
     # Compute counts for each combination of 'USE_SPIN?' and 'THINK_SPIN'
     df_sunburst = df.groupby(['USE_SPIN?', 'THINK_SPIN']).size().reset_index(name='counts')
