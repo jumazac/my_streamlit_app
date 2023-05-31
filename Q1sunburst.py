@@ -154,7 +154,9 @@ def create_sunburst_chartSpin(df):
     # Fill NA values with "N/a"
     df = pd.read_csv('TOTAL1.csv')
 
-    df.fillna("N/A", inplace=True)
+    df.fillna("n/a", inplace=True)
+    print(df['THINK_SPIN'].unique())
+
 
 
     # Compute counts for each combination of 'USE_SPIN?' and 'THINK_SPIN'
