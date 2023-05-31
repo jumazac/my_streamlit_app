@@ -151,21 +151,19 @@ def create_sunburst_chartCampus(df):
 ##############################################
 
 def create_sunburst_chartSpin(df):
-    # Fill NA values with "N/a"
+    # Fill NA values with "n/a"
     df = pd.read_csv('TOTAL1.csv')
 
     df.fillna("n/a", inplace=True)
     print(df['THINK_SPIN'].unique())
 
-# Append column name to each value to ensure uniqueness
-    df['USE_SPIN?'] = 'USE_SPIN?: ' + df['USE_SPIN?']
-    df['THINK_SPIN'] = 'THINK_SPIN: ' + df['THINK_SPIN']
-
+    # Append column name to each value to ensure uniqueness
+    df['USE_SPIN?'] = 'USE_SPIN?: ' + df['USE_SPIN?'].str.upper().str.strip()
+    df['THINK_SPIN'] = 'THINK_SPIN: ' + df['THINK_SPIN'].str.upper().str.strip()
 
     # Compute counts for each combination of 'USE_SPIN?' and 'THINK_SPIN'
     df_sunburst = df.groupby(['USE_SPIN?', 'THINK_SPIN']).size().reset_index(name='counts')
     total_count = df_sunburst['counts'].sum()
-
 
     # Create new DataFrame for sunburst chart with 'parent', 'labels' and 'counts'
     df_sunburst_total = pd.DataFrame({
@@ -173,20 +171,15 @@ def create_sunburst_chartSpin(df):
         'labels': ['Total'] + list(df_sunburst['USE_SPIN?'].unique()),
         'counts': [total_count] + [0]*len(df_sunburst['USE_SPIN?'].unique())
     })
-    df_sunburst_total = pd.DataFrame({
-        'parent': [''],
-        'labels': ['Total'],
-        'counts': [total_count]
-    })
+
     df_sunburst_labels = pd.DataFrame({
         'parent': list(df_sunburst['USE_SPIN?']),
         'labels': list(df_sunburst['THINK_SPIN']),
         'counts': list(df_sunburst['counts'])
     })
+
     df_sunburst = pd.concat([df_sunburst_total, df_sunburst_labels])
-
     print(df_sunburst)
-
 
     # Compute local and global percentages and create hover information
     df_sunburst.reset_index(inplace=True, drop=True)  # Reset index
