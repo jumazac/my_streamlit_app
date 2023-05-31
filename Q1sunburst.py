@@ -157,6 +157,9 @@ def create_sunburst_chartSpin(df):
     df.fillna("n/a", inplace=True)
     print(df['THINK_SPIN'].unique())
 
+# Append column name to each value to ensure uniqueness
+    df['USE_SPIN?'] = 'USE_SPIN?: ' + df['USE_SPIN?']
+    df['THINK_SPIN'] = 'THINK_SPIN: ' + df['THINK_SPIN']
 
 
     # Compute counts for each combination of 'USE_SPIN?' and 'THINK_SPIN'
@@ -186,7 +189,7 @@ def create_sunburst_chartSpin(df):
 
 
     # Compute local and global percentages and create hover information
-    df_sunburst.reset_index(inplace=True)
+    df_sunburst.reset_index(inplace=True, drop=True)  # Reset index
     df_sunburst['local_percent'] = df_sunburst.groupby('parent', group_keys=False)['counts'].apply(lambda x: x / x.sum() * 100)
     df_sunburst['global_percent'] = df_sunburst['counts'] / total_count * 100
     df_sunburst['hoverinfo'] = df_sunburst['labels'].astype(str) + '<br>Local: ' + df_sunburst['local_percent'].round(2).astype(str) + '%' + '<br>Global: ' + df_sunburst['global_percent'].round(2).astype(str) + '%'
