@@ -1,5 +1,7 @@
 from Q1sunburst import create_sunburst_chartQs
 from Q1sunburst import create_sunburst_chartCampus
+from Q1sunburst import create_sunburst_chartSpin
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -26,7 +28,8 @@ fig = create_sunburst_chartCampus(df)
 st.plotly_chart(fig)
 st.markdown("<br>", unsafe_allow_html=True)
 
-
+fig = create_sunburst_chartSpin(df)
+st.plotly_chart(fig)
 
 def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     """
