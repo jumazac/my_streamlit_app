@@ -125,7 +125,7 @@ def create_sunburst_chartCampus(df):
         branchvalues='total',
         hovertext=df_sunburst.apply(lambda row: f'Local percentage: {row["local_percent"]:.2f}%, Global percentage: {row["global_percent"]:.2f}%', axis=1),
         hoverinfo='label+text+value',
-        maxdepth=2,
+        maxdepth=3,
     ))
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
