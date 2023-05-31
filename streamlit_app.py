@@ -21,6 +21,9 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 fig = create_sunburst_chartCampus(df)
 st.plotly_chart(fig)
+st.markdown("<br>", unsafe_allow_html=True)
+
+
 
 def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     """
