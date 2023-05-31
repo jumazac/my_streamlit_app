@@ -98,6 +98,8 @@ fig.add_trace(go.Sunburst(
 ))
 # Display the sunburst chart in Streamlit
 st.plotly_chart(fig)
+st.markdown("<br>", unsafe_allow_html=True)
+
 
 
 
