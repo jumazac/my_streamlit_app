@@ -138,3 +138,55 @@ def create_sunburst_chartCampus(df):
     return fig
 
 
+
+
+
+
+
+
+
+
+##############################################
+
+def create_sunburst_chartSpin(df):
+    # Fill NA values with "N/a"
+    df['USE_SPIN?'] = df['USE_SPIN?'].fillna("N/a")
+    df['THINK_SPIN'] = df['THINK_SPIN'].fillna("N/a")
+
+    # Compute counts for each combination of 'USE_SPIN?' and 'THINK_SPIN'
+    df_sunburst = df.groupby(['USE_SPIN?', 'THINK_SPIN']).size().reset_index(name='counts')
+    total_count = df_sunburst['counts'].sum()
+
+    # Create new DataFrame for sunburst chart with 'parent', 'labels' and 'counts'
+    df_sunburst_total = pd.DataFrame({
+        'parent': [''] + list(df_sunburst['USE_SPIN?'].unique()),
+        'labels': ['Total'] + list(df_sunburst['USE_SPIN?'].unique()),
+        'counts': [total_count] + [0]*len(df_sunburst['USE_SPIN?'].unique())
+    })
+    df_sunburst_labels = pd.DataFrame({
+        'parent': list(df_sunburst['USE_SPIN?']),
+        'labels': list(df_sunburst['THINK_SPIN']),
+        'counts': list(df_sunburst['counts'])
+    })
+    df_sunburst = pd.concat([df_sunburst_total, df_sunburst_labels])
+
+    # Compute local and global percentages and create hover information
+    df_sunburst.reset_index(inplace=True)
+    df_sunburst['local_percent'] = df_sunburst.groupby('parent', group_keys=False)['counts'].apply(lambda x: x / x.sum() * 100)
+    df_sunburst['global_percent'] = df_sunburst['counts'] / total_count * 100
+    df_sunburst['hoverinfo'] = df_sunburst['labels'].astype(str) + '<br>Local: ' + df_sunburst['local_percent'].round(2).astype(str) + '%' + '<br>Global: ' + df_sunburst['global_percent'].round(2).astype(str) + '%'
+
+    # Create sunburst chart
+    fig = go.Figure(go.Sunburst(
+        ids=df_sunburst.index,
+        labels=df_sunburst['labels'],
+        parents=df_sunburst['parent'],
+        values=df_sunburst['counts'],
+        hoverinfo='label+text+value',
+        hovertext=df_sunburst['hoverinfo'],
+        branchvalues='total',
+    ))
+
+    fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
+    
+    return fig
