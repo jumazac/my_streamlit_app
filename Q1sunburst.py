@@ -9,6 +9,9 @@ def create_sunburst_chartQs(df):
     df = df.copy()
     df.fillna("N/A", inplace=True)
 
+    # Convert 'USE_SPIN?' to lowercase
+    df['USE_SPIN?'] = df['USE_SPIN?'].str.lower()
+
     # Create the combined ID columns
     df['id_q1'] = df['Q1']
     df['id_why1'] = df['Q1'] + "-" + df['Why_1']
@@ -47,7 +50,6 @@ def create_sunburst_chartQs(df):
     
 # Concatenate all DataFrames
     df_sunburst = pd.concat([df_total, df_q1, df_why1, df_q2, df_why2]).reset_index(drop=True)  # Reset index
-    print(df_sunburst)  # print statement to check the DataFrame
 
     # Calculate the local and global percentages
     total_count = df_sunburst['counts'].sum()

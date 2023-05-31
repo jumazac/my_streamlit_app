@@ -19,6 +19,7 @@ df['Why_2'] = df['Why_2'].fillna('N/A')
 df['THINK_SPIN'] = df['THINK_SPIN'].fillna("N/a")
 
 
+
 fig = create_sunburst_chartQs(df)
 st.plotly_chart(fig)
 st.text('')
@@ -32,7 +33,6 @@ st.plotly_chart(fig)
 st.markdown("<br>", unsafe_allow_html=True)
 
 
-print(df[df['USE_SPIN?'] == 'No'])
 fig = create_sunburst_chartSpin(df)
 st.plotly_chart(fig)
 
@@ -129,6 +129,7 @@ df = pd.read_csv("TOTAL1.csv")
 
 # Display the DataFrame in Streamlit
 st.dataframe(df)
+
 
 
 
