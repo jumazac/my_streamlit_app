@@ -16,6 +16,8 @@ df['Why_2'] = df['Why_2'].fillna('N/A')
 
 fig = create_sunburst_chartQs(df)
 st.plotly_chart(fig)
+st.markdown("<br>", unsafe_allow_html=True)
+
 
 fig = create_sunburst_chartCampus(df)
 st.plotly_chart(fig)
