@@ -16,6 +16,9 @@ df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
 df['Why_1'] = df['Why_1'].fillna('N/A')
 df['Why_2'] = df['Why_2'].fillna('N/A')
 
+df['THINK_SPIN'] = df['THINK_SPIN'].fillna("N/a")
+
+
 fig = create_sunburst_chartQs(df)
 st.plotly_chart(fig)
 st.text('')
@@ -28,6 +31,8 @@ fig = create_sunburst_chartCampus(df)
 st.plotly_chart(fig)
 st.markdown("<br>", unsafe_allow_html=True)
 
+
+print(df[df['USE_SPIN?'] == 'No'])
 fig = create_sunburst_chartSpin(df)
 st.plotly_chart(fig)
 
