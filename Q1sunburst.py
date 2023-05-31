@@ -79,9 +79,7 @@ def create_sunburst_chartQs(df):
 
 
 def create_sunburst_chartCampus(df):
-    target_row = df[(df['LIVE_CAMPUS?'] == 'No') & (df['Where'] == 'UP CAMPUS')]
 
-    print(target_row)
 # Preprocessing steps
   # Preprocessing steps
     df = df.copy()
@@ -112,7 +110,10 @@ def create_sunburst_chartCampus(df):
     # Concatenate all DataFrames
     df_sunburst = pd.concat([df_total, df_live_campus, df_where])
 
-    
+    # Calculate local and global percentages
+    df_sunburst['local_percent'] = df_sunburst.groupby('parent')['counts'].apply(lambda x: x / x.sum() * 100).reset_index(drop=True)
+    df_sunburst['global_percent'] = df_sunburst['counts'] / df_sunburst['counts'].sum() * 100
+
 
     # Create sunburst chart
     fig = go.Figure(go.Sunburst(
@@ -121,6 +122,9 @@ def create_sunburst_chartCampus(df):
         parents=df_sunburst['parent'],
         values=df_sunburst['counts'], 
         branchvalues='total',
+        hovertext=df_sunburst.apply(lambda row: f'Local percentage: {row["local_percent"]:.2f}%, Global percentage: {row["global_percent"]:.2f}%', axis=1),
+        hoverinfo='label+text+value',
+        maxdepth=2,
     ))
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
