@@ -111,7 +111,7 @@ def create_sunburst_chartCampus(df):
     df_sunburst = pd.concat([df_total, df_live_campus, df_where])
 
     # Calculate local and global percentages
-    df_sunburst['local_percent'] = df_sunburst.groupby('parent')['counts'].apply(lambda x: x / x.sum() * 100).reset_index(drop=True)
+    df_sunburst['local_percent'] = df_sunburst.groupby('parent', group_keys=True)['counts'].apply(lambda x: x / x.sum() * 100)
     df_sunburst['global_percent'] = df_sunburst['counts'] / df_sunburst['counts'].sum() * 100
 
 
