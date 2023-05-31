@@ -16,7 +16,10 @@ df['Why_2'] = df['Why_2'].fillna('N/A')
 
 fig = create_sunburst_chartQs(df)
 st.plotly_chart(fig)
-st.write('\n\n\n')
+st.text('')
+st.text('')
+st.text('')
+st.text('')
 
 
 fig = create_sunburst_chartCampus(df)
