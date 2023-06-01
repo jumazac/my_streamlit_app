@@ -188,7 +188,6 @@ def create_sunburst_chartSpin(df):
 
     # Create sunburst chart
     fig = go.Figure(go.Sunburst(
-        ids=df_sunburst.index,
         labels=df_sunburst['labels'],
         parents=df_sunburst['parent'],
         values=df_sunburst['counts'],
