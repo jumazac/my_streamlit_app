@@ -155,23 +155,22 @@ def create_sunburst_chartSpin(df):
     df = pd.read_csv('TOTAL1.csv')
 
     df.fillna("n/a", inplace=True)
-    print(df['THINK_SPIN'].unique())
 
     # Append column name to each value to ensure uniqueness
     df['USE_SPIN?'] = 'USE_SPIN?: ' + df['USE_SPIN?'].str.upper().str.strip()
     df['THINK_SPIN'] = 'THINK_SPIN: ' + df['THINK_SPIN'].str.upper().str.strip()
-
     # Compute counts for each combination of 'USE_SPIN?' and 'THINK_SPIN'
     df_sunburst = df.groupby(['USE_SPIN?', 'THINK_SPIN']).size().reset_index(name='counts')
     total_count = df_sunburst['counts'].sum()
 
     # Create new DataFrame for sunburst chart with 'parent', 'labels' and 'counts'
+    print(list(df.groupby(['USE_SPIN?']).size()))
+
     df_sunburst_total = pd.DataFrame({
         'parent': [''] + ['Total' for x in list(df_sunburst['USE_SPIN?'].unique())],
         'labels': ['Total'] + list(df_sunburst['USE_SPIN?'].unique()),
-        'counts': [total_count] + [5]*len(df_sunburst['USE_SPIN?'].unique())
+        'counts': [total_count] + list(df.groupby(['USE_SPIN?']).size())
     })
-
     df_sunburst_labels = pd.DataFrame({
         'parent': list(df_sunburst['USE_SPIN?']),
         'labels': list(df_sunburst['THINK_SPIN']),
