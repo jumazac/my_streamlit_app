@@ -167,7 +167,7 @@ def create_sunburst_chartSpin(df):
 
     # Create new DataFrame for sunburst chart with 'parent', 'labels' and 'counts'
     df_sunburst_total = pd.DataFrame({
-        'parent': [''] + ['total' for x in list(df_sunburst['USE_SPIN?'].unique())],
+        'parent': [''] + ['Total' for x in list(df_sunburst['USE_SPIN?'].unique())],
         'labels': ['Total'] + list(df_sunburst['USE_SPIN?'].unique()),
         'counts': [total_count] + [0]*len(df_sunburst['USE_SPIN?'].unique())
     })
