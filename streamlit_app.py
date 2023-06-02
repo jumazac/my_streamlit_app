@@ -10,12 +10,12 @@ import plotly.graph_objects as go
 
 
 # Create a header
-st.markdown("# My Amazing Streamlit App")
+st.markdown("# Ubike GO ")
 
 # Create some linked titles
-st.markdown("## [Title 1](https://example.com/link1)")
-st.markdown("## [Title 2](https://example.com/link2)")
-st.markdown("## [Title 3](https://example.com/link3)")
+st.markdown("## [Mision](https://example.com/link1)")
+st.markdown("## [Vision](https://example.com/link2)")
+st.markdown("## [Why is it needed](https://example.com/link3)")
 
 # Load data 
 df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
