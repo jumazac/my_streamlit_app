@@ -9,6 +9,14 @@ import plotly.graph_objects as go
 
 
 
+import streamlit as st
+
+# Define three columns
+col1, col2, col3 = st.beta_columns(3)
+
+# Add a header to the second column (this will be centered)
+col2.header('This is a centered header')
+
 # Create a header
 st.markdown("# Ubike GO ")
 
