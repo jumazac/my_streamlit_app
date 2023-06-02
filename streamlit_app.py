@@ -8,6 +8,20 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 
+
+
+# Create 3 columns
+col1, col2, col3 = st.beta_columns(3)
+
+# Add a text input to the first column
+col1.text_input('Input 1')
+
+# Add a slider to the second column
+col2.slider('Slider 2')
+
+# Add a button to the third column
+col3.button('Button 3')
+
 # Load data 
 df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
 
