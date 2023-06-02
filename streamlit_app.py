@@ -9,18 +9,13 @@ import plotly.graph_objects as go
 
 
 
+# Create a header
+st.markdown("# My Amazing Streamlit App")
 
-# Create 3 columns
-col1, col2, col3 = st.beta_columns(3)
-
-# Add a text input to the first column
-col1.text_input('Input 1')
-
-# Add a slider to the second column
-col2.slider('Slider 2')
-
-# Add a button to the third column
-col3.button('Button 3')
+# Create some linked titles
+st.markdown("## [Title 1](https://example.com/link1)")
+st.markdown("## [Title 2](https://example.com/link2)")
+st.markdown("## [Title 3](https://example.com/link3)")
 
 # Load data 
 df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
