@@ -15,7 +15,7 @@ import streamlit as st
 col1, col2, col3 = st.beta_columns(3)
 
 # Add a header to the second column (this will be centered)
-col1.header('#Ubike go')
+col1.header('# Ubike go')
 col2.header('This is a centered header')
 
 # Create a header
