@@ -16,7 +16,9 @@ col1, col2, col3 = st.beta_columns(3)
 
 # Add a header to the second column (this will be centered)
 col1.header('Ubike go')
-col2.header('This is a centered header')
+col2.header('Market reaserch')
+col3.header('MAP')
+
 
 # Create a header
 st.markdown("# Ubike GO ")
