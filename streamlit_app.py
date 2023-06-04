@@ -12,7 +12,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 # Define three columns
-col1, col2, col3 = st.beta_columns(3)
+col1, col2, col3 = st.columns(3)
 
 # Add a header to the second column (this will be centered)
 col1.header('Ubike go')
@@ -27,6 +27,10 @@ st.markdown("# Ubike GO ")
 st.markdown("## [Mision](https://example.com/link1)")
 st.markdown("## [Vision](https://example.com/link2)")
 st.markdown("## [Why is it needed](https://example.com/link3)")
+
+# Create a single column layout for the main chart
+col_main = st.columns(1)
+
 
 # Load data 
 df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
@@ -136,6 +140,11 @@ fig.add_trace(go.Sunburst(
 ))
 
 fig.update_layout(title_text="Main chart")
+
+# Display the sunburst chart in Streamlit
+col_main[0].plotly_chart(fig)
+col_main[0].markdown("<br>", unsafe_allow_html=True)
+
 
 # Display the sunburst chart in Streamlit
 st.plotly_chart(fig)
