@@ -142,7 +142,10 @@ col_main[0].plotly_chart(fig)
 col_main[0].markdown("<br>", unsafe_allow_html=True)
 
 
+col_left, col_center, col_right = st.columns(3)
 
+# Center the main chart by placing it in the middle column
+col_center.plotly_chart(fig)
 
 # Define three columns for the other charts
 cols = st.columns([1, 1, 1])  # Adjust the numbers as needed
