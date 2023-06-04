@@ -154,8 +154,7 @@ col_main[0].markdown("<br>", unsafe_allow_html=True)
 
 
 # Display the sunburst chart in Streamlit
-st.plotly_chart(fig)
-st.markdown("<br>", unsafe_allow_html=True)
+
 
 
 
