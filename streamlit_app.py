@@ -139,7 +139,16 @@ fig.add_trace(go.Sunburst(
     
 ))
 
+fig.update_layout(
+    title_text="Main chart",
+    width=800,  # Set the width of the chart
+    height=600  # Set the height of the chart
+)
+
 fig.update_layout(title_text="Main chart")
+
+col_main = st.columns(1)
+
 
 # Display the sunburst chart in Streamlit
 col_main[0].plotly_chart(fig)
