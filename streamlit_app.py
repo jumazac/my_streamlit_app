@@ -155,6 +155,24 @@ cols[1].plotly_chart(fig)
 fig = create_sunburst_chartSpin(df)
 cols[2].plotly_chart(fig)
 
+# Define three columns for the other charts
+cols = st.columns([1, 1, 1])  # Adjust the numbers as needed
+
+# For create_sunburst_chartQs chart
+fig = create_sunburst_chartQs(df)
+fig.update_layout(width=500, height=500)  # Set the width and height of the chart
+cols[0].plotly_chart(fig)
+
+# For create_sunburst_chartCampus chart
+fig = create_sunburst_chartCampus(df)
+fig.update_layout(width=500, height=500)  # Set the width and height of the chart
+cols[1].plotly_chart(fig)
+
+# For create_sunburst_chartSpin chart
+fig = create_sunburst_chartSpin(df)
+fig.update_layout(width=500, height=500)  # Set the width and height of the chart
+cols[2].plotly_chart(fig)
+
 
 # Load your data
 df = pd.read_csv("TOTAL1.csv")
