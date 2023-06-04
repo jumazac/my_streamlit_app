@@ -155,9 +155,6 @@ fig.update_layout(
 col_main[0].plotly_chart(fig)
 col_main[0].markdown("<br>", unsafe_allow_html=True)
 
-# Display the sunburst chart in Streamlit
-col_main[0].plotly_chart(fig)
-col_main[0].markdown("<br>", unsafe_allow_html=True)
 
 # Define three columns for the other charts
 cols = st.columns(3)
