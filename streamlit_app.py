@@ -146,7 +146,7 @@ fig.update_layout(
 )
 
 fig.update_layout(
-    title_text="Main chart",
+    title_text="Main Sunburst",
     title_font=dict(size=30),  # Adjust the size as needed
 )
 
@@ -155,6 +155,22 @@ fig.update_layout(
 col_main[0].plotly_chart(fig)
 col_main[0].markdown("<br>", unsafe_allow_html=True)
 
+# Display the sunburst chart in Streamlit
+col_main[0].plotly_chart(fig)
+col_main[0].markdown("<br>", unsafe_allow_html=True)
+
+# Define three columns for the other charts
+cols = st.columns(3)
+
+# Create and display the charts in the respective columns
+fig = create_sunburst_chartQs(df)
+cols[0].plotly_chart(fig)
+
+fig = create_sunburst_chartCampus(df)
+cols[1].plotly_chart(fig)
+
+fig = create_sunburst_chartSpin(df)
+cols[2].plotly_chart(fig)
 
 
 # Load your data
