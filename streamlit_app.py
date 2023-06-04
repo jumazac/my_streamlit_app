@@ -147,8 +147,6 @@ fig.update_layout(
 
 fig.update_layout(title_text="Main chart")
 
-col_main = st.columns(1)
-
 
 # Display the sunburst chart in Streamlit
 col_main[0].plotly_chart(fig)
