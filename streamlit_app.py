@@ -106,8 +106,14 @@ df_hierarchical['color'] = df_hierarchical['value'].map(color_mapping)
 df_hierarchical['custom_data'] = list(zip(df_hierarchical.percentage, df_hierarchical.global_percentage))
 
 
-# Create the sunburst chart
-fig = go.Figure()
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.write(' ')
+
+with col2:
+    # Your sunburst chart
+    fig = go.Figure()
 
 fig.add_trace(go.Sunburst(
     labels=df_hierarchical['label'],
@@ -124,7 +130,6 @@ fig.add_trace(go.Sunburst(
 
     
 ))
-
 fig.update_layout(
     title_text="Main chart",
     width=800,  # Set the width of the chart
@@ -135,19 +140,14 @@ fig.update_layout(
     title_text="Main Sunburst",
     title_font=dict(size=30),  # Adjust the size as needed
 )
-
-
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.write(' ')
-
-with col2:
-    st.image("https://static.streamlit.io/examples/dog.jpg")
-
+# Display the sunburst chart in Streamlit
+col2.plotly_chart(fig)
 with col3:
     st.write(' ')
+
+
+
+
 
 # Define three columns for the other charts
 cols = st.columns([1, 1, 1])  # Adjust the numbers as needed
