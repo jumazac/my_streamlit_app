@@ -44,21 +44,7 @@ df['THINK_SPIN'] = df['THINK_SPIN'].fillna("N/a")
 
 
 
-fig = create_sunburst_chartQs(df)
-st.plotly_chart(fig)
-st.text('')
-st.text('')
-st.text('')
-st.text('')
 
-
-fig = create_sunburst_chartCampus(df)
-st.plotly_chart(fig)
-st.markdown("<br>", unsafe_allow_html=True)
-
-
-fig = create_sunburst_chartSpin(df)
-st.plotly_chart(fig)
 
 def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     """
