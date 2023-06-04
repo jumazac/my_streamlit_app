@@ -137,7 +137,9 @@ fig.update_layout(
 )
 
 
-st.columns(3)[1].plotly_chart(fig)
+cols = st.columns([1,3,1]) 
+cols[1].plotly_chart(fig)
+
 
 
 # Define three columns for the other charts
