@@ -141,7 +141,7 @@ fig.add_trace(go.Sunburst(
 
 fig.update_layout(
     title_text="Main chart",
-    width=900,  # Set the width of the chart
+    width=800,  # Set the width of the chart
     height=800  # Set the height of the chart
 )
 
