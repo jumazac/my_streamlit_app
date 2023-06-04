@@ -137,7 +137,7 @@ fig.update_layout(
 )
 
 
-cols = st.columns([1,3,1]) 
+cols = st.columns([1,2,1]) 
 cols[1].plotly_chart(fig)
 
 
