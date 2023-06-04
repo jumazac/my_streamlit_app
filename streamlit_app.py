@@ -142,18 +142,7 @@ col_main[0].plotly_chart(fig)
 col_main[0].markdown("<br>", unsafe_allow_html=True)
 
 
-# Define three columns for the other charts
-cols = st.columns(3)
 
-# Create and display the charts in the respective columns
-fig = create_sunburst_chartQs(df)
-cols[0].plotly_chart(fig)
-
-fig = create_sunburst_chartCampus(df)
-cols[1].plotly_chart(fig)
-
-fig = create_sunburst_chartSpin(df)
-cols[2].plotly_chart(fig)
 
 # Define three columns for the other charts
 cols = st.columns([1, 1, 1])  # Adjust the numbers as needed
