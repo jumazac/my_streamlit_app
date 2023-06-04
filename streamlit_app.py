@@ -138,10 +138,16 @@ fig.update_layout(
 
 
 
-col_left, col_center, col_right = st.columns(3)
+col1, col2, col3 = st.columns(3)
 
-# Center the main chart by placing it in the middle column
-col_center.plotly_chart(fig)
+with col1:
+    st.write(' ')
+
+with col2:
+    st.image("https://static.streamlit.io/examples/dog.jpg")
+
+with col3:
+    st.write(' ')
 
 # Define three columns for the other charts
 cols = st.columns([1, 1, 1])  # Adjust the numbers as needed
