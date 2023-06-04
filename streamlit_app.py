@@ -145,7 +145,12 @@ fig.update_layout(
     height=800  # Set the height of the chart
 )
 
-fig.update_layout(title_text="Main chart")
+fig.update_layout(
+    title_text="Main chart",
+    title_font=dict(size=30),  # Adjust the size as needed
+    width=1000,
+    height=1000,
+)
 
 
 # Display the sunburst chart in Streamlit
