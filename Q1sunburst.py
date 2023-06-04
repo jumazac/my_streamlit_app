@@ -198,8 +198,8 @@ def create_sunburst_chartSpin(df):
 
     fig.update_layout(
     title_text="Main chart",
-    width=300,  # Set the width of the chart
-    height=300  # Set the height of the chart
+    width=350,  # Set the width of the chart
+    height=350  # Set the height of the chart
 )
     
     return fig
