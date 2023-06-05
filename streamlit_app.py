@@ -40,6 +40,8 @@ col_main = st.columns(1)
 df = pd.read_csv("TOTAL1NOTEPAD.txt", delimiter=',')
 
 
+
+
 # Replace NaNs with 'N/A' in 'Why_1' and 'Why_2' columns
 df['Why_1'] = df['Why_1'].fillna('N/A')
 df['Why_2'] = df['Why_2'].fillna('N/A')
@@ -185,12 +187,12 @@ fig.update_layout(width=500, height=500)  # Set the width and height of the char
 cols[2].plotly_chart(fig)
 
 
-# Load your data
-df = pd.read_csv("TOTAL1.csv")
-
-# Display the DataFrame in Streamlit
+# Display your main dataframe
 st.dataframe(df)
 
+# Display a more detailed breakdown of the hierarchy
+breakdown_df = pd.DataFrame(columns=["Column1", "Column2", "Column3"])  # replace with your own data
+st.dataframe(breakdown_df)
 
 
 
