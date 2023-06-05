@@ -158,13 +158,11 @@ legend_cols[4].markdown("<p style='text-align: center;'><div style='width: 20px;
 # Add space
 st.markdown("<br><br><br><br>", unsafe_allow_html=True)
 
+# Load your data
+df_explanation = pd.read_csv("TOTAL1NOTEPAD.txt.csv")
 
-
-# Define three columns for the other charts
-cols = st.columns([1, 1, 1])  # Adjust the numbers as needed
-
-
-
+# Display the DataFrame in Streamlit
+st.dataframe(df_explanation)
 
 
 # Define three columns for the other charts
