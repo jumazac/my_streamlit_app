@@ -158,17 +158,6 @@ legend_cols[4].markdown("<p style='text-align: center;'><div style='width: 20px;
 # Add space
 st.markdown("<br><br><br><br>", unsafe_allow_html=True)
 
-# Create a DataFrame that represents the hierarchical structure
-data = {
-    "Level 1": ["Root", "Root", "Root"],
-    "Level 2": ["Branch 1", "Branch 2", "Branch 3"],
-    "Level 3": ["Leaf 1", "Leaf 2", "Leaf 3"],
-    "Description": ["Description for Leaf 1", "Description for Leaf 2", "Description for Leaf 3"]
-}
-df = pd.DataFrame(data)
-
-# Display the DataFrame in the app
-st.dataframe(df)
 
 
 # Define three columns for the other charts
