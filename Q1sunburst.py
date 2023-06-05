@@ -68,12 +68,24 @@ def create_sunburst_chartQs(df):
         hovertext=df_sunburst['hoverinfo'],  # using hoverinfo for hover text
         branchvalues='total',
         maxdepth=3,
-    ))
+        marker=dict(
+        colors=df_sunburst['counts'],  # use the 'counts' column to determine the color
+        colorscale='RdBu',  # specify the color scale
+        colorbar=dict(
+            title="Counts",  # title for the color bar
+            thickness=20,
+            len=0.8,
+            x=0.9,
+            y=0.5,
+            yanchor="middle",
+            titleside="right",
+        ),
+    ),
+))
+
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
-
-
-    return fig
+    fig.show()
 
 
 
