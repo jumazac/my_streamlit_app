@@ -24,7 +24,7 @@ st.markdown("# Ubike GO ")
 st.markdown("""
     <div style="display: flex; justify-content: space-around; background-color: #F63366; padding: 10px;">
         <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link1'>Market analysis</a></h2>
-        <h2 style="color: white; margin: 0; margin-left: 35px;"><a style="color: white; text-decoration: none;" href='https://example.com/link2'>MAP</a></h2>
+        <h2 style="color: white; margin: 0; margin-left: 40px;"><a style="color: white; text-decoration: none;" href='https://example.com/link2'>MAP</a></h2>
         <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link3'>Why is it imperative</a></h2>
     </div>
 """, unsafe_allow_html=True)
