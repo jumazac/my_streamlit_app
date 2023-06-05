@@ -14,17 +14,8 @@ import streamlit as st
 # Define three columns
 col1, col2, col3 = st.columns(3)
 
-# Add a header to the second column (this will be centered)
-col1.header('Ubike go')
-col2.header('Market reaserch')
-col3.header('MAP')
 
 
-# Create a header
-st.markdown("# Ubike GO ")
-
-# Define three columns
-col1, col2, col3 = st.columns(3)
 
 # Create a header
 st.markdown("# Ubike GO ")
