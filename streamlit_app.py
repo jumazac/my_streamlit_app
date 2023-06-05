@@ -159,7 +159,7 @@ legend_cols[4].markdown("<p style='text-align: center;'><div style='width: 20px;
 st.markdown("<br><br><br><br>", unsafe_allow_html=True)
 
 # Load your data
-df_explanation = pd.read_csv("TOTAL1NOTEPAD.txt.csv")
+df_explanation = pd.read_csv("TOTAL1NOTEPAD.txt")
 
 # Display the DataFrame in Streamlit
 st.dataframe(df_explanation)
