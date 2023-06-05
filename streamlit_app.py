@@ -142,6 +142,10 @@ fig.update_layout(
 cols = st.columns([1,2,1]) 
 cols[1].plotly_chart(fig)
 
+# Create the legend
+st.markdown("### Legend")
+for key, value in color_mapping.items():
+    st.markdown(f"<span style='display: inline-block; height: 25px; width: 25px; background-color: {value}'></span> {key}", unsafe_allow_html=True)
 
 # Create and display the legend table
 legend = """
