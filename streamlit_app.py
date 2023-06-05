@@ -153,13 +153,13 @@ fig.update_layout(width=500, height=500)  # Set the width and height of the char
 cols[0].plotly_chart(fig)
 
 # For create_sunburst_chartCampus chart
-cols[0].markdown("Living location")
+cols[1].markdown("Living location")
 fig = create_sunburst_chartCampus(df)
 fig.update_layout(width=500, height=500)  # Set the width and height of the chart
 cols[1].plotly_chart(fig)
 
 # For create_sunburst_chartSpin chart
-cols[0].markdown("Do you use spin?")
+cols[2].markdown("Do you use spin?")
 fig = create_sunburst_chartSpin(df)
 fig.update_layout(width=500, height=500)  # Set the width and height of the chart
 cols[2].plotly_chart(fig)
