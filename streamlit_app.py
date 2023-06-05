@@ -26,10 +26,29 @@ st.markdown("# Ubike GO ")
 # Define three columns
 col1, col2, col3 = st.columns(3)
 
-# Add a link to each column
-col1.markdown("<h2><a href='https://example.com/link1'>Mision</a></h2>", unsafe_allow_html=True)
-col2.markdown("<h2><a href='https://example.com/link2'>Vision</a></h2>", unsafe_allow_html=True)
-col3.markdown("<h2><a href='https://example.com/link3'>Why is it needed</a></h2>", unsafe_allow_html=True)
+# Create a custom header with links
+st.markdown("""
+    <style>
+    .header {
+        background-color: #F63366;
+        padding: 10px;
+        color: white;
+        text-align: center;
+    }
+    .header h2 {
+        margin: 0;
+    }
+    .header h2 a {
+        color: white;
+        text-decoration: none;
+    }
+    </style>
+    <div class="header">
+        <h2><a href='https://example.com/link1'>Mision</a></h2>
+        <h2><a href='https://example.com/link2'>Vision</a></h2>
+        <h2><a href='https://example.com/link3'>Why is it needed</a></h2>
+    </div>
+""", unsafe_allow_html=True)
 
 # Create a single column layout for the main chart
 col_main = st.columns(1)
