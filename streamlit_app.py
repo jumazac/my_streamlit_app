@@ -145,6 +145,7 @@ cols[1].plotly_chart(fig)
 
 # Create and display the legend table
 legend = """
+### Legend
 | Color | Description |
 |-------|-------------|
 | <div style="width: 20px; height: 20px; background: #0168c8;"></div> | 1ST YEAR |
@@ -154,6 +155,7 @@ legend = """
 | <div style="width: 20px; height: 20px; background: #28b09c;"></div> | MASTERS  |
 """
 cols[1].markdown(legend, unsafe_allow_html=True)
+
 
 
 
