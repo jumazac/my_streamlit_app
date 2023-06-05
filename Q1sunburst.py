@@ -72,6 +72,16 @@ def create_sunburst_chartQs(df):
     ))
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
+    # Create and display the legend table
+    legend = """
+    | Color | Description |
+    |-------|-------------|
+    | <div style="width: 20px; height: 20px; background: #FF0000;"></div> | This is the color red |
+    | <div style="width: 20px; height: 20px; background: #008000;"></div> | This is the color green |
+    | <div style="width: 20px; height: 20px; background: #0000FF;"></div> | This is the color blue |
+    """
+    st.markdown(legend, unsafe_allow_html=True)
+
 
 
     return fig
