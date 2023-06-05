@@ -23,9 +23,9 @@ st.markdown("# Ubike GO ")
 # Create a custom header with links
 st.markdown("""
     <div style="display: flex; justify-content: space-around; background-color: #F63366; padding: 10px;">
-        <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link1'>Mision</a></h2>
-        <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link2'>Vision</a></h2>
-        <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link3'>Why is it needed</a></h2>
+        <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link1'>Market</a></h2>
+        <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link2'>MAP</a></h2>
+        <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link3'>Why is it imperative</a></h2>
     </div>
 """, unsafe_allow_html=True)
 
