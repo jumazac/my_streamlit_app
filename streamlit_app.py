@@ -126,6 +126,7 @@ fig.add_trace(go.Sunburst(
     
 ))
 
+
 fig.update_layout(
     title_text="Main chart",
     width=800,  # Set the width of the chart
@@ -140,6 +141,20 @@ fig.update_layout(
 
 cols = st.columns([1,2,1]) 
 cols[1].plotly_chart(fig)
+
+
+# Create and display the legend table
+legend = """
+| Color | Description |
+|-------|-------------|
+| <div style="width: 20px; height: 20px; background: #0168c8;"></div> | 1ST YEAR |
+| <div style="width: 20px; height: 20px; background: #82c9fe;"></div> | 2ND YEAR |
+| <div style="width: 20px; height: 20px; background: #ffabab;"></div> | 3RD YEAR |
+| <div style="width: 20px; height: 20px; background: #ff2a2a;"></div> | 4TH YEAR |
+| <div style="width: 20px; height: 20px; background: #28b09c;"></div> | MASTERS  |
+"""
+cols[1].markdown(legend, unsafe_allow_html=True)
+
 
 
 
