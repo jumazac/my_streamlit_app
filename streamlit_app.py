@@ -154,7 +154,7 @@ legend_cols[3].markdown("""<div style="width: 20px; height: 20px; background: #f
 legend_cols[4].markdown("""<div style="width: 20px; height: 20px; background: #28b09c;"></div> MASTERS""", unsafe_allow_html=True)
 
 # Add space
-st.markdown("<br><br>", unsafe_allow_html=True)
+st.markdown("<br><br><br><br>", unsafe_allow_html=True)
 
 
 
