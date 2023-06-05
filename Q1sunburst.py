@@ -71,7 +71,6 @@ def create_sunburst_chartQs(df):
     ))
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
-    fig.update_layout(title_text="Do you use spin?")
 
 
     return fig
@@ -135,7 +134,6 @@ def create_sunburst_chartCampus(df):
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
     
 
-    fig.update_layout(title_text="Living on campus")
 
 
     return fig
@@ -197,7 +195,6 @@ def create_sunburst_chartSpin(df):
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
     fig.update_layout(
-    title_text="Main chart",
     width=500,  # Set the width of the chart
     height=500  # Set the height of the chart
 )

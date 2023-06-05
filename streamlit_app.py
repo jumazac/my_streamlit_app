@@ -25,7 +25,7 @@ st.markdown("""
     <div style="display: flex; justify-content: space-around; background-color: #F63366; padding: 10px;">
         <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link1'>Market analysis</a></h2>
         <h2 style="color: white; margin: 0; margin-left: 80px;"><a style="color: white; text-decoration: none;" href='https://example.com/link2'>MAP</a></h2>
-        <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link3'>Why is it imperative</a></h2>
+        <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link3'>Why it is imperative</a></h2>
     </div>
 """, unsafe_allow_html=True)
 
@@ -147,16 +147,19 @@ cols[1].plotly_chart(fig)
 cols = st.columns([1, 1, 1])  # Adjust the numbers as needed
 
 # For create_sunburst_chartQs chart
+cols[0].markdown("Question 1 and 2")
 fig = create_sunburst_chartQs(df)
 fig.update_layout(width=500, height=500)  # Set the width and height of the chart
 cols[0].plotly_chart(fig)
 
 # For create_sunburst_chartCampus chart
+cols[0].markdown("Living location")
 fig = create_sunburst_chartCampus(df)
 fig.update_layout(width=500, height=500)  # Set the width and height of the chart
 cols[1].plotly_chart(fig)
 
 # For create_sunburst_chartSpin chart
+cols[0].markdown("Do you use spin?")
 fig = create_sunburst_chartSpin(df)
 fig.update_layout(width=500, height=500)  # Set the width and height of the chart
 cols[2].plotly_chart(fig)
