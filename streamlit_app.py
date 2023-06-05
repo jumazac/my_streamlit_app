@@ -144,18 +144,17 @@ cols[1].plotly_chart(fig)
 
 
 
-# Create and display the legend table
-legend = """
-### Legend
-| Color | Description |
-|-------|-------------|
-| <div style="width: 20px; height: 20px; background: #0168c8;"></div> | 1ST YEAR |
-| <div style="width: 20px; height: 20px; background: #82c9fe;"></div> | 2ND YEAR |
-| <div style="width: 20px; height: 20px; background: #ffabab;"></div> | 3RD YEAR |
-| <div style="width: 20px; height: 20px; background: #ff2a2a;"></div> | 4TH YEAR |
-| <div style="width: 20px; height: 20px; background: #28b09c;"></div> | MASTERS  |
-"""
-cols[1].markdown(legend, unsafe_allow_html=True)
+# Create the legend
+legend_cols = st.columns(5)
+
+legend_cols[0].markdown("""<div style="width: 20px; height: 20px; background: #0168c8;"></div> 1ST YEAR""", unsafe_allow_html=True)
+legend_cols[1].markdown("""<div style="width: 20px; height: 20px; background: #82c9fe;"></div> 2ND YEAR""", unsafe_allow_html=True)
+legend_cols[2].markdown("""<div style="width: 20px; height: 20px; background: #ffabab;"></div> 3RD YEAR""", unsafe_allow_html=True)
+legend_cols[3].markdown("""<div style="width: 20px; height: 20px; background: #ff2a2a;"></div> 4TH YEAR""", unsafe_allow_html=True)
+legend_cols[4].markdown("""<div style="width: 20px; height: 20px; background: #28b09c;"></div> MASTERS""", unsafe_allow_html=True)
+
+# Define three columns for the other charts
+cols = st.columns([1, 1, 1])  # Adjust the numbers as needed
 
 
 
