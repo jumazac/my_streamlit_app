@@ -23,20 +23,13 @@ col3.header('MAP')
 # Create a header
 st.markdown("# Ubike GO ")
 
-# Create some linked titles
-st.markdown("""
-    <div style="display: inline-block; margin-right: 10px;"> 
-        <a href="https://example.com/link1">Mision</a> 
-    </div>
+# Define three columns
+col1, col2, col3 = st.columns(3)
 
-    <div style="display: inline-block; margin-right: 10px;">
-        <a href="https://example.com/link2">Vision</a>
-    </div>
-
-    <div style="display: inline-block;">
-        <a href="https://example.com/link3">Why is it needed</a>
-    </div>
-""", unsafe_allow_html=True)
+# Add a link to each column
+col1.markdown("<h2><a href='https://example.com/link1'>Mision</a></h2>", unsafe_allow_html=True)
+col2.markdown("<h2><a href='https://example.com/link2'>Vision</a></h2>", unsafe_allow_html=True)
+col3.markdown("<h2><a href='https://example.com/link3'>Why is it needed</a></h2>", unsafe_allow_html=True)
 
 # Create a single column layout for the main chart
 col_main = st.columns(1)
