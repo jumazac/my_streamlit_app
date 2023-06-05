@@ -147,11 +147,13 @@ cols[1].plotly_chart(fig)
 # Create the legend
 legend_cols = st.columns(5)
 
-legend_cols[0].markdown("""<div style="width: 20px; height: 20px; background: #0168c8;"></div> 1ST YEAR""", unsafe_allow_html=True)
-legend_cols[1].markdown("""<div style="width: 20px; height: 20px; background: #82c9fe;"></div> 2ND YEAR""", unsafe_allow_html=True)
-legend_cols[2].markdown("""<div style="width: 20px; height: 20px; background: #ffabab;"></div> 3RD YEAR""", unsafe_allow_html=True)
-legend_cols[3].markdown("""<div style="width: 20px; height: 20px; background: #ff2a2a;"></div> 4TH YEAR""", unsafe_allow_html=True)
-legend_cols[4].markdown("""<div style="width: 20px; height: 20px; background: #28b09c;"></div> MASTERS""", unsafe_allow_html=True)
+
+legend_cols[0].markdown("<p style='text-align: center;'><div style='width: 20px; height: 20px; background: #0168c8;'></div> 1ST YEAR</p>", unsafe_allow_html=True)
+legend_cols[1].markdown("<p style='text-align: center;'><div style='width: 20px; height: 20px; background: #82c9fe;'></div> 2ND YEAR</p>", unsafe_allow_html=True)
+legend_cols[2].markdown("<p style='text-align: center;'><div style='width: 20px; height: 20px; background: #ffabab;'></div> 3RD YEAR</p>", unsafe_allow_html=True)
+legend_cols[3].markdown("<p style='text-align: center;'><div style='width: 20px; height: 20px; background: #ff2a2a;'></div> 4TH YEAR</p>", unsafe_allow_html=True)
+legend_cols[4].markdown("<p style='text-align: center;'><div style='width: 20px; height: 20px; background: #28b09c;'></div> MASTERS</p>", unsafe_allow_html=True)
+
 
 # Add space
 st.markdown("<br><br><br><br>", unsafe_allow_html=True)
