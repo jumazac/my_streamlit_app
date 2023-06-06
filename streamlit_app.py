@@ -145,7 +145,7 @@ fig.update_layout(
 
 
 
-cols = st.columns([1,4,1]) 
+cols = st.columns([1,3,1]) 
 
 cols[1].plotly_chart(fig)
 
@@ -168,7 +168,7 @@ df_labels = pd.DataFrame({
 })
 
 # Display the DataFrame as a table in the second column
-cols[2].table(df_labels)
+cols[3].table(df_labels)
 
 # Create the legend
 legend_cols = st.columns(5)
