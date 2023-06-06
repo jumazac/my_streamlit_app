@@ -175,15 +175,16 @@ table_html = df_labels.to_html(index=False)
 # Style the HTML table with CSS
 styled_table = f"""
 <style>
+    table, th, td {{
+        border: 0 !important;
+    }}
     table {{
         width: 100%;
-        border: none;  # This line removes the border
     }}
     th, td {{
         text-align: left;
         padding: 8px;
         font-size: 26px;
-        border: none;  # This line removes the cell borders
     }}
     tr:nth-child(even) {{
         background-color: #f2f2f2;
