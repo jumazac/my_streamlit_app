@@ -154,13 +154,13 @@ cols[1].plotly_chart(fig)
 # Define the labels and descriptions
 labels = ['Year','Sex','Spin Usage?','Live on campus?','Question 1', 'Question 2','Location']
 descriptions = [
-    "Description of what 'LOCATION' represents",
-    "Description of what 'Q2' represents",
-    "Description of what 'Q1' represents",
-    "Description of what 'LIVE_CAMPUS?' represents",
-    "Description of what 'USE_SPIN?' represents",
-    "Description of what 'SEX' represents",
-    "Description of what 'YEAR' represents"
+    "Year of the student",
+    "Sex of the student",
+    "Does the student use SPIN?",
+    "Does the student live on campus",
+    "Could your campus mobility be made more efficient?",
+    "Would you be interested in an affordable, easy to use, fully autonomous ebike ride sharing service on campus? ",
+    "The location of the interview"
 ]
 
 # Create a DataFrame
