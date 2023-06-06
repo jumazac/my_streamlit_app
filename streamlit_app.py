@@ -195,7 +195,7 @@ styled_table = f"""
 cols[2].markdown(styled_table, unsafe_allow_html=True)
 
 # Create the legend
-legend_cols = st.columns(5)
+legend_cols = cols[2].columns(1)
 
 
 legend_cols[0].markdown("<p style='text-align: center;'><div style='width: 20px; height: 20px; background: #0168c8;'></div> 1ST YEAR</p>", unsafe_allow_html=True)
