@@ -18,8 +18,6 @@ st.set_page_config(layout="wide")
 col1, col2, col3 = st.columns(3)
 
 
-
-
 # Create a header
 st.markdown("# Ubike GO ")
 
@@ -31,6 +29,9 @@ st.markdown("""
         <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link3'>Why it is imperative</a></h2>
     </div>
 """, unsafe_allow_html=True)
+
+# Add space
+st.markdown("<br><br><br>", unsafe_allow_html=True)
 
 # Create a single column layout for the main chart
 col_main = st.columns(1)
