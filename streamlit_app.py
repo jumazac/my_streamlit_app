@@ -146,9 +146,6 @@ fig.update_layout(
 # Create the columns for the layout
 cols = st.columns([1,1]) 
 
-# Display the Sunburst chart in the first column
-cols[0].plotly_chart(fig)
-
 # Define the labels and descriptions
 labels = ['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?', 'SEX','YEAR']
 descriptions = [
