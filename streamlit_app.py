@@ -164,6 +164,12 @@ legend_cols[4].markdown("<p style='text-align: center;'><div style='width: 20px;
 st.markdown("<br><br><br><br>", unsafe_allow_html=True)
 
 
+# Create the columns for the layout
+cols = st.columns([1,1]) 
+
+# Display the Sunburst chart in the first column
+cols[0].plotly_chart(fig)
+
 # Define the labels and descriptions
 labels = ['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?', 'SEX','YEAR']
 descriptions = [
@@ -182,8 +188,8 @@ df_labels = pd.DataFrame({
     'Description': descriptions
 })
 
-# Display the DataFrame as a table in Streamlit
-st.table(df_labels)
+# Display the DataFrame as a table in the second column
+cols[1].table(df_labels)
 
 
 # Define three columns for the other charts
