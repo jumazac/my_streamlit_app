@@ -152,7 +152,7 @@ cols = st.columns([1,3,2])
 cols[1].plotly_chart(fig)
 
 # Define the labels and descriptions
-labels = ['Year','Sex','Spin Usage?','Live on campus?','Question 1', 'Question 2','Location']
+labels = ['1. Year','2. Sex','3. Spin Usage?','4. Live on campus?','5. Question 1', '6. Question 2','7. Location']
 descriptions = [
     "Year of the student",
     "Sex of the student",
