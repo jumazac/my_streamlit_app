@@ -168,7 +168,7 @@ df_labels = pd.DataFrame({
 })
 
 # Display the DataFrame as a table in the second column
-cols[3].table(df_labels)
+cols[2].table(df_labels)
 
 # Create the legend
 legend_cols = st.columns(5)
