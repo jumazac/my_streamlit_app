@@ -147,6 +147,7 @@ fig.update_layout(
 
 cols = st.columns([1,3,2])
 
+
 cols[1].plotly_chart(fig)
 
 # Define the labels and descriptions
@@ -166,9 +167,6 @@ df_labels = pd.DataFrame({
     'Label': labels,
     'Description': descriptions
 })
-
-# Display the DataFrame as a table in the second column
-cols[2].table(df_labels)
 
 # Convert the DataFrame to an HTML table
 table_html = df_labels.to_html(index=False)
