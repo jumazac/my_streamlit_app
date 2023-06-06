@@ -194,13 +194,20 @@ styled_table = f"""
 # Display the table in the second column
 cols[2].markdown(styled_table, unsafe_allow_html=True)
 
-# Add legend to the left column
-cols[0].markdown("""
-<p style='text-align: center;'><div style='width: 20px; height: 20px; background: #0168c8;'></div> 1ST YEAR</p>
-<p style='text-align: center;'><div style='width: 20px; height: 20px; background: #82c9fe;'></div> 2ND YEAR</p>
-<p style='text-align: center;'><div style='width: 20px; height: 20px; background: #ffabab;'></div> 3RD YEAR</p>
-<p style='text-align: center;'><div style='width: 20px; height: 20px; background: #ff2a2a;'></div> 4TH YEAR</p>
-<p style='text-align: center;'><div style='width: 20px; height: 20px; background: #28b09c;'></div> MASTERS</p>
+legend_height = 600  # The height of your sunburst chart in pixels
+num_legend_items = 5  # The number of legend items
+
+# Set the height of the container to be the same as the chart
+container_style = f"height: {legend_height}px; display: flex; flex-direction: column; justify-content: space-between;"
+
+cols[0].markdown(f"""
+<div style='{container_style}'>
+    <p style='text-align: center;'><div style='width: 20px; height: 20px; background: #0168c8;'></div> 1ST YEAR</p>
+    <p style='text-align: center;'><div style='width: 20px; height: 20px; background: #82c9fe;'></div> 2ND YEAR</p>
+    <p style='text-align: center;'><div style='width: 20px; height: 20px; background: #ffabab;'></div> 3RD YEAR</p>
+    <p style='text-align: center;'><div style='width: 20px; height: 20px; background: #ff2a2a;'></div> 4TH YEAR</p>
+    <p style='text-align: center;'><div style='width: 20px; height: 20px; background: #28b09c;'></div> MASTERS</p>
+</div>
 """, unsafe_allow_html=True)
 
 # Add space
