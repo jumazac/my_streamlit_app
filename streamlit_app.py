@@ -180,7 +180,7 @@ styled_table = f"""
     th, td {{
         text-align: left;
         padding: 8px;
-        font-size: 40px;  # Adjust font size as needed
+        font-size: 30px;  # Adjust font size as needed
     }}
     tr:nth-child(even) {{
         background-color: #f2f2f2;
