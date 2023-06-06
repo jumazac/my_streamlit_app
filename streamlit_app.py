@@ -164,7 +164,7 @@ descriptions = [
 
 # Create a DataFrame
 df_labels = pd.DataFrame({
-    'Label': labels,
+    'Level': labels,
     'Description': descriptions
 })
 
@@ -176,11 +176,13 @@ styled_table = f"""
 <style>
     table {{
         width: 100%;
+        border: none;  # This line removes the border
     }}
     th, td {{
         text-align: left;
         padding: 8px;
-        font-size: 26px;  # Adjust font size as needed
+        font-size: 26px;
+        border: none;  # This line removes the cell borders
     }}
     tr:nth-child(even) {{
         background-color: #f2f2f2;
