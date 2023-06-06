@@ -143,33 +143,10 @@ fig.update_layout(
     title_font=dict(size=30),  # Adjust the size as needed
 )
 
-# Create the columns for the layout
-cols = st.columns([1,1]) 
-
-# Define the labels and descriptions
-labels = ['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?', 'SEX','YEAR']
-descriptions = [
-    "Description of what 'LOCATION' represents",
-    "Description of what 'Q2' represents",
-    "Description of what 'Q1' represents",
-    "Description of what 'LIVE_CAMPUS?' represents",
-    "Description of what 'USE_SPIN?' represents",
-    "Description of what 'SEX' represents",
-    "Description of what 'YEAR' represents"
-]
-
-# Create a DataFrame
-df_labels = pd.DataFrame({
-    'Label': labels,
-    'Description': descriptions
-})
-
-# Display the DataFrame as a table in the second column
-cols[1].table(df_labels)
-
 
 
 cols = st.columns([1,2,1]) 
+
 cols[1].plotly_chart(fig)
 
 # Define the labels and descriptions
@@ -191,7 +168,7 @@ df_labels = pd.DataFrame({
 })
 
 # Display the DataFrame as a table in the second column
-cols[1].table(df_labels)
+cols[2].table(df_labels)
 
 # Create the legend
 legend_cols = st.columns(5)
