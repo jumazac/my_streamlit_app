@@ -170,6 +170,30 @@ df_labels = pd.DataFrame({
 # Display the DataFrame as a table in the second column
 cols[2].table(df_labels)
 
+# Convert the DataFrame to an HTML table
+table_html = df_labels.to_html(index=False)
+
+# Style the HTML table with CSS
+styled_table = f"""
+<style>
+    table {{
+        width: 100%;
+    }}
+    th, td {{
+        text-align: left;
+        padding: 8px;
+        font-size: 20px;  # Adjust font size as needed
+    }}
+    tr:nth-child(even) {{
+        background-color: #f2f2f2;
+    }}
+</style>
+{table_html}
+"""
+
+# Display the table in the second column
+cols[2].markdown(styled_table, unsafe_allow_html=True)
+
 # Create the legend
 legend_cols = st.columns(5)
 
