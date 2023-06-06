@@ -3,21 +3,6 @@ import plotly.graph_objects as go
 import streamlit as st
 
 def create_sunburst_chartQs(df):
-
-# Call the function to get the figure and the legend
-    fig, legend = create_sunburst_chartQs(df)
-
-# Create a container for the sunburst plot and the legend
-    sunburst_container = st.container()
-
-# Add the sunburst plot to the container
-    sunburst_container.plotly_chart(fig)
-
-# Add the legend to the container
-    sunburst_container.markdown(legend, unsafe_allow_html=True)
-
-
-
     # Preprocessing steps
     df = df.copy()
     df.fillna("N/A", inplace=True)
@@ -95,10 +80,11 @@ def create_sunburst_chartQs(df):
     | <div style="width: 20px; height: 20px; background: #0168c8;"></div> | MAYBE |
     | <div style="width: 20px; height: 20px; background: #82c9fe;"></div> | YES |
     """
+    st.markdown(legend, unsafe_allow_html=True)
+
 
 
     return fig, legend
-
 
 
 
