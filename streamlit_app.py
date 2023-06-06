@@ -114,13 +114,6 @@ df_hierarchical['custom_data'] = list(zip(df_hierarchical.percentage, df_hierarc
 
 
 # Create the sunburst chart
-# Define a list of colors
-colors = ["red", "blue", "green", "yellow", "purple", "orange"]
-
-# Repeat the color list to match the length of the DataFrame, and assign it to the 'color' column
-df_hierarchical['color'] = colors * (len(df_hierarchical) // len(colors)) + colors[:len(df_hierarchical) % len(colors)]
-
-# Create the Figure object and add a Sunburst trace
 fig = go.Figure()
 
 fig.add_trace(go.Sunburst(
@@ -130,13 +123,16 @@ fig.add_trace(go.Sunburst(
     values=df_hierarchical['value'],
     branchvalues='total',
     marker=dict(
-        colors=df_hierarchical['color']  # This now uses the new colors
+        colors=df_hierarchical['color']
     ),
     hovertemplate='<b style="font-size: 16px;">%{label} </b> <br> <span style="font-size: 14px;">Count: %{value}<br> Path %{id}<br> percentage: %{customdata[0]:.2f}<br> global_percentage: %{customdata[1]:.2f}</span>',
     customdata=df_hierarchical['custom_data'],  # Here is where you include both 'percentage' and 'global_percentage'
     maxdepth=3,
     insidetextfont=dict(size=20),  # adjust size as needed
-    outsidetextfont=dict(size=20)  # adjust size as needed
+    outsidetextfont=dict(size=20)  # adjust size as neede
+    
+
+    
 ))
 
 
