@@ -164,6 +164,27 @@ legend_cols[4].markdown("<p style='text-align: center;'><div style='width: 20px;
 st.markdown("<br><br><br><br>", unsafe_allow_html=True)
 
 
+# Define the labels and descriptions
+labels = ['LOCATION','Q2','Q1','LIVE_CAMPUS?','USE_SPIN?', 'SEX','YEAR']
+descriptions = [
+    "Description of what 'LOCATION' represents",
+    "Description of what 'Q2' represents",
+    "Description of what 'Q1' represents",
+    "Description of what 'LIVE_CAMPUS?' represents",
+    "Description of what 'USE_SPIN?' represents",
+    "Description of what 'SEX' represents",
+    "Description of what 'YEAR' represents"
+]
+
+# Create a DataFrame
+df_labels = pd.DataFrame({
+    'Label': labels,
+    'Description': descriptions
+})
+
+# Display the DataFrame as a table in Streamlit
+st.table(df_labels)
+
 
 # Define three columns for the other charts
 cols = st.columns([1, 1, 1])  # Adjust the numbers as needed
@@ -185,15 +206,3 @@ cols[2].markdown("Do you use spin?")
 fig = create_sunburst_chartSpin(df)
 fig.update_layout(width=500, height=500)  # Set the width and height of the chart
 cols[2].plotly_chart(fig)
-
-
-# Display your main dataframe
-st.dataframe(df)
-
-# Display a more detailed breakdown of the hierarchy
-breakdown_df = pd.DataFrame(columns=["Column1", "Column2", "Column3"])  # replace with your own data
-st.dataframe(breakdown_df)
-
-
-
-
