@@ -154,7 +154,6 @@ def create_sunburst_chartCampus(df):
     legend_campus = """
 <div style='display: flex; justify-content: center;'>
     <div style='margin-right: 10px;'>
-    
         <div style='width: 20px; height: 20px; background: #ff2a2a;'></div> 
         <p>YES</p>
     </div>
