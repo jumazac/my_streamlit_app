@@ -59,16 +59,19 @@ def create_sunburst_chartQs(df):
 
     # Create sunburst chart
     fig = go.Figure(go.Sunburst(
-        ids=df_sunburst['id'],
-        labels=df_sunburst['labels'], 
-        parents=df_sunburst['parent'],
-        values=df_sunburst['counts'], 
-        hovertext=df_sunburst['hoverinfo'],  # using hoverinfo for hover text
-        branchvalues='total',
-        maxdepth=3,
-        
-    ))
+    ids=df_sunburst['id'],
+    labels=df_sunburst['labels'], 
+    parents=df_sunburst['parent'],
+    values=df_sunburst['counts'], 
+    hovertext=df_sunburst['hoverinfo'],  # using hoverinfo for hover text
+    branchvalues='total',
+    maxdepth=3,
+))
+
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
+
+# Change the font size of hoverinfo
+    fig.update_traces(hoverlabel=dict(font=dict(size=15)))
 
     # Create and display the legend table
 
