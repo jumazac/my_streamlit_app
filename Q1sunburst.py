@@ -152,14 +152,16 @@ def create_sunburst_chartCampus(df):
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
     
     legend_campus = """
-<div style='display: flex; justify-content: flex-start;'>
-    <div style='margin-right: 10px;'>
-        <div style='width: 20px; height: 20px; background: #ff2a2a;'></div> 
-        <p>YES</p>
-    </div>
-    <div>
-        <div style='width: 20px; height: 20px; background: #0168c8;'></div> 
-        <p>NO</p>
+<div style='display: flex; justify-content: center;'>
+    <div style='display: flex; justify-content: space-between; width: 100px;'>
+        <div>
+            <div style='width: 20px; height: 20px; background: #ff2a2a;'></div> 
+            <p>YES</p>
+        </div>
+        <div>
+            <div style='width: 20px; height: 20px; background: #0168c8;'></div> 
+            <p>NO</p>
+        </div>
     </div>
 </div>
 """
