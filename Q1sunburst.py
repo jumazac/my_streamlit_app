@@ -165,7 +165,7 @@ def create_sunburst_chartCampus(df):
 """
 
 
-    return fig
+    return fig, legend_campus
 
 
 
