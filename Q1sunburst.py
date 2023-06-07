@@ -63,15 +63,11 @@ def create_sunburst_chartQs(df):
     labels=df_sunburst['labels'], 
     parents=df_sunburst['parent'],
     values=df_sunburst['counts'], 
-    hovertext=df_sunburst['hoverinfo'],  # using hoverinfo for hover text
+    hovertemplate='<b style="font-size: 16px;">%{label} </b> <br> <span style="font-size: 14px;">Count: %{value}<br> Path %{id}</span>',
     branchvalues='total',
     maxdepth=3,
 ))
-
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
-
-# Change the font size of hoverinfo
-    fig.update_traces(hoverlabel=dict(font=dict(size=30)))
 
     # Create and display the legend table
 
