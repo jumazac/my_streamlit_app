@@ -76,17 +76,6 @@ def create_sunburst_chartQs(df):
 | Color | NO | Color | MAYBE | Color | YES |
 |-------|----|-------|-------|-------|-----|
 | <div style="width: 20px; height: 20px; background: #ff2a2a;"></div> | | <div style="width: 20px; height: 20px; background: #0168c8;"></div> | | <div style="width: 20px; height: 20px; background: #82c9fe;"></div> | |
-"""
-
-
-
-
-    legend = """
-    | Color | Description |
-    |-------|-------------|
-    | <div style="width: 20px; height: 20px; background: #ff2a2a;"></div> | NO |
-    | <div style="width: 20px; height: 20px; background: #0168c8;"></div> | MAYBE |
-    | <div style="width: 20px; height: 20px; background: #82c9fe;"></div> | YES |
     """
     st.markdown(legend, unsafe_allow_html=True)
 
