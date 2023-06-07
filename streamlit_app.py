@@ -276,6 +276,44 @@ fig.update_layout(width=500, height=500)  # Set the width and height of the char
 cols[1].plotly_chart(fig)
 cols[1].markdown(legend_campus, unsafe_allow_html=True)
 
+# Define the labels and descriptions
+labels = ['Question 1','Reason','Quesition 2','Reason']
+descriptions = [
+    "Could your campus mobility be made more efficient? In terms of time, money and energy",
+    "The Why",
+    "Would you be interested in an affordable, easy to use, fully autonomous ebike ride sharing service on campus?",
+    "The Why"]
+
+# Create a DataFrame
+df_table = pd.DataFrame({
+    'Ring': labels,
+    'Descriptions': descriptions
+})
+
+# Display the table
+cols[1].table(df_table)
+
+# Style the HTML table with CSS
+styled_table = f"""
+<style>
+    table, th, td {{
+        border: 0 !important;
+    }}
+    table {{
+        width: 100%;
+    }}
+    th, td {{
+        text-align: left;
+        padding: 8px;
+        font-size: 20px;
+    }}
+    tr:nth-child(even) {{
+        background-color: #f2f2f2;
+    }}
+</style>
+{table_html}
+"""
+
 
 # For create_sunburst_chartSpin chart
 cols[2].markdown("Do you use spin?")
