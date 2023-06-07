@@ -256,7 +256,7 @@ styled_table = f"""
         width: 100%;
     }}
     th, td {{
-        text-align: left;
+        text-align: center;
         padding: 8px;
         font-size: 10px;
     }}
