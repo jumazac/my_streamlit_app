@@ -80,19 +80,17 @@ def create_sunburst_chartQs(df):
     </div>
     <div>
         <div style='width: 20px; height: 20px; background: #0168c8;'></div> 
-        <p>MAYBE</p>
+        <p>YES</p>
     </div>
     <div>
         <div style='width: 20px; height: 20px; background: #82c9fe;'></div> 
-        <p>YES</p>
+        <p>MAYBE</p>
     </div>
 </div>
 """
     
-
-
-
     return fig, legend
+
 
 
 
