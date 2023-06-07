@@ -168,7 +168,7 @@ descriptions = [
 
 # Create a DataFrame
 df_labels = pd.DataFrame({
-    'Level': labels,
+    'Ring': labels,
     'Description': descriptions
 })
 
@@ -239,7 +239,7 @@ descriptions = [
 
 # Create a DataFrame
 df_table = pd.DataFrame({
-    'Labels': labels,
+    'Ring': labels,
     'Descriptions': descriptions
 })
 
