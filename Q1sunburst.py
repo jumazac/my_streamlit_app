@@ -73,10 +73,21 @@ def create_sunburst_chartQs(df):
     # Create and display the legend table
 
     legend = """
-| Color | NO | Color | MAYBE | Color | YES |
-|-------|----|-------|-------|-------|-----|
-| <div style="width: 20px; height: 20px; background: #ff2a2a;"></div> | | <div style="width: 20px; height: 20px; background: #0168c8;"></div> | | <div style="width: 20px; height: 20px; background: #82c9fe;"></div> | |
-    """
+<div style='display: flex; justify-content: space-between;'>
+    <div>
+        <div style='width: 20px; height: 20px; background: #ff2a2a;'></div> 
+        <p>NO</p>
+    </div>
+    <div>
+        <div style='width: 20px; height: 20px; background: #0168c8;'></div> 
+        <p>MAYBE</p>
+    </div>
+    <div>
+        <div style='width: 20px; height: 20px; background: #82c9fe;'></div> 
+        <p>YES</p>
+    </div>
+</div>
+"""
     st.markdown(legend, unsafe_allow_html=True)
 
 
