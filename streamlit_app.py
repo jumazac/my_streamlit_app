@@ -320,3 +320,38 @@ fig.update_layout(width=500, height=500)  # Set the width and height of the char
 cols[2].plotly_chart(fig)
 cols[2].markdown(use_spin, unsafe_allow_html=True)
 
+# Define the labels and descriptions
+labels = ['Do you use Spin?','What do you think of it?']
+descriptions = [
+    "YES or NO",
+    "Reason"]
+
+# Create a DataFrame
+df_table = pd.DataFrame({
+    'Ring': labels,
+    'Descriptions': descriptions
+})
+
+# Display the table
+cols[2].table(df_table)
+
+# Style the HTML table with CSS
+styled_table = f"""
+<style>
+    table, th, td {{
+        border: 0 !important;
+    }}
+    table {{
+        width: 100%;
+    }}
+    th, td {{
+        text-align: left;
+        padding: 8px;
+        font-size: 20px;
+    }}
+    tr:nth-child(even) {{
+        background-color: #f2f2f2;
+    }}
+</style>
+{table_html}
+"""
