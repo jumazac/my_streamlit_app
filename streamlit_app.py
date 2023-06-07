@@ -230,7 +230,7 @@ cols[0].plotly_chart(fig)
 cols[0].markdown(legend, unsafe_allow_html=True)
 
 # Define the labels and descriptions
-labels = ['Question 1','Reason','Quesition 2','Reason']
+Rings = ['Question 1','Reason','Quesition 2','Reason']
 descriptions = [
     "Could your campus mobility be made more efficient? In terms of time, money and energy",
     "The Why",
