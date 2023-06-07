@@ -63,7 +63,8 @@ def create_sunburst_chartQs(df):
     parents=df_sunburst['parent'],
     values=df_sunburst['counts'], 
     customdata=df_sunburst[['local_percent', 'global_percent']],  # add local_percent and global_percent to customdata
-    hovertemplate='<b style="font-size: 18px;">%{label} </b> <br> <span style="font-size: 18px;">Count: %{value}<br> Path %{id}<br> Local: %{customdata[0]:.1f}%<br> Global: %{customdata[1]:.1f}%</span>',  # access customdata in hovertemplate and limit to one decimal point
+    hovertemplate='<b style="font-size: 18px;">%{label} </b> <br> <span style="font-size: 18px;">Count: %{value}<br> Path %{id}<br> Local: %{customdata[0]}%<br> Global: %{customdata[1]}%</span>',  # access customdata in hovertemplate
+    branchvalues='total',
     maxdepth=3,
 ))
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
