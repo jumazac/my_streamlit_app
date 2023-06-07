@@ -77,7 +77,7 @@ def create_sunburst_chartQs(df):
     | Color | Description |
     |-------|-------------|
     | <div style="width: 20px; height: 20px; background: #ff2a2a;"></div> | NO |
-    | <div style="width: 20px; height: 20px; background: #0168c8;"></div> | MAYBE |
+    | <div style="width: 20px; height: 20px; background: #0168c8;"></div> | MAYBE? |
     | <div style="width: 20px; height: 20px; background: #82c9fe;"></div> | YES |
     """
     st.markdown(legend, unsafe_allow_html=True)
