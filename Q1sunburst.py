@@ -71,7 +71,7 @@ def create_sunburst_chartQs(df):
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
 
 # Change the font size of hoverinfo
-    fig.update_traces(hoverlabel=dict(font=dict(size=15)))
+    fig.update_traces(hoverlabel=dict(font=dict(size=30)))
 
     # Create and display the legend table
 
