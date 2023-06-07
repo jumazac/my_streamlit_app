@@ -220,17 +220,15 @@ st.markdown("<br><br><br><br>", unsafe_allow_html=True)
 
 
 
-# Define three columns for the other charts
+# Define four columns instead of three
 cols = st.columns([1, 0.1, 1, 0.1, 1])  # Adjust the numbers as needed
 
+# Add your first sunburst chart
 cols[0].markdown("Question 1 and 2")
 fig, legend = create_sunburst_chartQs(df)  # Here's where you call the function and assign its returns
 fig.update_layout(width=500, height=500)  # Set the width and height of the chart
 cols[0].plotly_chart(fig)
 cols[0].markdown(legend, unsafe_allow_html=True)
-
-cols[1].markdown("<hr style='border:1px solid gray; height:500px; width:1px; display:inline-block;' />", unsafe_allow_html=True)
-
 
 # Define the labels and descriptions
 labels = ['Question 1','Reason','Quesition 2','Reason']
@@ -270,14 +268,15 @@ styled_table = f"""
 {table_html}
 """
 
+# Add a thin vertical line in the second column
+cols[1].markdown("<hr style='border:1px solid gray; height:500px; width:1px; display:inline-block;' />", unsafe_allow_html=True)
 
-
-# For create_sunburst_chartCampus chart
-cols[1].markdown("Living location")
+# Add your second sunburst chart in the third column
+cols[2].markdown("Living location")
 fig, legend_campus = create_sunburst_chartCampus(df)
 fig.update_layout(width=500, height=500)  # Set the width and height of the chart
-cols[1].plotly_chart(fig)
-cols[1].markdown(legend_campus, unsafe_allow_html=True)
+cols[2].plotly_chart(fig)
+cols[2].markdown(legend_campus, unsafe_allow_html=True)
 
 # Define the labels and descriptions
 labels = ['Do you Live on campus?','Where?']
@@ -316,12 +315,14 @@ styled_table = f"""
 """
 
 
-# For create_sunburst_chartSpin chart
-cols[2].markdown("Do you use spin?")
+cols[3].markdown("<hr style='border:1px solid gray; height:500px; width:1px; display:inline-block;' />", unsafe_allow_html=True)
+
+# Add your third sunburst chart in the fifth column
+cols[4].markdown("Do you use spin?")
 fig, use_spin = create_sunburst_chartSpin(df)
 fig.update_layout(width=500, height=500)  # Set the width and height of the chart
-cols[2].plotly_chart(fig)
-cols[2].markdown(use_spin, unsafe_allow_html=True)
+cols[4].plotly_chart(fig)
+cols[4].markdown(use_spin, unsafe_allow_html=True)
 
 # Define the labels and descriptions
 labels = ['Do you use Spin?','What do you think of it?']
