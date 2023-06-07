@@ -271,9 +271,11 @@ styled_table = f"""
 
 # For create_sunburst_chartCampus chart
 cols[1].markdown("Living location")
-fig = create_sunburst_chartCampus(df)
+fig, legend = create_sunburst_chartCampus(df)
 fig.update_layout(width=500, height=500)  # Set the width and height of the chart
 cols[1].plotly_chart(fig)
+cols[1].markdown(legend, unsafe_allow_html=True)
+
 
 # For create_sunburst_chartSpin chart
 cols[2].markdown("Do you use spin?")
