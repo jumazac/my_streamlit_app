@@ -337,7 +337,7 @@ df_table = pd.DataFrame({
 })
 
 # Display the table
-cols[2].table(df_table)
+cols[4].table(df_table)
 
 # Style the HTML table with CSS
 styled_table = f"""
