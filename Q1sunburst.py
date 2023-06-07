@@ -229,5 +229,25 @@ def create_sunburst_chartSpin(df):
     width=500,  # Set the width of the chart
     height=500  # Set the height of the chart
 )
-    
-    return fig
+
+
+
+    use_spin = """
+<div style='display: flex; justify-content: center;'>
+    <div style='display: flex; justify-content: space-between; width: 100px;'>
+        <div>
+            <div style='width: 20px; height: 20px; background: #ff2a2a;'></div> 
+            <p>YES</p>
+        </div>
+        <div>
+            <div style='width: 20px; height: 20px; background: #0168c8;'></div> 
+            <p>NO</p>
+        </div>
+    </div>
+</div>
+"""
+
+
+    return fig, use_spin
+
+  
