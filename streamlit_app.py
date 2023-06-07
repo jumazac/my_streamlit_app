@@ -246,26 +246,7 @@ df_table = pd.DataFrame({
 # Display the table
 cols[0].table(df_table)
 
-# Style the HTML table with CSS
-styled_table = f"""
-<style>
-    table, th, td {{
-        border: 0 !important;
-    }}
-    table {{
-        width: 100%;
-    }}
-    th, td {{
-        text-align: center;
-        padding: 8px;
-        font-size: 10px;
-    }}
-    tr:nth-child(even) {{
-        background-color: #f2f2f2;
-    }}
-</style>
-{table_html}
-"""
+
 
 
 
