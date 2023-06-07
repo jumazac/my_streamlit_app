@@ -232,7 +232,7 @@ cols[0].markdown(legend, unsafe_allow_html=True)
 
 # For create_sunburst_chartCampus chart
 cols[1].markdown("Living location")
-fig, = create_sunburst_chartCampus(df)
+fig = create_sunburst_chartCampus(df)
 fig.update_layout(width=500, height=500)  # Set the width and height of the chart
 cols[1].plotly_chart(fig)
 
