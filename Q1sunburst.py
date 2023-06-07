@@ -236,11 +236,11 @@ def create_sunburst_chartSpin(df):
 <div style='display: flex; justify-content: center;'>
     <div style='display: flex; justify-content: space-between; width: 100px;'>
         <div>
-            <div style='width: 20px; height: 20px; background: #0168c8;'></div> 
+            <div style='width: 20px; height: 20px; background: #82c9fe;'></div> 
             <p>YES</p>
         </div>
         <div>
-            <div style='width: 20px; height: 20px; background: #82c9fe;'></div> 
+            <div style='width: 20px; height: 20px; background: #0168c8;'></div> 
             <p>NO</p>
         </div>
     </div>
