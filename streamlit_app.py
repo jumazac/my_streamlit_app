@@ -225,7 +225,7 @@ cols = st.columns([1, 1, 1])  # Adjust the numbers as needed
 
 cols[0].markdown("Question 1 and 2")
 fig, legend = create_sunburst_chartQs(df)  # Here's where you call the function and assign its returns
-fig.update_layout(width=500, height=500)  # Set the width and height of the chart
+fig.update_layout(width=500, height=300)  # Set the width and height of the chart
 cols[0].plotly_chart(fig)
 cols[0].markdown(legend, unsafe_allow_html=True)
 
