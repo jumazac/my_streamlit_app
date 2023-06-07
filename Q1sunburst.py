@@ -57,13 +57,13 @@ def create_sunburst_chartQs(df):
     df_sunburst['hoverinfo'] = df_sunburst['labels'].astype(str) + '<br>Local: ' + df_sunburst['local_percent'].round(2).astype(str) + '%' + '<br>Global: ' + df_sunburst['global_percent'].round(2).astype(str) + '%'
 
 
-    # Create sunburst chart
     fig = go.Figure(go.Sunburst(
     ids=df_sunburst['id'],
     labels=df_sunburst['labels'], 
     parents=df_sunburst['parent'],
     values=df_sunburst['counts'], 
-    hovertemplate='<b style="font-size: 18px;">%{label} </b> <br> <span style="font-size: 18px;">Count: %{value}<br> Path %{id}</span>',
+    customdata=df_sunburst[['local_percent', 'global_percent']],  # add local_percent and global_percent to customdata
+    hovertemplate='<b style="font-size: 18px;">%{label} </b> <br> <span style="font-size: 18px;">Count: %{value}<br> Path %{id}<br> Local: %{customdata[0]}%<br> Global: %{customdata[1]}%</span>',  # access customdata in hovertemplate
     branchvalues='total',
     maxdepth=3,
 ))
