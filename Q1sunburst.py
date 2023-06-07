@@ -88,7 +88,7 @@ def create_sunburst_chartQs(df):
     </div>
 </div>
 """
-    st.markdown(legend, unsafe_allow_html=True)
+    
 
 
 
