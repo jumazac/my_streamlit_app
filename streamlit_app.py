@@ -258,7 +258,7 @@ styled_table = f"""
     th, td {{
         text-align: left;
         padding: 8px;
-        font-size: 15px;
+        font-size: 10px;
     }}
     tr:nth-child(even) {{
         background-color: #f2f2f2;
