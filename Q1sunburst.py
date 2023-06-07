@@ -162,7 +162,7 @@ def create_sunburst_chartCampus(df):
         <p>Campus category 2</p>
     </div>
     <div>
-        <div style='width: 20px; height: 20px; background: #color3;'></div> 
+        <div style='width: 20px; height: 20px; background: #0168c8;'></div> 
         <p>Campus category 3</p>
     </div>
 </div>
