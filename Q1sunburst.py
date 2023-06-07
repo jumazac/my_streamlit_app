@@ -163,8 +163,6 @@ def create_sunburst_chartCampus(df):
         <div style='width: 20px; height: 20px; background: #0168c8;'></div> 
         <p>YES</p>
     </div>
-    <div>
-</div>
 """
 
 
