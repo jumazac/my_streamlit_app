@@ -32,7 +32,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Add space
-st.markdown("<br><br><br>", unsafe_allow_html=True)
+st.markdown("""
+    <div style="height:800px;"></div>
+""", unsafe_allow_html=True)
 
 # Create a single column layout for the main chart
 col_main = st.columns(1)
