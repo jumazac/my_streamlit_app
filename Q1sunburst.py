@@ -155,15 +155,11 @@ def create_sunburst_chartCampus(df):
 <div style='display: flex; justify-content: space-between;'>
     <div>
         <div style='width: 20px; height: 20px; background: #ff2a2a;'></div> 
-        <p>Campus category 1</p>
+        <p>Category 1</p>
     </div>
     <div>
         <div style='width: 20px; height: 20px; background: #0168c8;'></div> 
-        <p>Campus category 2</p>
-    </div>
-    <div>
-        <div style='width: 20px; height: 20px; background: #0168c8;'></div> 
-        <p>Campus category 3</p>
+        <p>Category 2</p>
     </div>
 </div>
 """
