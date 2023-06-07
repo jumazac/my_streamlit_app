@@ -63,7 +63,7 @@ def create_sunburst_chartQs(df):
     labels=df_sunburst['labels'], 
     parents=df_sunburst['parent'],
     values=df_sunburst['counts'], 
-    hovertemplate='<b style="font-size: 20px;">%{label} </b> <br> <span style="font-size: 20px;">Count: %{value}<br> Path %{id}</span>',
+    hovertemplate='<b style="font-size: 18px;">%{label} </b> <br> <span style="font-size: 18px;">Count: %{value}<br> Path %{id}</span>',
     branchvalues='total',
     maxdepth=3,
 ))
