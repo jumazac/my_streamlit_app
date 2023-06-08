@@ -33,14 +33,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown("<br>"*7, unsafe_allow_html=True)
+st.markdown("<br>"*6, unsafe_allow_html=True)
 
 
 # Define a new set of three columns
 col4, col5, col6 = st.columns(3)
 
 # Write some text in the far right column of the new row
-col6.write("Your text here")
+col6.markdown("<p style='font-size:22px;'>Your text here</p>", unsafe_allow_html=True)
 
 # Add space
 st.markdown("""
