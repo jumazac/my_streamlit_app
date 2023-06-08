@@ -85,7 +85,7 @@ st.markdown("""
 
 
 col6, col7, col8 = st.columns(3)
-col6, col7, col8 = st.columns((1, 2, 1))
+col6, col7, col8 = st.columns((1, 3, 1))
 
 col7.markdown("<p style='font-size:40px;'>What are the numbers at the U?<br><br></p>", unsafe_allow_html=True)
 
