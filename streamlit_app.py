@@ -31,9 +31,13 @@ st.markdown("""
         <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link3'>Why it is imperative</a></h2>
     </div>
 """, unsafe_allow_html=True)
-st.write("What is this about")
 
 
+# Define a new set of three columns
+col4, col5, col6 = st.columns(3)
+
+# Write some text in the far right column of the new row
+col6.write("Your text here")
 
 # Add space
 st.markdown("""
