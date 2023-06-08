@@ -80,7 +80,7 @@ col4.markdown("""
 
 # Add space
 st.markdown("""
-    <div style="height:800px;"></div>
+    <div style="height:500px;"></div>
 """, unsafe_allow_html=True)
 
 
