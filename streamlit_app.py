@@ -63,6 +63,7 @@ col5.markdown("<p style='font-size:35px;'>Primarily, comprehending students' nee
 # Write some text in the first column of the second new row with 6 line breaks after
 col4.markdown("<p style='font-size:40px;'>What do the students need?<br><br></p>", unsafe_allow_html=True)
 col4.markdown("""
+<p style='font-size:35px;'>
 - Simplifies student life 
 - Time Saver: Reduces average travel time, enhancing study, social, and activity time.
 - Affordable & Volume Discount: Priced within student budget with lower prices for increased usage, significantly less than owning a solution.
