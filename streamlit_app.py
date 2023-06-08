@@ -55,7 +55,7 @@ col6.markdown("<p style='font-size:27px;'>Our groundbreaking service, Ubike Go, 
 
 # Write more text in the far right column of the new row
 col6.markdown("<p style='font-size:40px;'>The distinctive edge we provide?<br><br><br><br><br></p>", unsafe_allow_html=True)
-col6.markdown("<p style='font-size:27px;'>Primarily, comprehending students' needs and preferences, and integrating this insight with various engineering fields and their technological applications, enables us to design a bespoke and innovative response. This translates into a high-quality service, offered at an affordable cost, while simultaneously liberating students from the burden of owning traditional assets.")
+col6.markdown("<p style='font-size:27px;'>Primarily, comprehending students' needs and preferences, and integrating this insight with various engineering fields and their technological applications, enables us to design a bespoke and innovative response. This translates into a high-quality service, offered at an affordable cost, while simultaneously liberating students from the burden of owning traditional assets.</p>", unsafe_allow_html=True)
 
 
 # Define a second new set of three columns
