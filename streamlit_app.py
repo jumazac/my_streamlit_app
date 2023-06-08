@@ -37,7 +37,7 @@ st.markdown("<br>"*6, unsafe_allow_html=True)
 
 
 # Line break or space of 7 lines
-st.markdown("<br>"*7, unsafe_allow_html=True)
+st.markdown("<br>"*2, unsafe_allow_html=True)
 
 # Define a new set of three columns
 col4, col5, col6 = st.columns(3)
