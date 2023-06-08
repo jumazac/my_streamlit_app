@@ -61,9 +61,15 @@ col5.markdown("<p style='font-size:35px;'>Primarily, comprehending students' nee
 
 
 # Write some text in the first column of the second new row with 6 line breaks after
-col4.markdown("<p style='font-size:40px;'>What do the students need?<br></p>", unsafe_allow_html=True)
-col4.markdown("<p style='font-size:35px;'>Primarily, comprehending students' needs and preferences, and integrating this insight with various engineering fields and their technological applications, enables us to design a bespoke and innovative response. This translates into a high-quality service, offered at an affordable cost, while simultaneously liberating students from the burden of owning traditional assets.</p>", unsafe_allow_html=True)
-
+col4.markdown("<p style='font-size:40px;'>What do the students need?<br><br></p>", unsafe_allow_html=True)
+col4.markdown("""
+- Simplifies student life 
+- Time Saver: Reduces average travel time, enhancing study, social, and activity time.
+- Affordable & Volume Discount: Priced within student budget with lower prices for increased usage, significantly less than owning a solution.
+- Comfortable & Quick Usage: Customized for user needs with no bike ownership hassles, offering seamless transportation perfect for on-the-go students.
+- Effortless Benefits: Stress-free, easy commuting enhances focus on high-value tasks and potentially improves academic performance.
+- Aligned with Government Objectives: In line with current federal and district commuting goals.
+""", unsafe_allow_html=True)
 
 
 # Add space
