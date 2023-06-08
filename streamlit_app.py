@@ -15,14 +15,15 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-# Define three columns for the header
-header_col1, header_col2, header_col3 = st.columns(3)
+# Define three columns
+col1, col2, col3 = st.columns(3)
+
 
 # Create a header
-header_col2.markdown("<h1 style='text-align: center;'>Ubike GO</h1>", unsafe_allow_html=True)
+st.markdown("# Ubike GO ")
 
 # Create a custom header with links
-header_col2.markdown("""
+st.markdown("""
     <div style="display: flex; justify-content: space-around; background-color: #F63366; padding: 10px;">
         <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link1'>HOME</a></h2>
         <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link1'>Market analysis</a></h2>
@@ -30,15 +31,7 @@ header_col2.markdown("""
         <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link3'>Why it is imperative</a></h2>
     </div>
 """, unsafe_allow_html=True)
-
-# Insert an image beneath the 'HOME' object
-header_col1.image('C:\\Users\\JZ\\Desktop\\AI CONVERTED\\Logo.jpg')
-
-# Define three columns for the text
-text_col1, text_col2, text_col3 = st.columns(3)
-
-# Write some text in the far right column
-text_col3.write("Your text here")
+st.write("What is this about")
 
 
 
