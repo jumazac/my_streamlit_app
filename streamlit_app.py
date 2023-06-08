@@ -80,7 +80,7 @@ col4.markdown("""
 
 # Add space
 st.markdown("""
-    <div style="height:300px;"></div>
+    <div style="height:200px;"></div>
 """, unsafe_allow_html=True)
 
 
@@ -89,6 +89,10 @@ col6, col7, col8 = st.columns((1, 2, 1))
 
 col7.markdown("<p style='font-size:40px;'>What are the numbers at the U?<br><br></p>", unsafe_allow_html=True)
 
+# Add space
+st.markdown("""
+    <div style="height:100px;"></div>
+""", unsafe_allow_html=True)
 
 
 
