@@ -36,14 +36,14 @@ st.markdown("""
 st.markdown("<br>"*6, unsafe_allow_html=True)
 
 
+# Line break or space of 7 lines
+st.markdown("<br>"*7, unsafe_allow_html=True)
+
 # Define a new set of three columns
 col4, col5, col6 = st.columns(3)
 
-# Write some text in the far right column of the new row
-col6.markdown("<p style='font-size:40px;'>What is this about?</p>", unsafe_allow_html=True)
-
-# Line break or space of 6 lines in the far right column
-col6.markdown("<br>"*15, unsafe_allow_html=True)
+# Write some text in the far right column of the new row with 6 line breaks after
+col6.markdown("<p style='font-size:40px;'>What is this about?<br><br><br><br><br><br></p>", unsafe_allow_html=True)
 
 # Write more text in the far right column of the new row
 col6.markdown("<p style='font-size:40px;'>The distinctive edge we provide?</p>", unsafe_allow_html=True)
@@ -51,9 +51,8 @@ col6.markdown("<p style='font-size:40px;'>The distinctive edge we provide?</p>",
 # Define a second new set of three columns
 col7, col8, col9 = st.columns(3)
 
-
-# Write some text in the first column of the second new row
-col7.markdown("<p style='font-size:40px;'>What do the students need?</p>", unsafe_allow_html=True)
+# Write some text in the first column of the second new row with 6 line breaks after
+col7.markdown("<p style='font-size:40px;'>What do the students need?<br><br><br><br><br><br></p>", unsafe_allow_html=True)
 
 
 
