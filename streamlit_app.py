@@ -38,12 +38,9 @@ st.markdown("""
 
 st.markdown("<br>"*6, unsafe_allow_html=True)
 
-c = st.container()
-c.write("This will show first")
-
 
 # Line break or space of 7 lines
-st.markdown("<br>"*7, unsafe_allow_html=True)
+st.markdown("<br>"*4, unsafe_allow_html=True)
 
 # Define a new set of three columns
 col4, col5 = st.columns(2)
