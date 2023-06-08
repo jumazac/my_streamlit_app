@@ -19,7 +19,7 @@ st.set_page_config(layout="wide")
 header_col1, header_col2, header_col3 = st.columns(3)
 
 # Create a header
-header_col2.markdown("# Ubike GO ", align="center")
+header_col2.markdown("<h1 style='text-align: center;'>Ubike GO</h1>", unsafe_allow_html=True)
 
 # Create a custom header with links
 header_col2.markdown("""
