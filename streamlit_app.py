@@ -51,6 +51,9 @@ col6.markdown("<p style='font-size:40px;'>The distinctive edge we provide?</p>",
 # Define a second new set of three columns
 col7, col8, col9 = st.columns(3)
 
+col6.markdown("<br>"*6, unsafe_allow_html=True)
+
+
 # Write some text in the first column of the second new row
 col7.markdown("<p style='font-size:40px;'>What do the students need?</p>", unsafe_allow_html=True)
 
