@@ -32,7 +32,8 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-col1.image('C:\\Users\JZ\Desktop\AI_CONVERTED\Logo.png')
+col2.subheader("Your Subtitle Here")
+
 
 # Add space
 st.markdown("""
