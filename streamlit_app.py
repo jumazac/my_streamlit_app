@@ -64,7 +64,7 @@ col5.markdown("<p style='font-size:35px;'>Primarily, comprehending students' nee
 col4.markdown("<p style='font-size:40px;'>What do the students need?<br><br></p>", unsafe_allow_html=True)
 col4.markdown("""
 <p style='font-size:35px;'>
-- Simplifies student life 
+- Simplifies student life <br>
 - Time Saver: Reduces average travel time, enhancing study, social, and activity time.
 - Affordable & Volume Discount: Priced within student budget with lower prices for increased usage, significantly less than owning a solution.
 - Comfortable & Quick Usage: Customized for user needs with no bike ownership hassles, offering seamless transportation perfect for on-the-go students.
