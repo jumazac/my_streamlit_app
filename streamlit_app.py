@@ -33,6 +33,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+st.markdown("<br>"*7, unsafe_allow_html=True)
+
+
 # Define a new set of three columns
 col4, col5, col6 = st.columns(3)
 
