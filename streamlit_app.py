@@ -65,10 +65,10 @@ col4.markdown("<p style='font-size:40px;'>What do the students need?<br><br></p>
 col4.markdown("""
 <p style='font-size:35px;'>
 - Simplifies student life <br>
-- Time Saver: Reduces average travel time, enhancing study, social, and activity time.
-- Affordable & Volume Discount: Priced within student budget with lower prices for increased usage, significantly less than owning a solution.
-- Comfortable & Quick Usage: Customized for user needs with no bike ownership hassles, offering seamless transportation perfect for on-the-go students.
-- Effortless Benefits: Stress-free, easy commuting enhances focus on high-value tasks and potentially improves academic performance.
+- Time Saver: Reduces average travel time, enhancing study, social, and activity time.<br>
+- Affordable & Volume Discount: Priced within student budget with lower prices for increased usage, significantly less than owning a solution.<br>
+- Comfortable & Quick Usage: Customized for user needs with no bike ownership hassles, offering seamless transportation perfect for on-the-go students.<br>
+- Effortless Benefits: Stress-free, easy commuting enhances focus on high-value tasks and potentially improves academic performance.<br>
 - Aligned with Government Objectives: In line with current federal and district commuting goals.
 """, unsafe_allow_html=True)
 
