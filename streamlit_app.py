@@ -52,7 +52,7 @@ col6.markdown("<p style='font-size:40px;'>The distinctive edge we provide?<br><b
 col7, col8, col9 = st.columns(3)
 
 # Write some text in the first column of the second new row with 6 line breaks after
-col7.markdown("<p style='font-size:40px;'>What do the students need?<br><br><br><br><br><br></p>", unsafe_allow_html=True)
+col7.markdown("<p style='font-size:40px;'>What do the students need?<br></p>", unsafe_allow_html=True)
 
 
 
