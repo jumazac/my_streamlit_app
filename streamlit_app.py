@@ -32,7 +32,7 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-col1.image('C:\\Users\\JZ\\Desktop\\AI CONVERTED\\Logo.png')
+col1.image('C:\\Users\JZ\Desktop\AI CONVERTED\Logo.png')
 
 # Add space
 st.markdown("""
