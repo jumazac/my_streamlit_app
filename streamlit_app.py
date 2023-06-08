@@ -12,6 +12,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 
+
 st.set_page_config(layout="wide")
 
 # Define three columns
@@ -31,10 +32,41 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
+col1.image('C:\\Users\\JZ\\Desktop\\AI CONVERTED\\Logo.jpg')
+
 # Add space
 st.markdown("""
     <div style="height:800px;"></div>
 """, unsafe_allow_html=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Create a single column layout for the main chart
 col_main = st.columns(1)
