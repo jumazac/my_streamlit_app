@@ -31,10 +31,8 @@ st.markdown("""
         <h2 style="color: white; margin: 0;"><a style="color: white; text-decoration: none;" href='https://example.com/link3'>Why it is imperative</a></h2>
     </div>
 """, unsafe_allow_html=True)
-st.write("")
+st.write("Your text here")
 
-
-col2.subheader("Your Subtitle Here")
 
 
 # Add space
