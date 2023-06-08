@@ -43,7 +43,7 @@ col4, col5, col6 = st.columns(3)
 col6.markdown("<p style='font-size:40px;'>What is this about?</p>", unsafe_allow_html=True)
 
 # Line break or space of 6 lines in the far right column
-col6.markdown("<br>"*12, unsafe_allow_html=True)
+col6.markdown("<br>"*15, unsafe_allow_html=True)
 
 # Write more text in the far right column of the new row
 col6.markdown("<p style='font-size:40px;'>The distinctive edge we provide?</p>", unsafe_allow_html=True)
