@@ -49,6 +49,7 @@ col4, col5 = st.columns(2)
 col5.markdown("<p style='font-size:40px;'>What is this about?<br><br></p>", unsafe_allow_html=True)
 col5.markdown("<p style='font-size:35px;'>Our groundbreaking service, Ubike Go, streamlines the campus life for university students, Specifically designed to meet students' needs, it offers an efficient solution for those striving to meet their academic and extracurricular commitments promptly. With Ubike Go, students can reach their destination within minutes, maintaining their independence, while eliminating the hassle, cost, and fatigue of daily commutes. This service ensures minimal effort on their part and promotes an enhanced quality of life.</p>", unsafe_allow_html=True)
 
+
 col5.markdown("<br><br><br>", unsafe_allow_html=True)
 
 
@@ -72,6 +73,8 @@ col4.markdown("""
 - Effortless Benefits: Stress-free, easy commuting enhances focus on high-value tasks and potentially improves academic performance.<br>
 <br>
 - Aligned with Government Objectives: In line with current federal and district commuting goals.
+</p>
+<div style="border-right:3px solid gray;height:100%"></div>
 """, unsafe_allow_html=True)
 
 
