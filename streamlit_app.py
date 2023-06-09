@@ -36,7 +36,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown("<br>"*6, unsafe_allow_html=True)
+st.markdown("<br>"*2, unsafe_allow_html=True)
 
 
 # Line break or space of 7 lines
