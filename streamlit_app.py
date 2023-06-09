@@ -56,7 +56,7 @@ col5.markdown("<p style='font-size:40px;'>The distinctive edge we provide?<br><b
 col5.markdown("<p style='font-size:35px;'>Primarily, comprehending students' needs and preferences, and integrating this insight with various engineering fields and their technological applications, enables us to design a bespoke and innovative response. This translates into a high-quality service, offered at an affordable cost, while simultaneously liberating students from the burden of owning traditional assets.</p>", unsafe_allow_html=True)
 
 # Draw a vertical line by using a column with a small width and a tall, thin html div
-line_col.markdown("<div style='height: 600px; border-left: 2px solid gray'></div>", unsafe_allow_html=True)
+line_col.markdown("<div style='height: 900px; border-left: 2px solid gray'></div>", unsafe_allow_html=True)
 
 # Write some text in the first column of the second new row with 6 line breaks after
 col4.markdown("<p style='font-size:40px;'>What do the students need?<br><br></p>", unsafe_allow_html=True)
