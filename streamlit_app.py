@@ -40,7 +40,6 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 
 # Line break or space of 7 lines
 st.markdown("<br>"*4, unsafe_allow_html=True)
-st.header("HOME")
 
 st.header("HOME")
 
