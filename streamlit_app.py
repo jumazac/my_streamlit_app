@@ -421,3 +421,5 @@ styled_table = f"""
 </style>
 {table_html}
 """
+
+st.header("MAP")
