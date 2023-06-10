@@ -439,5 +439,5 @@ styled_table = f"""
 # Create the "MAP" section
 st.markdown("<h1 id='map'>MAP</h1>", unsafe_allow_html=True)
 
-# Create the "MAP" section
-st.markdown("<h1 id='map'>MAP</h1>", unsafe_allow_html=True)
+# Create the "Why it is imperative" section
+st.markdown("<h1 id='why-it-is-imperative'>Why it is imperative</h1>", unsafe_allow_html=True)
