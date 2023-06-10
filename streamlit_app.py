@@ -444,7 +444,7 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 st.markdown("<h1 id='map'>MAP</h1>", unsafe_allow_html=True)
 
 
-st.image("https://i.imgur.com/PSrs3vF.png", width=800)
+st.image("https://i.imgur.com/PSrs3vF.png", width=1000)
 
 # Create the "Why it is imperative" section
 st.markdown("<h1 id='why-it-is-imperative'>Why it is imperative</h1>", unsafe_allow_html=True)
