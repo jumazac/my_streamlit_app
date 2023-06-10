@@ -15,8 +15,6 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-st.markdown("![LOGO](https://i.imgur.com/DBZxXXg.png)")
-
 
 # Define three columns
 col1, col2, col3 = st.columns(3)
