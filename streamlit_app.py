@@ -26,6 +26,8 @@ st.markdown("# Ubike GO ")
 # Create markdown links to the "HOME" and "Section 2" sections
 st.markdown("[HOME](#home)")
 st.markdown("[Section 2](#section-2)")
+st.markdown("[MAP](#map)")
+st.markdown("[Why it is imperative](#why-it-is-imperative)")
 
 
 # Create a custom header with links
@@ -434,4 +436,8 @@ styled_table = f"""
 {table_html}
 """
 
-st.header("MAP")
+# Create the "MAP" section
+st.markdown("<h1 id='map'>MAP</h1>", unsafe_allow_html=True)
+
+# Create the "MAP" section
+st.markdown("<h1 id='map'>MAP</h1>", unsafe_allow_html=True)
