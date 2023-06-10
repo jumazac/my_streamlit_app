@@ -103,6 +103,10 @@ st.markdown("""
 
 st.header("Market")
 
+# Create the "Section 2" section
+st.markdown("<h1 id='section-2'>Section 2</h1>", unsafe_allow_html=True)
+
+
 # Create a single column layout for the main chart
 col_main = st.columns(1)
 
