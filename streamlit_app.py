@@ -23,7 +23,6 @@ col1, col2, col3 = st.columns(3)
 # Create a header
 st.markdown("# Ubike GO ")
 
-st.markdown("[HOME](#home)")
 
 # Create a custom header with links
 st.markdown("""
