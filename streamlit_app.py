@@ -436,6 +436,8 @@ styled_table = f"""
 {table_html}
 """
 
+st.markdown("<br>"*2, unsafe_allow_html=True)
+
 # Create the "MAP" section
 st.markdown("<h1 id='map'>MAP</h1>", unsafe_allow_html=True)
 
