@@ -41,7 +41,7 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 # Line break or space of 7 lines
 st.markdown("<br>"*4, unsafe_allow_html=True)
 
-st.header("HOME")
+st.markdown("<h2 id='home' style='display: none;'>HOME</h2>", unsafe_allow_html=True)
 
 # Define a new set of three columns
 col4, line_col, col5 = st.columns([5, 0.2, 5])  # using a ratio to make the middle column thinner
