@@ -23,6 +23,10 @@ col1, col2, col3 = st.columns(3)
 # Create a header
 st.markdown("# Ubike GO ")
 
+# Create markdown links to the "HOME" and "Section 2" sections
+st.markdown("[HOME](#home)")
+st.markdown("[Section 2](#section-2)")
+
 
 # Create a custom header with links
 st.markdown("""
@@ -42,6 +46,9 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 st.markdown("<br>"*4, unsafe_allow_html=True)
 
 st.markdown("<h2 id='home' style='display: none;'>HOME</h2>", unsafe_allow_html=True)
+
+# Create the "HOME" section
+st.markdown("<h1 id='home'>HOME</h1>", unsafe_allow_html=True)
 
 # Define a new set of three columns
 col4, line_col, col5 = st.columns([5, 0.2, 5])  # using a ratio to make the middle column thinner
