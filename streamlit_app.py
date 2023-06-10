@@ -23,6 +23,8 @@ col1, col2, col3 = st.columns(3)
 # Create a header
 st.markdown("# Ubike GO ")
 
+st.markdown("[HOME](#home)")
+
 # Create a custom header with links
 st.markdown("""
     <div style="display: flex; justify-content: space-around; background-color: #F63366; padding: 10px;">
@@ -39,6 +41,7 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 
 # Line break or space of 7 lines
 st.markdown("<br>"*4, unsafe_allow_html=True)
+st.header("HOME")
 
 st.header("HOME")
 
