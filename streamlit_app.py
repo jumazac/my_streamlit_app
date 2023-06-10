@@ -42,6 +42,8 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 # Line break or space of 7 lines
 st.markdown("<br>"*4, unsafe_allow_html=True)
 
+st.header("HOME")
+
 # Define a new set of three columns
 col4, line_col, col5 = st.columns([5, 0.2, 5])  # using a ratio to make the middle column thinner
 
@@ -62,7 +64,7 @@ line_col.markdown("<div style='height: 900px; border-left: 2px solid gray'></div
 col4.markdown("<p style='font-size:40px;'>What do the students need?<br><br></p>", unsafe_allow_html=True)
 col4.markdown("""
 <p style='font-size:35px;'>
-- Simplifies student life <br>
+- Simplification of student life <br>
 <br>
 - Time Saver: Reduces average travel time, enhancing study, social, and activity time.<br>
 <br>
@@ -93,29 +95,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+st.header("Market analysis")
 
 # Create a single column layout for the main chart
 col_main = st.columns(1)
