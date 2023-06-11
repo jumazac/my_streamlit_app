@@ -22,7 +22,7 @@ col1, col2 = st.columns(2)
 col1.markdown("![LOGO](https://i.imgur.com/DBZxXXg.png)")
 
 # Place the header in the second column
-col2.markdown("<center># Ubike GO</center>")
+col2.markdown("Ubike GO")
 
 # Create markdown links to the "HOME" and "Section 2" sections
 st.markdown("[HOME](#home)")
