@@ -15,6 +15,8 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+st.markdown("![LOGO](https://i.imgur.com/DBZxXXg.png)")
+
 
 # Define three columns
 col1, col2, col3 = st.columns(3)
@@ -442,7 +444,7 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 st.markdown("<h1 id='map'>MAP</h1>", unsafe_allow_html=True)
 
 
-st.image("https://i.imgur.com/PSrs3vF.png", use_column_width=True)
+st.image("https://i.imgur.com/PSrs3vF.png", width=800)
 
 # Create the "Why it is imperative" section
 st.markdown("<h1 id='why-it-is-imperative'>Why it is imperative</h1>", unsafe_allow_html=True)
