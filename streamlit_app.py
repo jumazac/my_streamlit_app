@@ -352,7 +352,7 @@ cols[1].markdown("<hr style='border:1px solid gray; height:500px; width:1px; dis
 # Add your second sunburst chart in the third column
 cols[2].markdown("Living location")
 fig, legend_campus = create_sunburst_chartCampus(df)
-fig.update_layout(width=500, height=500)  # Set the width and height of the chart
+fig.update_layout(width=300, height=300)  # Set the width and height of the chart
 cols[2].plotly_chart(fig)
 cols[2].markdown(legend_campus, unsafe_allow_html=True)
 
@@ -398,7 +398,7 @@ cols[3].markdown("<hr style='border:1px solid gray; height:500px; width:1px; dis
 # Add your third sunburst chart in the fifth column
 cols[4].markdown("Do you use spin?")
 fig, use_spin = create_sunburst_chartSpin(df)
-fig.update_layout(width=500, height=500)  # Set the width and height of the chart
+fig.update_layout(width=300, height=300)  # Set the width and height of the chart
 cols[4].plotly_chart(fig)
 cols[4].markdown(use_spin, unsafe_allow_html=True)
 
