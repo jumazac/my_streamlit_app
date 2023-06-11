@@ -217,7 +217,7 @@ fig.update_layout(
 
 fig.update_layout(
     title_text="Main Sunburst",
-    title_font=dict(size=30),  # Adjust the size as needed
+    title_font=dict(size=23),  # Adjust the size as needed
 )
 
 
