@@ -207,14 +207,12 @@ fig.add_trace(go.Sunburst(
     outsidetextfont=dict(size=20)  # adjust size as needed
 ))
 
-# You can adjust the width and height values as per your needs
-fig.update_layout(height=800, width=800)  # Example values
 
 
 fig.update_layout(
     title_text="Main chart",    
-    width=800,  # Set the width of the chart
-    height=800  # Set the height of the chart
+    width=600,  # Set the width of the chart
+    height=600  # Set the height of the chart
 )
 
 fig.update_layout(
