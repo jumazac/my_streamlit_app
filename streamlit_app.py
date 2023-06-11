@@ -58,22 +58,22 @@ st.markdown("<h1 id='home'>HOME</h1>", unsafe_allow_html=True)
 col4, line_col, col5 = st.columns([5, 0.2, 5])  # using a ratio to make the middle column thinner
 
 # Write some text in the far right column of the new row with 6 line breaks after
-col5.markdown("<p style='font-size:20px;'>What is this about?<br><br></p>", unsafe_allow_html=True)
-col5.markdown("<p style='font-size:15px;'>Our groundbreaking service, Ubike Go, streamlines the campus life for university students, Specifically designed to meet students' needs, it offers an efficient solution for those striving to meet their academic and extracurricular commitments promptly. With Ubike Go, students can reach their destination within minutes, maintaining their independence, while eliminating the hassle, cost, and fatigue of daily commutes. This service ensures minimal effort on their part and promotes an enhanced quality of life.</p>", unsafe_allow_html=True)
+col5.markdown("<p style='font-size:25px;'>What is this about?<br><br></p>", unsafe_allow_html=True)
+col5.markdown("<p style='font-size:20px;'>Our groundbreaking service, Ubike Go, streamlines the campus life for university students, Specifically designed to meet students' needs, it offers an efficient solution for those striving to meet their academic and extracurricular commitments promptly. With Ubike Go, students can reach their destination within minutes, maintaining their independence, while eliminating the hassle, cost, and fatigue of daily commutes. This service ensures minimal effort on their part and promotes an enhanced quality of life.</p>", unsafe_allow_html=True)
 
 col5.markdown("<br><br><br>", unsafe_allow_html=True)
 
 # Write more text in the far right column of the new row
-col5.markdown("<p style='font-size:40px;'>The distinctive edge we provide?<br><br></p>", unsafe_allow_html=True)
-col5.markdown("<p style='font-size:35px;'>Primarily, comprehending students' needs and preferences, and integrating this insight with various engineering fields and their technological applications, enables us to design a bespoke and innovative response. This translates into a high-quality service, offered at an affordable cost, while simultaneously liberating students from the burden of owning traditional assets.</p>", unsafe_allow_html=True)
+col5.markdown("<p style='font-size:25px;'>The distinctive edge we provide?<br><br></p>", unsafe_allow_html=True)
+col5.markdown("<p style='font-size:20px;'>Primarily, comprehending students' needs and preferences, and integrating this insight with various engineering fields and their technological applications, enables us to design a bespoke and innovative response. This translates into a high-quality service, offered at an affordable cost, while simultaneously liberating students from the burden of owning traditional assets.</p>", unsafe_allow_html=True)
 
 # Draw a vertical line by using a column with a small width and a tall, thin html div
 line_col.markdown("<div style='height: 900px; border-left: 2px solid gray'></div>", unsafe_allow_html=True)
 
 # Write some text in the first column of the second new row with 6 line breaks after
-col4.markdown("<p style='font-size:40px;'>What do the students need?<br><br></p>", unsafe_allow_html=True)
+col4.markdown("<p style='font-size:25px;'>What do the students need?<br><br></p>", unsafe_allow_html=True)
 col4.markdown("""
-<p style='font-size:35px;'>
+<p style='font-size:20px;'>
 - Simplification of student life <br>
 <br>
 - Time Saver: Reduces average travel time, enhancing study, social, and activity time.<br>
