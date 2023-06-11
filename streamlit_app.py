@@ -15,8 +15,6 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-with st.expander("Open to see more"):
-    st.write("This is more content")
 
 # Define two columns
 col1, col2 = st.columns(2)
@@ -25,7 +23,7 @@ col1, col2 = st.columns(2)
 col1.markdown("![LOGO](https://i.imgur.com/DBZxXXg.png)")
 
 # Place the header in the second column
-col2.markdown("Ubike GO")
+col2.markdown("<h1 style='text-align: center; color: black;'>Ubike GO</h1>", unsafe_allow_html=True)
 
 # Create markdown links to the "HOME" and "Section 2" sections
 st.markdown("[HOME](#home)")
@@ -98,7 +96,7 @@ st.markdown("""
 col6, col7, col8 = st.columns(3)
 col6, col7, col8 = st.columns((1, 3, 1))
 
-col7.markdown("<p style='font-size:40px;'>What are the numbers at the U?<br><br></p>", unsafe_allow_html=True)
+col7.markdown("<p style='font-size:23px;'>What are the numbers at the U?<br><br></p>", unsafe_allow_html=True)
 
 # Add space
 st.markdown("""
