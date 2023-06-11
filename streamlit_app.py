@@ -51,7 +51,7 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 st.markdown("<h2 id='home' style='display: none;'>HOME</h2>", unsafe_allow_html=True)
 
 # Create the "HOME" section
-st.markdown("<h1 id='home'>HOME</h1>", unsafe_allow_html=True)
+st.markdown("<h1 id='home'>HOME</h4>", unsafe_allow_html=True)
 
 # Define a new set of three columns
 col4, line_col, col5 = st.columns([5, 0.2, 5])  # using a ratio to make the middle column thinner
@@ -104,10 +104,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.header("Market")
-
 # Create the "Section 2" section
-st.markdown("<h1 id='market-analysis'>Market analysis</h1>", unsafe_allow_html=True)
+st.markdown("<h1 id='market-analysis'>Market analysis</h4>", unsafe_allow_html=True)
 
 
 # Create a single column layout for the main chart
