@@ -71,9 +71,9 @@ col5.markdown("<p style='font-size:17px;'>Primarily, comprehending students' nee
 line_col.markdown("<div style='height: 900px; border-left: 2px solid gray'></div>", unsafe_allow_html=True)
 
 # Write some text in the first column of the second new row with 6 line breaks after
-col4.markdown("<p style='font-size:25px;'>What do the students need?<br><br></p>", unsafe_allow_html=True)
+col4.markdown("<p style='font-size:23px;'>What do the students need?<br><br></p>", unsafe_allow_html=True)
 col4.markdown("""
-<p style='font-size:18px;'>
+<p style='font-size:17px;'>
 - Simplification of student life <br>
 <br>
 - Time Saver: Reduces average travel time, enhancing study, social, and activity time.<br>
