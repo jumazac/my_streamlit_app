@@ -64,7 +64,7 @@ col5.markdown("<p style='font-size:20px;'>Our groundbreaking service, Ubike Go, 
 col5.markdown("<br><br>", unsafe_allow_html=True)
 
 # Write more text in the far right column of the new row
-col5.markdown("<p style='font-size:25px;'>The distinctive edge we provide?<br><br></p>", unsafe_allow_html=True)
+col5.markdown("<p style='font-size:25px;'>The distinctive edge we provide?<br></p>", unsafe_allow_html=True)
 col5.markdown("<p style='font-size:20px;'>Primarily, comprehending students' needs and preferences, and integrating this insight with various engineering fields and their technological applications, enables us to design a bespoke and innovative response. This translates into a high-quality service, offered at an affordable cost, while simultaneously liberating students from the burden of owning traditional assets.</p>", unsafe_allow_html=True)
 
 # Draw a vertical line by using a column with a small width and a tall, thin html div
