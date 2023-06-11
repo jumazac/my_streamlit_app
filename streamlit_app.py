@@ -441,10 +441,10 @@ styled_table = f"""
 st.markdown("<br>"*2, unsafe_allow_html=True)
 
 # Create the "MAP" section
-st.markdown("<h1 id='map'>MAP</h1>", unsafe_allow_html=True)
+st.markdown("<h4 id='map'>MAP</h1>", unsafe_allow_html=True)
 
 
-st.image("https://i.imgur.com/PSrs3vF.png", width=800)
+st.image("https://i.imgur.com/PSrs3vF.png", width=600)
 
 # Create the "Why it is imperative" section
-st.markdown("<h1 id='why-it-is-imperative'>Why it is imperative</h1>", unsafe_allow_html=True)
+st.markdown("<h4 id='why-it-is-imperative'>Why it is imperative</h1>", unsafe_allow_html=True)
