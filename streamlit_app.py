@@ -277,7 +277,7 @@ styled_table = f"""
 # Display the table in the second column
 cols[2].markdown(styled_table, unsafe_allow_html=True)
 
-legend_height = 400  # The height of your sunburst chart in pixels
+legend_height = 450  # The height of your sunburst chart in pixels
 num_legend_items = 5  # The number of legend items
 
 # Set the height of the container to be the same as the chart
