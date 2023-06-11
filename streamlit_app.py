@@ -89,7 +89,7 @@ col4.markdown("""
 
 # Add space
 st.markdown("""
-    <div style="height:200px;"></div>
+    <div style="height:190px;"></div>
 """, unsafe_allow_html=True)
 
 
@@ -442,6 +442,7 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 
 # Create the "MAP" section
 st.markdown("<h4 id='map'>MAP</h1>", unsafe_allow_html=True)
+col9, col10, col11 = st.columns((1, 2, 1))
 
 
 st.image("https://i.imgur.com/PSrs3vF.png", width=600)
