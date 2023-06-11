@@ -15,6 +15,9 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+with st.expander("Open to see more"):
+    st.write("This is more content")
+
 # Define two columns
 col1, col2 = st.columns(2)
 
@@ -213,7 +216,7 @@ fig.add_trace(go.Sunburst(
 
 
 fig.update_layout(
-    title_text="Main chart",
+    title_text="Main chart",    
     width=800,  # Set the width of the chart
     height=800  # Set the height of the chart
 )
