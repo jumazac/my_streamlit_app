@@ -226,8 +226,8 @@ cols = st.columns([1,3,2])
 
 fig.update_layout(
     autosize=False,
-    width=500,  # Modify these values as per your needs
-    height=500,
+    width=300,  # Modify these values as per your needs
+    height=300,
 )
 
 cols[1].plotly_chart(fig)
