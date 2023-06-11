@@ -96,7 +96,7 @@ st.markdown("""
 col6, col7, col8 = st.columns(3)
 col6, col7, col8 = st.columns((1.3, 1.2, 1))
 
-col7.markdown("<p style='font-size:19px;'>What are the numbers at the U?<br><br></p>", unsafe_allow_html=True)
+col7.markdown("<p style='font-size:23px;'>What are the numbers at the U?<br><br></p>", unsafe_allow_html=True)
 
 # Add space
 st.markdown("""
@@ -105,7 +105,7 @@ st.markdown("""
 
 
 # Create the "Section 2" section
-st.markdown("<h4 id='market-analysis'>Market analysis</h1>", unsafe_allow_html=True)
+st.markdown("<h3 id='market-analysis'>Market analysis</h1>", unsafe_allow_html=True)
 
 
 # Create a single column layout for the main chart
