@@ -51,7 +51,7 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 st.markdown("<h2 id='home' style='display: none;'>HOME</h2>", unsafe_allow_html=True)
 
 # Create the "HOME" section
-st.markdown("<h1 id='home'>HOME</h4>", unsafe_allow_html=True)
+st.markdown("<h4 id='home'>HOME</h1>", unsafe_allow_html=True)
 
 # Define a new set of three columns
 col4, line_col, col5 = st.columns([5, 0.2, 5])  # using a ratio to make the middle column thinner
@@ -204,11 +204,14 @@ fig.add_trace(go.Sunburst(
     customdata=df_hierarchical['custom_data'],  # Here is where you include both 'percentage' and 'global_percentage'
     maxdepth=3,
     insidetextfont=dict(size=20),  # adjust size as needed
-    outsidetextfont=dict(size=20)  # adjust size as neede
+    outsidetextfont=dict(size=20)  # adjust size as needed
     
-
+    
     
 ))
+
+# You can adjust the width and height values as per your needs
+fig.update_layout(height=600, width=600)  # Example values
 
 
 fig.update_layout(
