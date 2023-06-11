@@ -205,13 +205,10 @@ fig.add_trace(go.Sunburst(
     maxdepth=3,
     insidetextfont=dict(size=20),  # adjust size as needed
     outsidetextfont=dict(size=20)  # adjust size as needed
-    
-    
-    
 ))
 
 # You can adjust the width and height values as per your needs
-fig.update_layout(height=600, width=600)  # Example values
+fig.update_layout(height=800, width=800)  # Example values
 
 
 fig.update_layout(
