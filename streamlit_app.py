@@ -455,3 +455,27 @@ with col2:
 
 st.markdown("<h2 id='why-it-is-imperative'>Why it is imperative</h2>", unsafe_allow_html=True)
 
+
+fig = go.Figure(go.Scatterternary({
+    'mode': 'markers',
+    'a': [1, 2, 3],
+    'b': [2, 3, 1],
+    'c': [3, 1, 2],
+    'marker': {
+        'color': 'green',
+        'size': 14,
+        'line': { 'width': 2 }
+    }
+}))
+
+fig.update_layout({
+    'ternary': {
+        'sum': 1,
+        'aaxis_title': 'A',
+        'baxis_title': 'B',
+        'caxis_title': 'C'
+    },
+    'showlegend': False
+})
+
+fig.show()
