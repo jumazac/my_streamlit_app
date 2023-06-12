@@ -25,12 +25,16 @@ col1.markdown("![LOGO](https://i.imgur.com/DBZxXXg.png)")
 # Place the header in the second column
 col2.markdown("<h1 style='text-align: center; color: black;'>Ubike GO</h1>", unsafe_allow_html=True)
 
-# Create markdown links to the "HOME" and "Section 2" sections
-st.markdown("[HOME](#home)")
-st.markdown("[Market analysis](#market-analysis)")
-st.markdown("[MAP](#map)")
-st.markdown("[Why it is imperative](#why-it-is-imperative)")
-
+st.markdown("""
+    <table>
+        <tr>
+            <td style="text-align:center"><a href="#home">HOME</a></td>
+            <td style="text-align:center"><a href="#market-analysis">Market analysis</a></td>
+            <td style="text-align:center"><a href="#map">MAP</a></td>
+            <td style="text-align:center"><a href="#why-it-is-imperative">Why it is imperative</a></td>
+        </tr>
+    </table>
+""", unsafe_allow_html=True)
 
 st.markdown("""
     <div style="display: flex; justify-content: space-around; background-color: #F63366; padding: 10px;">
@@ -447,5 +451,5 @@ col1, col2, col3 = st.columns((2, 1, 2))
 with col2:
     st.image("https://i.imgur.com/PSrs3vF.png", width=600)
 
-# Create the "Why it is imperative" section
-st.markdown("<h4 id='why-it-is-imperative'>Why it is imperative</h1>", unsafe_allow_html=True)
+st.markdown("<h4 id='why-it-is-imperative'>Why it is imperative</h4>", unsafe_allow_html=True)
+
