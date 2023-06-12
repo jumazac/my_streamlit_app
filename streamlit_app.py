@@ -442,10 +442,10 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 
 # Create the "MAP" section
 st.markdown("<h4 id='map'>MAP</h1>", unsafe_allow_html=True)
-col9, col10, col11 = st.columns((1, 2, 1))
 
-
-st.image("https://i.imgur.com/PSrs3vF.png", width=600)
+col1, col2, col3 = st.columns(3)
+with col2:
+    st.image("https://i.imgur.com/PSrs3vF.png", width=600)
 
 # Create the "Why it is imperative" section
 st.markdown("<h4 id='why-it-is-imperative'>Why it is imperative</h1>", unsafe_allow_html=True)
