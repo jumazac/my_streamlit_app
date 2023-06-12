@@ -6,6 +6,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+
 
 
 
@@ -457,26 +459,15 @@ st.markdown("<h2 id='why-it-is-imperative'>Why it is imperative</h2>", unsafe_al
 
 
 
-fig = go.Figure(go.Scatterternary({
-    'mode': 'markers',
-    'a': [1],  # 'Money Spent'
-    'b': [2],  # 'Time'
-    'c': [3],  # 'Academic Performance'
-    'marker': {
-        'color': ['green', 'blue', 'red'],
-        'size': 14,
-        'line': { 'width': 2 }
-    }
-}))
 
-fig.update_layout({
-    'ternary': {
-        'sum': 1,
-        'aaxis_title': 'Money Spent',
-        'baxis_title': 'Time',
-        'caxis_title': 'Academic Performance'
-    },
-    'showlegend': False
-})
+# Define the hierarchy levels and corresponding values
+levels = ['Physiological', 'Safety', 'Love/Belonging', 'Esteem', 'Self-Actualization']
+values = [5, 4, 3, 2, 1]  # these are arbitrary values
 
-st.plotly_chart(fig)
+# Create the bar chart
+plt.figure(figsize=(10, 6))
+plt.barh(levels, values, color='skyblue')
+plt.xlabel('Level of Need')
+plt.title('Maslow\'s Hierarchy of Needs')
+plt.gca().invert_yaxis()  # this is to make sure the hierarchy starts with 'Physiological' at the bottom
+plt.show()
