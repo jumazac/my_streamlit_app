@@ -2,12 +2,14 @@ from Q1sunburst import create_sunburst_chartQs
 from Q1sunburst import create_sunburst_chartCampus
 from Q1sunburst import create_sunburst_chartSpin
 
+import sys
+print(sys.executable)
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import matplotlib.pyplot as plt
-import numpy as np
+
 
 
 
@@ -462,14 +464,3 @@ st.markdown("<h2 id='why-it-is-imperative'>Why it is imperative</h2>", unsafe_al
 
 
 
-# Define the hierarchy levels and corresponding values
-levels = ['Physiological', 'Safety', 'Love/Belonging', 'Esteem', 'Self-Actualization']
-values = [5, 4, 3, 2, 1]  # these are arbitrary values
-
-# Create the bar chart
-plt.figure(figsize=(10, 6))
-plt.barh(levels, values, color='skyblue')
-plt.xlabel('Level of Need')
-plt.title('Maslow\'s Hierarchy of Needs')
-plt.gca().invert_yaxis()  # this is to make sure the hierarchy starts with 'Physiological' at the bottom
-plt.show()
