@@ -456,6 +456,8 @@ with col2:
 st.markdown("<h2 id='why-it-is-imperative'>Why it is imperative</h2>", unsafe_allow_html=True)
 
 
+
+# Create a ternary scatter plot
 fig = go.Figure(go.Scatterternary({
     'mode': 'markers',
     'a': [1, 2, 3],
@@ -478,4 +480,5 @@ fig.update_layout({
     'showlegend': False
 })
 
-fig.show()
+# Display the plot in the Streamlit app
+st.plotly_chart(fig)
