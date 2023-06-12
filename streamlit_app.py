@@ -457,12 +457,11 @@ st.markdown("<h2 id='why-it-is-imperative'>Why it is imperative</h2>", unsafe_al
 
 
 
-# Create a ternary scatter plot
 fig = go.Figure(go.Scatterternary({
     'mode': 'markers',
-    'a': [1, 2, 3],
-    'b': [2, 3, 1],
-    'c': [3, 1, 2],
+    'a': [1],  # 'Money Spent'
+    'b': [2],  # 'Time'
+    'c': [3],  # 'Academic Performance'
     'marker': {
         'color': 'green',
         'size': 14,
@@ -473,12 +472,11 @@ fig = go.Figure(go.Scatterternary({
 fig.update_layout({
     'ternary': {
         'sum': 1,
-        'aaxis_title': 'A',
-        'baxis_title': 'B',
-        'caxis_title': 'C'
+        'aaxis_title': 'Money Spent',
+        'baxis_title': 'Time',
+        'caxis_title': 'Academic Performance'
     },
     'showlegend': False
 })
 
-# Display the plot in the Streamlit app
 st.plotly_chart(fig)
