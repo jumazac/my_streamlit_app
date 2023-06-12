@@ -463,7 +463,7 @@ fig = go.Figure(go.Scatterternary({
     'b': [2],  # 'Time'
     'c': [3],  # 'Academic Performance'
     'marker': {
-        'color': 'green',
+        'color': ['green', 'blue', 'red'],
         'size': 14,
         'line': { 'width': 2 }
     }
