@@ -463,10 +463,10 @@ st.markdown("<h2 id='why-it-is-imperative'>Why it is imperative</h2>", unsafe_al
 
 # Create the "why imperative" 
 col1, col2 = st.columns(2)
-with col2:
+with col1:
     st.header('Maslow hierarchy of the U students')
     st.image("https://i.imgur.com/AHwfyTu.png", caption='Maslow hierarchy of the U students', width=800)
-
+col2
 # Define the data
 data = {
     "Benefits of E-bike Ridesharing Service": [
