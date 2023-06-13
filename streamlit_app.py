@@ -461,6 +461,9 @@ with col2:
 
 st.markdown("<h2 id='why-it-is-imperative'>Why it is imperative</h2>", unsafe_allow_html=True)
 
-
+# Create the "why imperative" 
+col1, col2, col3 = st.columns((2, 1, 2))
+with col2:
+    st.image("https://i.imgur.com/AHwfyTu.png", caption='Maslow hierarchy of the U students', width=600)
 
 
