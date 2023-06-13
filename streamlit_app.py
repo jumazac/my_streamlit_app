@@ -453,7 +453,7 @@ styled_table = f"""
 st.markdown("<br>"*2, unsafe_allow_html=True)
 
 # Create the "MAP" section
-st.markdown("<h4 id='map'>MAP</h4>", unsafe_allow_html=True)
+st.markdown("<h2 id='map'>MAP</h2>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns((1, 2, 1))
 with col2:
@@ -480,7 +480,9 @@ with col4:
             "Safety Needs (Time Efficiency):With readily available e-bikes, students can commute quickly across campus, saving time for academic pursuits and leisure activities.",
             "Physiological Needs (Cost Efficiency): Our e-bike service saves students money by eliminating car ownership, gas, and parking costs, providing a budget-friendly transportation option",
         ]
-}
+    }
+    for benefit in data["Benefits"]:
+        st.write(benefit)
 
 # Create a DataFrame
 df = pd.DataFrame(data)
