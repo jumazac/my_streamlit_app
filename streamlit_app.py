@@ -473,7 +473,7 @@ with col4:
     # Define the data with number of line breaks
     data = {
         "Benefits": [
-            {"text": "Surrounding all Concepts (Quality of Life): Our e-bike service enhances students' quality of life by addressing cost, time, convenience, health, and academic impact.", "breaks": 3},
+            {"text": "Surrounding all Concepts (Quality of Life): Our e-bike service enhances students' quality of life by addressing cost, time, convenience, health, and academic impact.", "breaks": 2},
             {"text": "Self-Actualization (Academic Impact): By reducing commuting inefficiencies, our service allows students to focus more on their academic goals and personal growth.", "breaks": 1},
             {"text": "Esteem (Physical Health): E-bike riding promotes physical health and well-being, boosting self-esteem through improved fitness and increased energy levels.", "breaks": 3},
             {"text": "Belonging (Convenience and Well-being): Our e-bike service offers a convenient mode of transport, fostering a sense of belonging and connection with the university environment.", "breaks": 2},
