@@ -462,7 +462,7 @@ with col2:
 st.markdown("<h2 id='why-it-is-imperative'>Why it is imperative</h2>", unsafe_allow_html=True)
 
 # Create the "why imperative" 
-col3, col4 = st.columns([2, 1])
+col3, col4 = st.columns([2, 1.5])
 with col3:
     st.header('Maslow hierarchy of the U students')
     st.image("https://i.imgur.com/AHwfyTu.png", caption='Maslow hierarchy of the U students', width=800)
@@ -481,8 +481,10 @@ with col4:
             {"text": "Physiological Needs (Cost Efficiency): Our e-bike service saves students money by eliminating car ownership, gas, and parking costs, providing a budget-friendly transportation option", "breaks": 2},
         ]
     }
-
-    st.write("<br>", unsafe_allow_html=True)  # Add a line break
+    for benefit in data["Benefits"]:
+        st.write(benefit["text"])
+        for _ in range(benefit["breaks"]):
+            st.write("<br>", unsafe_allow_html=True)  # Add a line break
 
     
 
