@@ -470,12 +470,12 @@ with col2:
 # Define the data
 data = {
     "Benefits of E-bike Ridesharing Service": [
-        "Cost Efficiency (Physiological Needs): Our e-bike ridesharing service provides an economically sustainable solution for students who may find owning or renting micromobility options financially challenging. This service offers a cost-effective alternative, eliminating the need for students to invest in expensive micromobility solutions, thus aligning better with students' purchasing power.",
-        "Time Efficiency (Safety Needs): Our service is designed to reduce travel time across campus. With e-bikes readily available, students can quickly commute between classes, dorms, and leisure activities, saving precious time for studying or relaxation.",
-        "Convenience and Well-being (Belonging): The e-bike service provides a convenient and enjoyable mode of transportation, fostering a sense of belonging on campus. It can help students feel more connected to their university environment as they easily navigate through campus.",
-        "Physical Health (Esteem): Riding e-bikes promotes physical health by providing a form of exercise. Regular use can improve cardiovascular fitness, increase energy levels, and contribute to overall well-being, boosting students' self-esteem.",
-        "Academic Impact (Self-Actualization): By addressing transportation inefficiencies and promoting health, our service enables students to focus more on their academic goals. With less time and energy spent on commuting, students can devote more resources to their studies and personal growth.",
-        "Quality of Life (Surrounding all Concepts): By addressing cost, time, convenience, physical health, and academic impact, our e-bike ridesharing service ultimately enhances the overall quality of life for students on campus. It contributes to a more enjoyable, healthy, and productive university experience, helping students to reach their full potential.",
+        "Surrounding all Concepts (Quality of Life): Our e-bike service enhances students' quality of life by addressing cost, time, convenience, health, and academic impact.",
+        "Self-Actualization (Academic Impact): By reducing commuting inefficiencies, our service allows students to focus more on their academic goals and personal growth.",
+        "Esteem (Physical Health): E-bike riding promotes physical health and well-being, boosting self-esteem through improved fitness and increased energy levels.",
+        "Belonging (Convenience and Well-being): Our e-bike service offers a convenient mode of transport, fostering a sense of belonging and connection with the university environment.",
+        "Safety Needs (Time Efficiency):With readily available e-bikes, students can commute quickly across campus, saving time for academic pursuits and leisure activities.",
+        "Physiological Needs (Cost Efficiency): Our e-bike service saves students money by eliminating car ownership, gas, and parking costs, providing a budget-friendly transportation option",
     ]
 }
 
