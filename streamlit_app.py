@@ -481,10 +481,8 @@ with col4:
             {"text": "Physiological Needs (Cost Efficiency): Our e-bike service saves students money by eliminating car ownership, gas, and parking costs, providing a budget-friendly transportation option", "breaks": 2},
         ]
     }
-    for benefit in data["Benefits"]:
-        st.write(benefit["text"])
-        for _ in range(benefit["breaks"]):
-            st.write("<br>", unsafe_allow_html=True)  # Add a line break
+
+    st.write("<br>", unsafe_allow_html=True)  # Add a line break
 
     
 
