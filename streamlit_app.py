@@ -465,7 +465,7 @@ st.markdown("<h2 id='why-it-is-imperative'>Why it is imperative</h2>", unsafe_al
 col3, col4 = st.columns([2, 1.5])
 with col3:
     st.header('Maslow hierarchy of the U students')
-    st.image("https://i.imgur.com/AHwfyTu.png", caption='Maslow hierarchy of the U students', width=800)
+    st.image("https://i.imgur.com/AHwfyTu.png", width=800)
 
 # Display the list in the second column
 with col4:
@@ -491,6 +491,4 @@ with col4:
 # Create a DataFrame
 df = pd.DataFrame(data)
 
-with col3:
-    # Display the table in Streamlit
-    st.table(df)
+
