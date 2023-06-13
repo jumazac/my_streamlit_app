@@ -457,7 +457,7 @@ st.markdown("<h4 id='map'>MAP</h4>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns((1, 2, 1))
 with col2:
-    st.image("https://i.imgur.com/PSrs3vF.png", width=600)
+    st.image("https://i.imgur.com/PSrs3vF.png", width=800)
 
 st.markdown("<h2 id='why-it-is-imperative'>Why it is imperative</h2>", unsafe_allow_html=True)
 
