@@ -466,17 +466,20 @@ col1, col2 = st.columns(2)
 with col1:
     st.header('Maslow hierarchy of the U students')
     st.image("https://i.imgur.com/AHwfyTu.png", caption='Maslow hierarchy of the U students', width=800)
-col2
-# Define the data
-data = {
-    "Benefits of E-bike Ridesharing Service": [
-        "Surrounding all Concepts (Quality of Life): Our e-bike service enhances students' quality of life by addressing cost, time, convenience, health, and academic impact.",
-        "Self-Actualization (Academic Impact): By reducing commuting inefficiencies, our service allows students to focus more on their academic goals and personal growth.",
-        "Esteem (Physical Health): E-bike riding promotes physical health and well-being, boosting self-esteem through improved fitness and increased energy levels.",
-        "Belonging (Convenience and Well-being): Our e-bike service offers a convenient mode of transport, fostering a sense of belonging and connection with the university environment.",
-        "Safety Needs (Time Efficiency):With readily available e-bikes, students can commute quickly across campus, saving time for academic pursuits and leisure activities.",
-        "Physiological Needs (Cost Efficiency): Our e-bike service saves students money by eliminating car ownership, gas, and parking costs, providing a budget-friendly transportation option",
-    ]
+
+# Display the list in the second column
+with col2:
+    st.header('Benefits of E-bike Ridesharing Service')
+    # Define the data
+    data = {
+        "Benefits": [
+            "Surrounding all Concepts (Quality of Life): Our e-bike service enhances students' quality of life by addressing cost, time, convenience, health, and academic impact.",
+            "Self-Actualization (Academic Impact): By reducing commuting inefficiencies, our service allows students to focus more on their academic goals and personal growth.",
+            "Esteem (Physical Health): E-bike riding promotes physical health and well-being, boosting self-esteem through improved fitness and increased energy levels.",
+            "Belonging (Convenience and Well-being): Our e-bike service offers a convenient mode of transport, fostering a sense of belonging and connection with the university environment.",
+            "Safety Needs (Time Efficiency):With readily available e-bikes, students can commute quickly across campus, saving time for academic pursuits and leisure activities.",
+            "Physiological Needs (Cost Efficiency): Our e-bike service saves students money by eliminating car ownership, gas, and parking costs, providing a budget-friendly transportation option",
+        ]
 }
 
 # Create a DataFrame
