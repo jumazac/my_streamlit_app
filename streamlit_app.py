@@ -470,20 +470,21 @@ with col3:
 # Display the list in the second column
 with col4:
     st.header('Benefits of E-bike Ridesharing Service')
-    # Define the data
+    # Define the data with number of line breaks
     data = {
         "Benefits": [
-            "Surrounding all Concepts (Quality of Life): Our e-bike service enhances students' quality of life by addressing cost, time, convenience, health, and academic impact.", 
-            "Self-Actualization (Academic Impact): By reducing commuting inefficiencies, our service allows students to focus more on their academic goals and personal growth.",
-            "Esteem (Physical Health): E-bike riding promotes physical health and well-being, boosting self-esteem through improved fitness and increased energy levels.",
-            "Belonging (Convenience and Well-being): Our e-bike service offers a convenient mode of transport, fostering a sense of belonging and connection with the university environment.",
-            "Safety Needs (Time Efficiency):With readily available e-bikes, students can commute quickly across campus, saving time for academic pursuits and leisure activities.",
-            "Physiological Needs (Cost Efficiency): Our e-bike service saves students money by eliminating car ownership, gas, and parking costs, providing a budget-friendly transportation option",
+            {"text": "Surrounding all Concepts (Quality of Life): Our e-bike service enhances students' quality of life by addressing cost, time, convenience, health, and academic impact.", "breaks": 2},
+            {"text": "Self-Actualization (Academic Impact): By reducing commuting inefficiencies, our service allows students to focus more on their academic goals and personal growth.", "breaks": 1},
+            {"text": "Esteem (Physical Health): E-bike riding promotes physical health and well-being, boosting self-esteem through improved fitness and increased energy levels.", "breaks": 3},
+            {"text": "Belonging (Convenience and Well-being): Our e-bike service offers a convenient mode of transport, fostering a sense of belonging and connection with the university environment.", "breaks": 2},
+            {"text": "Safety Needs (Time Efficiency):With readily available e-bikes, students can commute quickly across campus, saving time for academic pursuits and leisure activities.", "breaks": 1},
+            {"text": "Physiological Needs (Cost Efficiency): Our e-bike service saves students money by eliminating car ownership, gas, and parking costs, providing a budget-friendly transportation option", "breaks": 2},
         ]
     }
     for benefit in data["Benefits"]:
-        st.write(benefit)
-        st.write("<br>", unsafe_allow_html=True)  # Add a line break
+        st.write(benefit["text"])
+        for _ in range(benefit["breaks"]):
+            st.write("<br>", unsafe_allow_html=True)  # Add a line break
 
     
 
