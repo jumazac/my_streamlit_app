@@ -9,6 +9,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import pydeck as pdk
+
 
 
 
@@ -493,8 +495,6 @@ with col4:
 df = pd.DataFrame(data)
 
 
-import streamlit as st
-import pydeck as pdk
 
 # Define the initial view
 view_state = pdk.ViewState(
@@ -516,6 +516,7 @@ r = pdk.Deck(
     layers=[layer],
     initial_view_state=view_state,
     map_style="mapbox://styles/mapbox/streets-v11",
-    height=1000  # Set the height of the map
+    height=1000,  # Set the height of the map
+    width=1500  # Set the width of the map
 )
 st.pydeck_chart(r)
