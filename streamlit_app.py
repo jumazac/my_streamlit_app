@@ -21,9 +21,7 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-st.markdown('<div style="background-color: #f8f9fa;padding: 10px;border-radius: 5px;margin-bottom: 10px;">'
-            'This section has a different background color</div>', 
-            unsafe_allow_html=True)
+
 
 # Define two columns
 col1, col2 = st.columns(2)
