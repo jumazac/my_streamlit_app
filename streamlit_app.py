@@ -505,7 +505,6 @@ with container:
 
 with col1[0]:
     # Your map code
-    # Your map code
     view_state = pdk.ViewState(
     latitude=40.7648,  # Coordinates for the University of Utah
     longitude=-111.8421,
@@ -529,17 +528,8 @@ polygon_layer = pdk.Layer(
     get_fill_color=[180, 0, 200, 140],
     get_line_color=[255, 255, 255],
     get_elevation=100,
-    extruded=True, 
-)
-
-# Define the lighting effect
-light_settings = pdk.views.LightSettings(
-    lights_position=[-50.0, 30.0, 15000.0, 40.7648, -111.8421, 5000],  # [longitude, latitude, altitude]
-    ambient_ratio=0.2,
-    diffuse_ratio=0.6,
-    specular_ratio=0.2,
-    lights_strength=[1.0, 0.0, 2.0, 0.0],
-    number_of_lights=2,
+    extruded=True,
+    lighting_mix=0.5,  # Adjust this value to create the shadow effect
 )
 
 r = pdk.Deck(
@@ -548,7 +538,6 @@ r = pdk.Deck(
     map_style="mapbox://styles/mapbox/streets-v11",
     height=1000,  # Set the height of the map
     width=1500,  # Set the width of the map
-    effects=[pdk.effects.LightingEffect(light_settings=light_settings)],
 )
 
 st.pydeck_chart(r)
