@@ -493,3 +493,29 @@ with col4:
 df = pd.DataFrame(data)
 
 
+import streamlit as st
+import pydeck as pdk
+
+# Define the initial view
+view_state = pdk.ViewState(
+    latitude=40.7648,  # Coordinates for the University of Utah
+    longitude=-111.8421,
+    zoom=14,
+    pitch=0)
+
+# Define the layer to display on the map
+layer = pdk.Layer(
+    'ScatterplotLayer',
+    data=df,  # Replace this with your DataFrame
+    get_position='[lon, lat]',  # Replace these with your longitude and latitude column names
+    get_color='[200, 30, 0, 160]',
+    get_radius=200,
+)
+
+# Render the map
+r = pdk.Deck(
+    layers=[layer], 
+    initial_view_state=view_state,
+    map_style='mapbox://styles/mapbox/light-v9'
+)
+st.pydeck_chart(r)
