@@ -512,35 +512,48 @@ with col1[0]:
     pitch=0)
 
 # Define the DataFrame
-polygon_data = pd.DataFrame({
-    "location": ["Location1"],
-    "coordinates": [[
-        [-111.852364, 40.767035], 
-        [-111.852293, 40.760860], 
-        [-111.859679, 40.760632], 
-        [-111.859765, 40.766613]
+df = pd.DataFrame({
+    'location': ['Location1'],
+    'coordinates': [[
+        [-111.838122, 40.776064],
+        [-111.836941, 40.774357],
+        [-111.835631, 40.774487],
+        [-111.834107, 40.773415],
+        [-111.832475, 40.771741],
+        [-111.830929, 40.769791],
+        [-111.827322, 40.767093],
+        [-111.825111, 40.768004],
+        [-111.821890, 40.770587],
+        [-111.820181, 40.773220],
+        [-111.834833, 40.775876],
+        [-111.836035, 40.774413]
     ]]
 })
 
-# Define the polygon layer
+view_state = pdk.ViewState(
+    latitude=40.776064,
+    longitude=-111.838122,
+    zoom=14,
+    pitch=0
+)
+
 polygon_layer = pdk.Layer(
     "PolygonLayer",
-    data=polygon_data,  # Use the new DataFrame here
-    get_polygon="coordinates",  # This will now pull the coordinates from your DataFrame
+    data=df,
+    get_polygon="coordinates",
     get_fill_color=[180, 0, 200, 140],
     get_line_color=[255, 255, 255],
     get_elevation=100,
     extruded=True,
-    lighting_mix=0.5,  # Adjust this value to create the shadow effect
+    lighting_mix=0.5
 )
-
 
 r = pdk.Deck(
     layers=[polygon_layer],
     initial_view_state=view_state,
     map_style="mapbox://styles/mapbox/streets-v11",
-    height=1000,  # Set the height of the map
-    width=1500,  # Set the width of the map
+    height=1000,
+    width=1500
 )
 
 st.pydeck_chart(r)
