@@ -516,6 +516,6 @@ layer = pdk.Layer(
 r = pdk.Deck(
     layers=[layer], 
     initial_view_state=view_state,
-    map_style='mapbox://styles/mapbox/light-v11'
+    map_style='mapbox://styles/mapbox/streets-v11'
 )
 st.pydeck_chart(r)
