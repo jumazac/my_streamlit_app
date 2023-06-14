@@ -516,6 +516,6 @@ r = pdk.Deck(
     layers=[layer],
     initial_view_state=view_state,
     map_style="mapbox://styles/mapbox/streets-v11",
-    height=800  # Set the height of the map
+    height=1000  # Set the height of the map
 )
 st.pydeck_chart(r)
