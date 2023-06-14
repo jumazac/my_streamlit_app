@@ -511,20 +511,22 @@ with col1[0]:
     zoom=14,
     pitch=0)
 
-# Define the scatterplot layer
-scatterplot_layer = pdk.Layer(
-    'ScatterplotLayer',
-    data=df,  # Replace this with your DataFrame
-    get_position='[lon, lat]',  # Replace these with your longitude and latitude column names
-    get_color='[200, 30, 0, 160]',
-    get_radius=200,
-)
+# Define the DataFrame
+polygon_data = pd.DataFrame({
+    "location": ["Location1"],
+    "coordinates": [[
+        [-111.852364, 40.767035], 
+        [-111.852293, 40.760860], 
+        [-111.859679, 40.760632], 
+        [-111.859765, 40.766613]
+    ]]
+})
 
 # Define the polygon layer
 polygon_layer = pdk.Layer(
     "PolygonLayer",
-    data=df,  # Replace this with your DataFrame
-    get_polygon="coordinates",  # Replace this with your coordinates column name
+    data=polygon_data,  # Use the new DataFrame here
+    get_polygon="coordinates",  # This will now pull the coordinates from your DataFrame
     get_fill_color=[180, 0, 200, 140],
     get_line_color=[255, 255, 255],
     get_elevation=100,
@@ -532,8 +534,9 @@ polygon_layer = pdk.Layer(
     lighting_mix=0.5,  # Adjust this value to create the shadow effect
 )
 
+
 r = pdk.Deck(
-    layers=[scatterplot_layer, polygon_layer],
+    layers=[polygon_layer],
     initial_view_state=view_state,
     map_style="mapbox://styles/mapbox/streets-v11",
     height=1000,  # Set the height of the map
