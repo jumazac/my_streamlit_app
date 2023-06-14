@@ -496,31 +496,36 @@ df = pd.DataFrame(data)
 
 
 
-# Create a column
-col1 = st.columns(1)
+# Create a container
+container = st.container()
 
-with col1[0]:
-    # Your map code
-    view_state = pdk.ViewState(
-    latitude=40.7648,  # Coordinates for the University of Utah
-    longitude=-111.8421,
-    zoom=14,
-    pitch=0)
+# Within the container, create a column
+with container:
+    col1 = st.columns(1)
 
-# Define the layer to display on the map
-layer = pdk.Layer(
-    'ScatterplotLayer',
-    data=df,  # Replace this with your DataFrame
-    get_position='[lon, lat]',  # Replace these with your longitude and latitude column names
-    get_color='[200, 30, 0, 160]',
-    get_radius=200,
-)
+    # Your map code goes within the column
+    with col1[0]:
+        view_state = pdk.ViewState(
+            latitude=40.7648,  # Coordinates for the University of Utah
+            longitude=-111.8421,
+            zoom=14,
+            pitch=0
+        )
 
-r = pdk.Deck(
-    layers=[layer],
-    initial_view_state=view_state,
-    map_style="mapbox://styles/mapbox/streets-v11",
-    height=1000  # Set the height of the map
-)
+        # Define the layer to display on the map
+        layer = pdk.Layer(
+            'ScatterplotLayer',
+            data=df,  # Replace this with your DataFrame
+            get_position='[lon, lat]',  # Replace these with your longitude and latitude column names
+            get_color='[200, 30, 0, 160]',
+            get_radius=200,
+        )
 
-st.pydeck_chart(r, use_container_width=True)
+        r = pdk.Deck(
+            layers=[layer],
+            initial_view_state=view_state,
+            map_style="mapbox://styles/mapbox/streets-v11",
+            height=1000  # Set the height of the map
+        )
+
+        st.pydeck_chart(r, use_container_width=True)
