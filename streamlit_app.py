@@ -501,31 +501,54 @@ container = st.container()
 
 # Within the container, create a column
 with container:
-    col1 = st.columns(1)
+    col1 = st.beta_columns(1)
 
-    # Your map code goes within the column
-    with col1[0]:
-        view_state = pdk.ViewState(
-            latitude=40.7648,  # Coordinates for the University of Utah
-            longitude=-111.8421,
-            zoom=14,
-            pitch=0
-        )
+with col1[0]:
+    # Your map code
+    # Your map code
+    view_state = pdk.ViewState(
+    latitude=40.7648,  # Coordinates for the University of Utah
+    longitude=-111.8421,
+    zoom=14,
+    pitch=0)
 
-        # Define the layer to display on the map
-        layer = pdk.Layer(
-            'ScatterplotLayer',
-            data=df,  # Replace this with your DataFrame
-            get_position='[lon, lat]',  # Replace these with your longitude and latitude column names
-            get_color='[200, 30, 0, 160]',
-            get_radius=200,
-        )
+# Define the scatterplot layer
+scatterplot_layer = pdk.Layer(
+    'ScatterplotLayer',
+    data=df,  # Replace this with your DataFrame
+    get_position='[lon, lat]',  # Replace these with your longitude and latitude column names
+    get_color='[200, 30, 0, 160]',
+    get_radius=200,
+)
 
-        r = pdk.Deck(
-            layers=[layer],
-            initial_view_state=view_state,
-            map_style="mapbox://styles/mapbox/streets-v11",
-            height=1000  # Set the height of the map
-        )
+# Define the polygon layer
+polygon_layer = pdk.Layer(
+    "PolygonLayer",
+    data=df,  # Replace this with your DataFrame
+    get_polygon="coordinates",  # Replace this with your coordinates column name
+    get_fill_color=[180, 0, 200, 140],
+    get_line_color=[255, 255, 255],
+    get_elevation=100,
+    extruded=True, 
+)
 
-        st.pydeck_chart(r, use_container_width=True)
+# Define the lighting effect
+light_settings = pdk.views.LightSettings(
+    lights_position=[-50.0, 30.0, 15000.0, 40.7648, -111.8421, 5000],  # [longitude, latitude, altitude]
+    ambient_ratio=0.2,
+    diffuse_ratio=0.6,
+    specular_ratio=0.2,
+    lights_strength=[1.0, 0.0, 2.0, 0.0],
+    number_of_lights=2,
+)
+
+r = pdk.Deck(
+    layers=[scatterplot_layer, polygon_layer],
+    initial_view_state=view_state,
+    map_style="mapbox://styles/mapbox/streets-v11",
+    height=1000,  # Set the height of the map
+    width=1500,  # Set the width of the map
+    effects=[pdk.effects.LightingEffect(light_settings=light_settings)],
+)
+
+st.pydeck_chart(r)
