@@ -582,7 +582,11 @@ polygon_layer = pdk.Layer(
 )
 
 # Create the PyDeck deck
-r = pdk.Deck(layers=[polygon_layer], initial_view_state=view_state)
+r = pdk.Deck(
+    layers=[polygon_layer],
+    initial_view_state=view_state,
+    map_style="mapbox://styles/mapbox/streets-v11"  # Mapbox style URL
+)
 
 # Display the map using Streamlit
 st.pydeck_chart(r)
