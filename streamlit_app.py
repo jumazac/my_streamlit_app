@@ -499,24 +499,10 @@ df = pd.DataFrame(data)
 # Create a container
 container = st.container()
 
-# Within the container, create a column
-with container:
-    col1 = st.beta_columns(1)
-
-with col1[0]:
-    # Your map code
-    view_state = pdk.ViewState(
-    latitude=40.7648,  # Coordinates for the University of Utah
-    longitude=-111.8421,
-    zoom=14,
-    pitch=0)
-
-# Define the DataFrame
-container = st.container()
 
 # Within the container, create a column
 with container:
-    col1 = st.beta_columns(1)
+    col1 = st.columns(1)
 
 with col1[0]:
     # Your map code
