@@ -513,93 +513,59 @@ with col1[0]:
 
 # Define the DataFrame
 df1 = pd.DataFrame({
-    'location': ['Location1'],
-    'coordinates': [[
-        [-111.838122, 40.776064],
-        [-111.836941, 40.774357],
-        [-111.835631, 40.774487],
-        [-111.834107, 40.773415],
-        [-111.832475, 40.771741],
-        [-111.830929, 40.769791],
-        [-111.827322, 40.767093],
-        [-111.825111, 40.768004],
-        [-111.821890, 40.770587],
-        [-111.820181, 40.773220],
-        [-111.834833, 40.775876],
-        [-111.836035, 40.774413]
-    ]]
+    'location': ['Location1', 'Location2', 'Location3'],
+    'coordinates': [
+        [
+            [-111.838122, 40.776064],
+            [-111.836941, 40.774357],
+            [-111.835631, 40.774487],
+            [-111.834107, 40.773415],
+            [-111.832475, 40.771741],
+            [-111.830929, 40.769791],
+            [-111.827322, 40.767093],
+            [-111.825111, 40.768004],
+            [-111.821890, 40.770587],
+            [-111.820181, 40.773220],
+            [-111.834833, 40.775876],
+            [-111.836035, 40.774413]
+        ],
+        [
+            [-111.852523, 40.767337],
+            [-111.852523, 40.765160],
+            [-111.858041, 40.765143],
+            [-111.857910, 40.766947]
+        ],
+        [
+            [-111.852481, 40.764786],
+            [-111.852476, 40.760768],
+            [-111.862293, 40.760820],
+            [-111.862368, 40.764823]
+        ]
+    ]
 })
 
-df2 = pd.DataFrame({
-    'location': ['Location2'],
-    'coordinates': [[
-        [-111.836464, 40.774088],
-        [-111.837753, 40.773373],
-        [-111.841661, 40.773146],
-        [-111.842906, 40.772333],
-        [-111.843679, 40.771326],
-        [-111.847286, 40.771228],
-        [-111.848059, 40.770611],
-        [-111.847888, 40.768400],
-        [-111.849090, 40.768205],
-        [-111.849219, 40.767165],
-        [-111.852053, 40.767263],
-        [-111.851924, 40.774608],
-        [-111.842118, 40.775811]
-    ]]
-})
+# Create the PyDeck layer for the polygons
+polygon_layer = pdk.Layer(
+    "PolygonLayer",
+    data=df1,
+    get_polygon="coordinates",
+    filled=True,
+    extruded=False,
+    get_fill_color=[255, 0, 0],  # RGB color value for the fill
+    get_line_color=[0, 0, 0],  # RGB color value for the outline
+    pickable=True
+)
 
-df3 = pd.DataFrame({
-    'location': ['Location3'],
-    'coordinates': [[
-        [-111.852523, 40.767337],
-        [-111.852523, 40.765160],
-        [-111.858041, 40.765143],
-        [-111.857910, 40.766947]
-    ]]
-})
-
-
-df_exclude = pd.DataFrame({
-    'location': ['Excluded'],
-    'coordinates': [[
-        [-111.847479, 40.766905],
-        [-111.848080, 40.761412],
-        [-111.835712, 40.762290],
-        [-111.841132, 40.772496]
-    ]]
-})
-
-df = pd.concat([df1, df2, df3, df_exclude])
-
-# Define the filtered DataFrame without the excluded polygon
-df_filtered = df[df['location'] != 'Excluded']
-
-
+# Set up the initial view state for the map
 view_state = pdk.ViewState(
-    latitude=40.776064,
-    longitude=-111.838122,
-    zoom=14,
+    latitude=df1['coordinates'][0][0][1],  # Set latitude to the first coordinate's latitude
+    longitude=df1['coordinates'][0][0][0],  # Set longitude to the first coordinate's longitude
+    zoom=12,  # Adjust the zoom level as needed
     pitch=0
 )
 
-polygon_layer = pdk.Layer(
-    "PolygonLayer",
-    data=df,
-    get_polygon="coordinates",
-    get_fill_color=[180, 0, 200, 140],
-    get_line_color=[255, 255, 255],
-    get_elevation=100,
-    extruded=True,
-    lighting_mix=0.5
-)
+# Create the PyDeck deck
+r = pdk.Deck(layers=[polygon_layer], initial_view_state=view_state)
 
-r = pdk.Deck(
-    layers=[polygon_layer],
-    initial_view_state=view_state,
-    map_style="mapbox://styles/mapbox/streets-v11",
-    height=1000,
-    width=1500
-)
-
+# Display the map using Streamlit
 st.pydeck_chart(r)
