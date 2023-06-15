@@ -577,6 +577,7 @@ df = pd.DataFrame({
 })
 
 
+
 # Create the PyDeck layer for the polygons
 polygon_layer = pdk.Layer(
     "PolygonLayer",
