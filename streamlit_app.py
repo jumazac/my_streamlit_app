@@ -512,7 +512,23 @@ with col1[0]:
     pitch=0)
 
 # Define the DataFrame
-df1 = pd.DataFrame({
+container = st.container()
+
+# Within the container, create a column
+with container:
+    col1 = st.beta_columns(1)
+
+with col1[0]:
+    # Your map code
+    view_state = pdk.ViewState(
+        latitude=40.7648,  # Coordinates for the University of Utah
+        longitude=-111.8421,
+        zoom=14,
+        pitch=0
+    )
+
+# Define the DataFrame with all the coordinates
+df = pd.DataFrame({
     'location': ['Location1', 'Location2', 'Location3'],
     'coordinates': [
         [
@@ -530,16 +546,25 @@ df1 = pd.DataFrame({
             [-111.836035, 40.774413]
         ],
         [
+            [-111.836464, 40.774088],
+            [-111.837753, 40.773373],
+            [-111.841661, 40.773146],
+            [-111.842906, 40.772333],
+            [-111.843679, 40.771326],
+            [-111.847286, 40.771228],
+            [-111.848059, 40.770611],
+            [-111.847888, 40.768400],
+            [-111.849090, 40.768205],
+            [-111.849219, 40.767165],
+            [-111.852053, 40.767263],
+            [-111.851924, 40.774608],
+            [-111.842118, 40.775811]
+        ],
+        [
             [-111.852523, 40.767337],
             [-111.852523, 40.765160],
             [-111.858041, 40.765143],
             [-111.857910, 40.766947]
-        ],
-        [
-            [-111.852481, 40.764786],
-            [-111.852476, 40.760768],
-            [-111.862293, 40.760820],
-            [-111.862368, 40.764823]
         ]
     ]
 })
@@ -547,21 +572,13 @@ df1 = pd.DataFrame({
 # Create the PyDeck layer for the polygons
 polygon_layer = pdk.Layer(
     "PolygonLayer",
-    data=df1,
+    data=df,
     get_polygon="coordinates",
     filled=True,
     extruded=False,
     get_fill_color=[255, 0, 0],  # RGB color value for the fill
     get_line_color=[0, 0, 0],  # RGB color value for the outline
     pickable=True
-)
-
-# Set up the initial view state for the map
-view_state = pdk.ViewState(
-    latitude=df1['coordinates'][0][0][1],  # Set latitude to the first coordinate's latitude
-    longitude=df1['coordinates'][0][0][0],  # Set longitude to the first coordinate's longitude
-    zoom=12,  # Adjust the zoom level as needed
-    pitch=0
 )
 
 # Create the PyDeck deck
