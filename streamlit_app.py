@@ -549,7 +549,17 @@ df2 = pd.DataFrame({
     ]]
 })
 
-df = pd.concat([df1, df2])
+df3 = pd.DataFrame({
+    'location': ['Location2'],
+    'coordinates': [[
+        [-111.852523, 40.767337],
+        [-111.852523, 40.765160],
+        [-111.858041, 40.765143],
+        [-111.857910, 40.766947]
+    ]]
+})
+
+df = pd.concat([df1, df2, df3])
 
 
 view_state = pdk.ViewState(
