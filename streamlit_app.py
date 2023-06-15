@@ -515,7 +515,7 @@ with col1[0]:
 
 # Define the DataFrame with all the coordinates
 df = pd.DataFrame({
-    'location': ['Location1', 'Location2', 'Location3', 'Location4'],
+    'location': ['Location1', 'Location2', 'Location3', 'Location4', 'Location5'],
     'coordinates': [
         [
             [-111.838122, 40.776064],
@@ -559,6 +559,12 @@ df = pd.DataFrame({
             [-111.862353, 40.764769],
             [-111.852604, 40.764818],
             [-111.852493, 40.764883]  # Adding the missing coordinate
+        ],
+        [
+            [-111.852495, 40.760516],
+            [-111.852506, 40.758688],
+            [-111.859463, 40.758679],
+            [-111.859474, 40.760565]
         ]
     ]
 })
