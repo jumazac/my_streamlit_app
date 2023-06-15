@@ -576,8 +576,9 @@ polygon_layer = pdk.Layer(
     get_polygon="coordinates",
     filled=True,
     extruded=False,
-    get_fill_color=[255, 0, 0],  # RGB color value for the fill
-    get_line_color=[0, 0, 0],  # RGB color value for the outline
+    get_fill_color=[0, 0, 0, 100],  # RGBA color value for the fill (transparent black)
+    get_line_color=[0, 0, 0],  # RGB color value for the outline (black color)
+    get_line_width=1,  # Line width for the outline
     pickable=True
 )
 
