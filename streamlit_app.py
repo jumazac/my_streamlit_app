@@ -496,82 +496,32 @@ df = pd.DataFrame(data)
 
 
 
-# Create a container
-container = st.container()
-
-# Within the container, create a column
-with container:
-    col1 = st.beta_columns(1)
-
-with col1[0]:
-    # Your map code
-    view_state = pdk.ViewState(
-    latitude=40.7648,  # Coordinates for the University of Utah
-    longitude=-111.8421,
-    zoom=14,
-    pitch=0)
-
-# Define the DataFrame
-df1 = pd.DataFrame({
-    'location': ['Location1'],
+df_exclude = pd.DataFrame({
+    'location': ['Excluded'],
     'coordinates': [[
-        [-111.838122, 40.776064],
-        [-111.836941, 40.774357],
-        [-111.835631, 40.774487],
-        [-111.834107, 40.773415],
-        [-111.832475, 40.771741],
-        [-111.830929, 40.769791],
-        [-111.827322, 40.767093],
-        [-111.825111, 40.768004],
-        [-111.821890, 40.770587],
-        [-111.820181, 40.773220],
-        [-111.834833, 40.775876],
-        [-111.836035, 40.774413]
+        [-111.847479, 40.766905],
+        [-111.848080, 40.761412],
+        [-111.835712, 40.762290],
+        [-111.841132, 40.772496]
     ]]
 })
 
-df2 = pd.DataFrame({
-    'location': ['Location2'],
-    'coordinates': [[
-        [-111.836464, 40.774088],
-        [-111.837753, 40.773373],
-        [-111.841661, 40.773146],
-        [-111.842906, 40.772333],
-        [-111.843679, 40.771326],
-        [-111.847286, 40.771228],
-        [-111.848059, 40.770611],
-        [-111.847888, 40.768400],
-        [-111.849090, 40.768205],
-        [-111.849219, 40.767165],
-        [-111.852053, 40.767263],
-        [-111.851924, 40.774608],
-        [-111.842118, 40.775811]
-    ]]
-})
+df = pd.concat([df1, df2, df3, df_exclude])
 
-df3 = pd.DataFrame({
-    'location': ['Location2'],
-    'coordinates': [[
-        [-111.852523, 40.767337],
-        [-111.852523, 40.765160],
-        [-111.858041, 40.765143],
-        [-111.857910, 40.766947]
-    ]]
-})
+# Define the filtered DataFrame without the excluded polygon
+df_filtered = df[df['location'] != 'Excluded']
 
-df = pd.concat([df1, df2, df3])
-
-
+# Update the initial view state to focus on the remaining polygons
 view_state = pdk.ViewState(
-    latitude=40.776064,
-    longitude=-111.838122,
+    latitude=df_filtered['coordinates'].iloc[0][0][1],
+    longitude=df_filtered['coordinates'].iloc[0][0][0],
     zoom=14,
     pitch=0
 )
 
 polygon_layer = pdk.Layer(
     "PolygonLayer",
-    data=df,
+    data=df_filtered,
     get_polygon="coordinates",
     get_fill_color=[180, 0, 200, 140],
     get_line_color=[255, 255, 255],
