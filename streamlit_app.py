@@ -632,6 +632,19 @@ df = pd.DataFrame({
 })
 
 
+# Create the PyDeck layer for the polygons
+polygon_layer = pdk.Layer(
+    "PolygonLayer",
+    data=df,
+    get_polygon="coordinates",
+    filled=True,
+    extruded=False,
+    get_fill_color=[0, 0, 0, 150],  # RGBA color value for the fill (transparent black)
+    get_line_color=[0, 0, 0],  # RGB color value for the outline (black color)
+    get_line_width=1,  # Line width for the outline
+    pickable=True
+)
+
 df_red = pd.DataFrame({
     'location': ['Location Red'],
     'coordinates': [
@@ -660,27 +673,12 @@ polygon_layer_red = pdk.Layer(
     get_fill_color=[255, 0, 0, 100]  # RGBA color value for the fill (red transparent)
 )
 
-
-
-# Create the PyDeck layer for the polygons
-polygon_layer = pdk.Layer(
-    "PolygonLayer",
-    data=df,
-    get_polygon="coordinates",
-    filled=True,
-    extruded=False,
-    get_fill_color=[0, 0, 0, 150],  # RGBA color value for the fill (transparent black)
-    get_line_color=[0, 0, 0],  # RGB color value for the outline (black color)
-    get_line_width=1,  # Line width for the outline
-    pickable=True
-)
-
-# Create the PyDeck deck
 r = pdk.Deck(
-    layers=[polygon_layer],
+    layers=[polygon_layer, polygon_layer_red],  # Add both polygon layers to the list
     initial_view_state=view_state,
     map_style="mapbox://styles/mapbox/streets-v11"  # Mapbox style URL
 )
+
 
 # Display the map using Streamlit
 st.pydeck_chart(r)
