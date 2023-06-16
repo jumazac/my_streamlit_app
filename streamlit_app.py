@@ -477,7 +477,7 @@ with col4:
     data = {
         "Benefits": [
             {"text": "Surrounding all Concepts (Quality of Life): Our e-bike service enhances students' quality of life by addressing cost, time, convenience, health, and academic impact.", "breaks": 1, "color": "rgba(255, 0, 0, 0.5)"},
-            {"text": "Self-Actualization (Academic Impact): By reducing commuting inefficiencies, our service allows students to focus more on their academic goals and personal growth.", "breaks": 2, "color": "rgba(0, 0, 255, 0.5)"},
+            {"text": "Self-Actualization (Academic Impact): By reducing commuting inefficiencies, our service allows students to focus more on their academic goals and personal growth.", "breaks": 2, "color": "rgba(0, 0, 255, 0.17)"},
             {"text": "Esteem (Physical Health): E-bike riding promotes physical health and well-being, boosting self-esteem through improved fitness and increased energy levels.", "breaks": 3, "color": "rgba(0, 128, 0, 0.5)"},
             {"text": "Belonging (Autonomy and Well-being): Our e-bike service offers an independent mode of transport, fostering a sense of belonging and connection with the university environment.", "breaks": 3, "color": "rgba(128, 0, 128, 0.5)"},
             {"text": "Safety Needs (Time Efficiency):With readily available e-bikes, students can commute quickly across campus, saving time for academic pursuits and leisure activities.", "breaks": 3, "color": "rgba(255, 165, 0, 0.5)"},
