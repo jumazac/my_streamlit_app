@@ -743,3 +743,22 @@ r = pdk.Deck(
 st.pydeck_chart(r)
 
 
+############################
+
+
+view_state = pdk.ViewState(
+    latitude=40.7648,  # Coordinates for the University of Utah
+    longitude=-111.8421,
+    zoom=14.05,
+    pitch=0
+)
+
+# Create an empty Deck
+r = pdk.Deck(
+    layers=[],
+    initial_view_state=view_state,
+    map_style="mapbox://styles/mapbox/streets-v11"  # Mapbox style URL
+)
+
+# Display the map using Streamlit
+st.pydeck_chart(r)
