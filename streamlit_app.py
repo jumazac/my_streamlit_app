@@ -515,7 +515,7 @@ with col1[0]:
 
 # Define the DataFrame with all the coordinates
 df = pd.DataFrame({
-    'location': ['Location1', 'Location2', 'Location3', 'Location4', 'Location5'],
+    'location': ['Location1', 'Location2', 'Location3', 'Location4', 'Location5', 'Location6'],
     'coordinates': [
         [
             [-111.838122, 40.776064],
@@ -565,6 +565,13 @@ df = pd.DataFrame({
             [-111.852506, 40.758688],
             [-111.859463, 40.758679],
             [-111.859474, 40.760565]
+        ],
+        [
+            [-111.845713, 40.758236],
+            [-111.853551, 40.758220],
+            [-111.853640, 40.754270],
+            [-111.845610, 40.754091],
+            [-111.845713, 40.758236]  # Adding the first coordinate to close the polygon
         ]
     ]
 })
