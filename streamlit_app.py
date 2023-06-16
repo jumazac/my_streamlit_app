@@ -684,3 +684,12 @@ r = pdk.Deck(
 
 # Display the map using Streamlit
 st.pydeck_chart(r)
+
+
+legend_labels = ["Black Polygon", "Red Polygon"]
+legend_colors = ["rgba(0, 0, 0, 0.6)", "rgba(255, 0, 0, 0.4)"]
+
+# Render legend
+st.sidebar.markdown("## Legend")
+for label, color in zip(legend_labels, legend_colors):
+    st.sidebar.markdown(f"<div style='margin-top: 10px;'><span style='color:{color}; font-weight:bold;'>■</span> {label}</div>", unsafe_allow_html=True)
