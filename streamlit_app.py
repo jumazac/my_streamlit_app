@@ -664,7 +664,7 @@ df_red = pd.DataFrame({
 # Create the PyDeck layer for the red transparent polygon
 polygon_layer_red = pdk.Layer(
     "PolygonLayer",
-    data=df_red.explode('coordinates'),  # Explode the coordinates to ensure equal length
+    data=df_red,  # Explode the coordinates to ensure equal length
     get_polygon="coordinates",
     filled=True,
     extruded=False,
