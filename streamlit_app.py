@@ -632,6 +632,35 @@ df = pd.DataFrame({
 })
 
 
+df_red = pd.DataFrame({
+    'location': ['Location Red'],
+    'coordinates': [
+        [
+            [-111.845360, 40.765197],
+            [-111.847197, 40.765270],
+            [-111.847509, 40.763718],
+            [-111.846553, 40.762848],
+            [-111.845952, 40.762052],
+            [-111.845007, 40.762068],
+            [-111.844127, 40.762401],
+            [-111.844878, 40.763190],
+            [-111.845211, 40.764067],
+            [-111.845437, 40.765099]
+        ]
+    ]
+})
+
+# Create the PyDeck layer for the red transparent polygon
+polygon_layer_red = pdk.Layer(
+    "PolygonLayer",
+    data=df_red.explode('coordinates'),  # Explode the coordinates to ensure equal length
+    get_polygon="coordinates",
+    filled=True,
+    extruded=False,
+    get_fill_color=[255, 0, 0, 100]  # RGBA color value for the fill (red transparent)
+)
+
+
 
 # Create the PyDeck layer for the polygons
 polygon_layer = pdk.Layer(
