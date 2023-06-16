@@ -681,29 +681,7 @@ r = pdk.Deck(
     map_style="mapbox://styles/mapbox/streets-v11"  # Mapbox style URL
 )
 
-# Define legend labels and colors
-legend_labels = ["Black Polygon", "Red Polygon"]
-legend_colors = [[0, 0, 0, 150], [255, 0, 0, 100]]
 
-# Create the PyDeck deck
-r = pdk.Deck(
-    layers=[polygon_layer, polygon_layer_red],
-    initial_view_state=view_state,
-    map_style="mapbox://styles/mapbox/streets-v11",  # Mapbox style URL
-    tooltip={
-        "html": "<b>{}</b>".format("{location}"),
-        "style": {"backgroundColor": "white", "color": "black", "z-index": "999"},
-    },
-)
-
-# Add legend to the map
-for label, color in zip(legend_labels, legend_colors):
-    r.add_column(label, label)
-    r.legend = pdk.Legend(
-        title="Legend",
-        style={"position": "bottom-left"},
-        data=[(color, label) for label, color in zip(legend_labels, legend_colors)],
-    )
 
 
 # Display the map using Streamlit
