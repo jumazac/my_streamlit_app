@@ -572,10 +572,15 @@ df = pd.DataFrame({
             [-111.853640, 40.754270],
             [-111.845610, 40.754091],
             [-111.845713, 40.758236]  # Adding the first coordinate to close the polygon
+        ],
+        [
+            [-111.854220, 40.758220],
+            [-111.862079, 40.758203],
+            [-111.862245, 40.754205],
+            [-111.854021, 40.754237]
         ]
     ]
 })
-
 
 
 # Create the PyDeck layer for the polygons
