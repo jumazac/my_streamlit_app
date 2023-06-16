@@ -664,13 +664,17 @@ df_red = pd.DataFrame({
 # Create the PyDeck layer for the red transparent polygon
 polygon_layer_red = pdk.Layer(
     "PolygonLayer",
-    data=df_red,  # Explode the coordinates to ensure equal length
+    data=df_red,
     get_polygon="coordinates",
     filled=True,
     extruded=False,
-    get_fill_color=[255, 0, 0, 100]  # RGBA color value for the fill (red transparent)
+    get_fill_color=[255, 0, 0, 100],  # RGBA color value for the fill (red transparent)
+    auto_highlight=True,  # Highlight the polygon on hover
+    get_fill_color_highlight=[255, 255, 0, 100],  # RGBA color value for the fill during hover (yellow transparent)
+    get_line_color_highlight=[255, 255, 0],  # RGB color value for the outline during hover (yellow color)
+    pickable=True,
+    tooltip={"text": "Red Polygon"},  # Add tooltip for the red polygon
 )
-
 r = pdk.Deck(
     layers=[polygon_layer, polygon_layer_red],  # Add both polygon layers to the list
     initial_view_state=view_state,
