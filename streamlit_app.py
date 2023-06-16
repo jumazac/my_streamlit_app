@@ -699,7 +699,7 @@ polygon_layer_orange = pdk.Layer(
     get_polygon="coordinates",
     filled=True,
     extruded=False,
-    get_fill_color=[255, 165, 0, 100]  # RGBA color value for the fill (orange transparent)
+    get_fill_color=[255, 99, 71]  # RGBA color value for the fill (orange transparent)
 
 )
 
