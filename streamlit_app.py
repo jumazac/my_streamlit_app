@@ -13,7 +13,17 @@ import pydeck as pdk
 
 import streamlit as st
 
+st.set_page_config(layout="wide")
 
+
+st.markdown("""
+<style>
+body {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+</style>
+    """, unsafe_allow_html=True)
 
 # Define two columns
 col1, col2 = st.columns(2)
