@@ -675,14 +675,39 @@ polygon_layer_red = pdk.Layer(
     pickable=True,
     tooltip={"text": "Red Polygon"},  # Add tooltip for the red polygon
 )
+
+df_orange = pd.DataFrame({
+    'location': ['Location Orange'],
+    'coordinates': [
+        [
+            [-111.830712, 40.766424],
+            [-111.830255, 40.765871],
+            [-111.830341, 40.765571],
+            [-111.830963, 40.765302],
+            [-111.831515, 40.765995],
+            [-111.831962, 40.766440],
+            [-111.831833, 40.766749],
+            [-111.831124, 40.766830]
+        ]
+    ]
+})
+
+# Create the PyDeck layer for the orange transparent polygon
+polygon_layer_orange = pdk.Layer(
+    "PolygonLayer",
+    data=df_orange,  # Explode the coordinates to ensure equal length
+    get_polygon="coordinates",
+    filled=True,
+    extruded=False,
+    get_fill_color=[255, 165, 0, 100]  # RGBA color value for the fill (orange transparent)
+
+)
+
 r = pdk.Deck(
-    layers=[polygon_layer, polygon_layer_red],  # Add both polygon layers to the list
+    layers=[polygon_layer, polygon_layer_red, polygon_layer_orange],  # Add both polygon layers to the list
     initial_view_state=view_state,
     map_style="mapbox://styles/mapbox/streets-v11"  # Mapbox style URL
 )
-
-
-
 
 # Display the map using Streamlit
 st.pydeck_chart(r)
