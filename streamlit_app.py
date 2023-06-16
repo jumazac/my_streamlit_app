@@ -485,7 +485,7 @@ with col4:
         ]
     }
     for benefit in data["Benefits"]:
-        st.markdown(f'<div style="background-color: {benefit["color"]}; padding: 10px;">{benefit["text"]}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div style="background-color: {benefit["color"]}; color: #d3d3d3; padding: 10px;">{benefit["text"]}</div>', unsafe_allow_html=True)
         for _ in range(benefit["breaks"]):
             st.write("<br>", unsafe_allow_html=True)
 
