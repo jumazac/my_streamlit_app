@@ -725,7 +725,7 @@ df_yellow = pd.DataFrame({
 # Create the PyDeck layer for the yellow transparent polygon
 polygon_layer_yellow = pdk.Layer(
     "PolygonLayer",
-    data=df_yellow.explode('coordinates'),  # Explode the coordinates to ensure equal length
+    data=df_yellow,  # Explode the coordinates to ensure equal length
     get_polygon="coordinates",
     filled=True,
     extruded=False,
