@@ -19,6 +19,7 @@ import streamlit as st
 st.set_page_config(layout="wide")
 
 
+st.set_page_config(page_title="Your App Title", page_icon="🌟", layout="wide", theme="classic")
 
 # Define two columns
 col1, col2 = st.columns(2)
