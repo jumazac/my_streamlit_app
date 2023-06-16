@@ -509,7 +509,7 @@ with col1[0]:
     view_state = pdk.ViewState(
         latitude=40.7648,  # Coordinates for the University of Utah
         longitude=-111.8421,
-        zoom=16,
+        zoom=15,
         pitch=0
     )
 
