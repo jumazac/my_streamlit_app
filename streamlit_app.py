@@ -513,35 +513,77 @@ with col1[0]:
         pitch=0
     )
 
-#READ THE CSV
+# Define the DataFrame with all the coordinates
+df = pd.DataFrame({
+    'location': ['Location1', 'Location2', 'Location3', 'Location4', 'Location5', 'Location6'],
+    'coordinates': [
+        [
+            [-111.838122, 40.776064],
+            [-111.836941, 40.774357],
+            [-111.835631, 40.774487],
+            [-111.834107, 40.773415],
+            [-111.832475, 40.771741],
+            [-111.830929, 40.769791],
+            [-111.827322, 40.767093],
+            [-111.825111, 40.768004],
+            [-111.821890, 40.770587],
+            [-111.820181, 40.773220],
+            [-111.834833, 40.775876],
+            [-111.836035, 40.774413]
+        ],
+        [
+            [-111.836464, 40.774088],
+            [-111.837753, 40.773373],
+            [-111.841661, 40.773146],
+            [-111.842906, 40.772333],
+            [-111.843679, 40.771326],
+            [-111.847286, 40.771228],
+            [-111.848059, 40.770611],
+            [-111.847888, 40.768400],
+            [-111.849090, 40.768205],
+            [-111.849219, 40.767165],
+            [-111.852053, 40.767263],
+            [-111.851924, 40.774608],
+            [-111.842118, 40.775811]
+        ],
+        [
+            [-111.852523, 40.767337],
+            [-111.852523, 40.765160],
+            [-111.858041, 40.765143],
+            [-111.857910, 40.766947]
+        ],
+        [
+            [-111.852493, 40.764883],
+            [-111.852557, 40.760776],
+            [-111.862317, 40.760817],
+            [-111.862353, 40.764769],
+            [-111.852604, 40.764818],
+            [-111.852493, 40.764883]  # Adding the missing coordinate
+        ],
+        [
+            [-111.852495, 40.760516],
+            [-111.852506, 40.758688],
+            [-111.859463, 40.758679],
+            [-111.859474, 40.760565]
+        ],
+        [
+            [-111.845713, 40.758236],
+            [-111.853551, 40.758220],
+            [-111.853640, 40.754270],
+            [-111.845610, 40.754091],
+            [-111.845713, 40.758236]  # Adding the first coordinate to close the polygon
+        ],
+        
+    ]
+})
 
-df = pd.read_csv('coordinates.csv', header=None)
 
-# Create an empty list to hold the data
-data_list = []
-
-# Loop through each row in the original DataFrame
-for index, row in df.iterrows():
-    # The polygon_id is the first element in the row
-    polygon_id = row[0]
-    
-    # The coordinates are the remaining elements in the row, reshaped into a list of [lon, lat] pairs
-    coordinates = [[row[i], row[i+1]] for i in range(1, len(row)-1, 2)]
-    
-    # Append a dictionary to the list
-    data_list.append({
-        'polygon_id': polygon_id,
-        'polygons': [coordinates]  # The PolygonLayer expects a list of polygons, each of which is a list of coordinates
-    })
-
-# Convert the list of dictionaries to a DataFrame
-polygons_df = pd.DataFrame(data_list)
 
 # Create the PyDeck layer for the polygons
 polygon_layer = pdk.Layer(
     "PolygonLayer",
-    data=polygons_df,
-    get_polygon='polygons',
+    data=df,
+    get_polygon="coordinates",
     filled=True,
     extruded=False,
     get_fill_color=[0, 0, 0, 150],  # RGBA color value for the fill (transparent black)
