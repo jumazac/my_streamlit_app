@@ -513,28 +513,35 @@ with col1[0]:
         pitch=0
     )
 
-# Read the coordinates from the text file
+#READ THE CSV
 
 df = pd.read_csv('coordinates.csv', header=None)
 
-# Split the DataFrame into groups of four columns
-df = df.groupby(df.columns // 4, axis=1).apply(lambda x: x.dropna().reset_index(drop=True))
+# Create an empty list to hold the data
+data_list = []
 
-# Assign column names
-df.columns = ['Location']
+# Loop through each row in the original DataFrame
+for index, row in df.iterrows():
+    # The polygon_id is the first element in the row
+    polygon_id = row[0]
+    
+    # The coordinates are the remaining elements in the row, reshaped into a list of [lon, lat] pairs
+    coordinates = [[row[i], row[i+1]] for i in range(1, len(row)-1, 2)]
+    
+    # Append a dictionary to the list
+    data_list.append({
+        'polygon_id': polygon_id,
+        'polygons': [coordinates]  # The PolygonLayer expects a list of polygons, each of which is a list of coordinates
+    })
 
-# Group the coordinates by location
-df = df.groupby('Location', group_keys=True).agg(lambda x: x.values.tolist()).reset_index()
-
-# Display the DataFrame
-print(df)
-
+# Convert the list of dictionaries to a DataFrame
+polygons_df = pd.DataFrame(data_list)
 
 # Create the PyDeck layer for the polygons
 polygon_layer = pdk.Layer(
     "PolygonLayer",
-    data=df,
-    get_polygon="coordinates",
+    data=polygons_df,
+    get_polygon='polygons',
     filled=True,
     extruded=False,
     get_fill_color=[0, 0, 0, 150],  # RGBA color value for the fill (transparent black)
