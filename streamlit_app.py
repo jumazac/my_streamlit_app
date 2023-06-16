@@ -668,7 +668,7 @@ polygon_layer_red = pdk.Layer(
     get_polygon="coordinates",
     filled=True,
     extruded=False,
-    get_fill_color=[255, 0, 0, 100],  # RGBA color value for the fill (red transparent)
+    get_fill_color=[255, 0, 0, 150],  # RGBA color value for the fill (red transparent)
     auto_highlight=True,  # Highlight the polygon on hover
     get_fill_color_highlight=[255, 255, 0, 100],  # RGBA color value for the fill during hover (yellow transparent)
     get_line_color_highlight=[255, 255, 0],  # RGB color value for the outline during hover (yellow color)
@@ -703,8 +703,37 @@ polygon_layer_orange = pdk.Layer(
 
 )
 
+df_yellow = pd.DataFrame({
+    'location': ['Location Yellow'],
+    'coordinates': [
+        [
+            [-111.837131, 40.765205],
+            [-111.836863, 40.764547],
+            [-111.836455, 40.763523],
+            [-111.836637, 40.763214],
+            [-111.837271, 40.762840],
+            [-111.838130, 40.762800],
+            [-111.838699, 40.763596],
+            [-111.839815, 40.764953],
+            [-111.838356, 40.765619],
+            [-111.837937, 40.765749],
+            [-111.837078, 40.765107]
+        ]
+    ]
+})
+
+# Create the PyDeck layer for the yellow transparent polygon
+polygon_layer_yellow = pdk.Layer(
+    "PolygonLayer",
+    data=df_yellow.explode('coordinates'),  # Explode the coordinates to ensure equal length
+    get_polygon="coordinates",
+    filled=True,
+    extruded=False,
+    get_fill_color=[255, 255, 0, 100]  # RGBA color value for the fill (yellow transparent)
+)
+
 r = pdk.Deck(
-    layers=[polygon_layer, polygon_layer_red, polygon_layer_orange],  # Add both polygon layers to the list
+    layers=[polygon_layer, polygon_layer_red, polygon_layer_orange, polygon_layer_yellow],  # Add both polygon layers to the list
     initial_view_state=view_state,
     map_style="mapbox://styles/mapbox/streets-v11"  # Mapbox style URL
 )
