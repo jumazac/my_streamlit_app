@@ -514,8 +514,9 @@ with col1[0]:
     )
 
 # Define the DataFrame with all the coordinates
+# Define the DataFrame with all the coordinates
 df = pd.DataFrame({
-    'location': ['Location1', 'Location2', 'Location3', 'Location4', 'Location5', 'Location6', 'Location7'],
+    'location': ['Location1', 'Location2', 'Location3', 'Location4', 'Location5', 'Location6', 'Location7', 'Location8'],
     'coordinates': [
         [
             [-111.838122, 40.776064],
@@ -578,6 +579,16 @@ df = pd.DataFrame({
             [-111.862079, 40.758203],
             [-111.862245, 40.754205],
             [-111.854021, 40.754237]
+        ],
+        [
+            [-111.845071, 40.758216],
+            [-111.838802, 40.758090],
+            [-111.836441, 40.757179],
+            [-111.834196, 40.755294],
+            [-111.833110, 40.753643],
+            [-111.831213, 40.751149],
+            [-111.844788, 40.751237],
+            [-111.844830, 40.758161]
         ]
     ]
 })
