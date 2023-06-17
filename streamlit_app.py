@@ -32,8 +32,8 @@ col1, col2 = st.columns([1, 2])
 col1.markdown('<img src="https://i.imgur.com/DBZxXXg.png" width="400">', unsafe_allow_html=True)
 
 # Place the header in the second column
-col2.markdown("<h1 style='text-align: left; color: black; font-size: 70px;'>Ubike GO</h1>", unsafe_allow_html=True)
-col2.markdown("<h2 style='text-align: left; color: black; font-size: 30px;'>A micromobility service to the student community; low cost, reliable and environmentally safe.</h2>", unsafe_allow_html=True)
+col2.markdown("<h1 style='text-align: left; color: black; font-size: 70px; font-family: Helvetica;'>Ubike GO</h1>", unsafe_allow_html=True)
+col2.markdown("<h2 style='text-align: left; color: black; font-size: 30px; font-family: Helvetica;'>A micromobility service to the student community; low cost, reliable and environmentally safe.</h2>", unsafe_allow_html=True)
 
 
 st.markdown("<br>"*2, unsafe_allow_html=True)
