@@ -26,7 +26,7 @@ body {
     """, unsafe_allow_html=True)
 
 # Define two columns
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([2, 1])
 
 # Place the logo in the first column
 col1.markdown("![LOGO](https://i.imgur.com/DBZxXXg.png)")
