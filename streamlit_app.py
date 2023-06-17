@@ -32,7 +32,7 @@ col1, col2 = st.columns(2)
 col1.markdown("![LOGO](https://i.imgur.com/DBZxXXg.png)")
 
 # Place the header in the second column
-col2.markdown("<h1 style='text-align: left; color: black; font-size: 50px;'>Ubike GO</h1>", unsafe_allow_html=True)
+col2.markdown("<h1 style='text-align: left; color: black; font-size: 70px;'>Ubike GO</h1>", unsafe_allow_html=True)
 
 
 st.markdown(
