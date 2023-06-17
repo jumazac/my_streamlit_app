@@ -35,6 +35,9 @@ col1.markdown('<img src="https://i.imgur.com/DBZxXXg.png" width="400">', unsafe_
 col2.markdown("<h1 style='text-align: left; color: black; font-size: 70px;'>Ubike GO</h1>", unsafe_allow_html=True)
 col2.markdown("<h2 style='text-align: left; color: black; font-size: 30px;'>A micromobility service to the student community; low cost, reliable and environmentally safe.</h2>", unsafe_allow_html=True)
 
+
+st.markdown("<br>"*2, unsafe_allow_html=True)
+
 st.markdown(
     """
     <div style="display: flex; justify-content: space-around; background-color: #F63366; padding: 10px;">
