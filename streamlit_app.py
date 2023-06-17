@@ -29,7 +29,7 @@ body {
 col1, col2 = st.columns([1, 2])
 
 # Place the logo in the first column
-col1.markdown("![LOGO](https://i.imgur.com/DBZxXXg.png)")
+col1.markdown('<img src="https://i.imgur.com/DBZxXXg.png" width="400">', unsafe_allow_html=True)
 
 # Place the header in the second column
 col2.markdown("<h1 style='text-align: left; color: black; font-size: 70px;'>Ubike GO</h1>", unsafe_allow_html=True)
