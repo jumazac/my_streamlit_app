@@ -41,10 +41,10 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 st.markdown(
     """
     <div style="display: flex; justify-content: space-around; background-color: #F63366; padding: 10px;">
-        <a href="#home" style="text-decoration: none; color: black;">HOME</a>
-        <a href="#market-analysis" style="text-decoration: none; color: black;">Market Analysis</a>
-        <a href="#map" style="text-decoration: none; color: black;">MAP</a>
-        <a href="#why-it-is-imperative" style="text-decoration: none; color: black;">Why it is imperative</a>
+        <a href="#home" style="text-decoration: none; color: white;">HOME</a>
+        <a href="#market-analysis" style="text-decoration: none; color: white;">Market Analysis</a>
+        <a href="#map" style="text-decoration: none; color: white;">MAP</a>
+        <a href="#why-it-is-imperative" style="text-decoration: none; color: white;">Why it is imperative</a>
     </div>
     """,
     unsafe_allow_html=True
