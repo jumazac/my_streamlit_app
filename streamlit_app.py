@@ -38,10 +38,10 @@ col2.markdown("<h2 style='text-align: left; color: black; font-size: 30px;'>A mi
 st.markdown(
     """
     <div style="display: flex; justify-content: space-around;">
-        <a href="#home">HOME</a>
-        <a href="#market-analysis">Market Analysis</a>
-        <a href="#map">MAP</a>
-        <a href="#why-it-is-imperative">Why it is imperative</a>
+        <a href="#home" style="text-decoration: none; color: black;">HOME</a>
+        <a href="#market-analysis" style="text-decoration: none; color: black;">Market Analysis</a>
+        <a href="#map" style="text-decoration: none; color: black;">MAP</a>
+        <a href="#why-it-is-imperative" style="text-decoration: none; color: black;">Why it is imperative</a>
     </div>
     """,
     unsafe_allow_html=True
