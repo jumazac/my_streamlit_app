@@ -40,7 +40,7 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 
 st.markdown(
     """
-    <div style="display: flex; justify-content: space-around; background-color: #F63366; padding: 10px;">
+    <div style="display: flex; justify-content: space-around; background-color: #F63366; padding: 20px;">
         <a href="#home" style="text-decoration: none; color: white;">HOME</a>
         <a href="#market-analysis" style="text-decoration: none; color: white;">Market Analysis</a>
         <a href="#map" style="text-decoration: none; color: white;">MAP</a>
