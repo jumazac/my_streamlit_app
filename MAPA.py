@@ -12,7 +12,7 @@ def generate_map():
     # Load the original GeoJSON data
     with open('unzipped_files/mygeodata_merged.json', 'r') as f:
         geojson_data = json.load(f)
-        
+
     purple_points = ['CLASE EDUCACION', 'CLASE GARFF', 'CLASE BUSINESS', 'CLASE BUSINESS2', 'CLASE ARCH', 
                      'CLASE ART', 'CLASE SOCIALES', 'CLASE SOWORK', 'CLASE BEHSCIENCE', 'CLASE CIENCIA', 
                      'CLASE HUMANIDADES', 'CLASE PHILO', 'CLASE BIO', 'CLASE MATH', 'CLASE MATH ',
@@ -77,7 +77,7 @@ def generate_map():
     view_state = pdk.ViewState(
         latitude=40.765313, 
         longitude=-111.838860, 
-        zoom=14.70, 
+        zoom=15, 
         bearing=0, 
         pitch=0
     )
