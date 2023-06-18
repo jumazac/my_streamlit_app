@@ -77,7 +77,7 @@ def generate_map():
     view_state = pdk.ViewState(
         latitude=40.765313, 
         longitude=-111.838860, 
-        zoom=14.95, 
+        zoom=14.05, 
         bearing=0, 
         pitch=0
     )
