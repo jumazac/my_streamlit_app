@@ -10,9 +10,9 @@ def generate_map():
         zip_ref.extractall('unzipped_files')
 
     # Load the original GeoJSON data
-    with open('C:/Users/JZ/Documents/GitHub/my_streamlit_app/mygeodata_merged.json', 'r') as f:
+    with open('unzipped_files/mygeodata_merged.json', 'r') as f:
         geojson_data = json.load(f)
-
+        
     purple_points = ['CLASE EDUCACION', 'CLASE GARFF', 'CLASE BUSINESS', 'CLASE BUSINESS2', 'CLASE ARCH', 
                      'CLASE ART', 'CLASE SOCIALES', 'CLASE SOWORK', 'CLASE BEHSCIENCE', 'CLASE CIENCIA', 
                      'CLASE HUMANIDADES', 'CLASE PHILO', 'CLASE BIO', 'CLASE MATH', 'CLASE MATH ',
