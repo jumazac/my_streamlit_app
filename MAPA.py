@@ -6,8 +6,8 @@ import pydeck as pdk
 def generate_map():
     os.environ["MAPBOX_API_KEY"] = 'pk.eyJ1IjoianVtYXphYyIsImEiOiJjbGowb3RjdTQwZzViM25sbDRjOXI3YzFyIn0.DkUhZZ6V7Y9fKSYUUXhnHw'
 
-    with zipfile.ZipFile(r'C:\Users\JZ\Desktop\mygeodataUNIMAP.zip', 'r') as zip_ref:
-        zip_ref.extractall(r'C:\Users\JZ\Desktop\unzipped_files')
+    with zipfile.ZipFile('mygeodataUNIMAP.zip', 'r') as zip_ref:
+        zip_ref.extractall('unzipped_files')
 
     # Load the original GeoJSON data
     with open('C:/Users/JZ/Documents/GitHub/my_streamlit_app/mygeodata_merged.json', 'r') as f:
