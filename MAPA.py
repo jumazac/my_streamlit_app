@@ -54,7 +54,8 @@ def generate_map():
             feature['properties']['color'] = [128, 128, 128]  # RGB color for gray
         elif feature['properties']['Name'] in ['STADIO', 'ESTADIO']:
             feature['properties']['color'] = [255, 0, 0]
-        
+        elif 'DORMITORIO' in feature['properties']['Name']:  
+            feature['properties']['color'] = [34, 139, 34]
         elif feature['properties']['Name'] == 'GYM BASKET':  
             feature['properties']['color'] = [0, 0, 255]  # RGB color for yellow
         elif feature['properties']['Name'] == 'GYM':
