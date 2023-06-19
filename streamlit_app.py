@@ -744,9 +744,6 @@ st.pydeck_chart(r)
 r = generate_map()
 
 
-col1, col2, col3 = st.columns([0.1,6,0.1])
-
-with col2:
     st.markdown("""
     <iframe 
         width='100%' 
