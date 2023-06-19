@@ -84,7 +84,7 @@ def generate_map():
 
     r = pdk.Deck(layers=[layer], 
                   initial_view_state=view_state, 
-                  map_style='mapbox://styles/jumazac/clj0e0eko00o301pu6i544yft',
+                  map_style='mapbox://styles/jumazac/clj1wx5ue00rm01r7hr755dsv',
                   api_keys={'mapbox': os.environ["MAPBOX_API_KEY"]},
                   map_provider='mapbox')
 
