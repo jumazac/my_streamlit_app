@@ -38,7 +38,8 @@ def generate_map():
             feature['properties']['color'] = [0, 0, 0,]
         elif feature['properties']['Name'] in ['Polygon 135', 'Polygon 138', 'Polygon 139', 'Polygon 148', 'Polygon 147', 'Polygon 133', 'Polygon 140', 'UNION']:
             feature['properties']['color'] = [0, 0, 0]  # RGB color for black
-        
+        elif feature['properties']['Name'] == 'RUTA 1, 1 MILLA':
+            feature['properties']['color'] = [0, 84, 255]
         elif feature['properties']['Name'] in purple_points:
             feature['properties']['color'] = [128, 0, 128]  # RGB color for purple
         elif feature['properties']['Name'] in ['CAFETERIA PHC', 'CAFETERIA KALHERT']:
