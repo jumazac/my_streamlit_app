@@ -61,18 +61,27 @@ def generate_map():
             feature['properties']['color'] = [0, 0, 255]  # RGB color for yellow
 
     layer = pdk.Layer(
-        'GeoJsonLayer',
-        geojson_data,
-        opacity=0.8,
-        stroked=True,
-        filled=True,
-        extruded=False,
-        wireframe=True,
-        getLineColor="properties.color",
-        getFillColor="properties.color",
-        getLineWidth=11,
-        getRadius=7,
-    )
+    'GeoJsonLayer',
+    geojson_data,
+    opacity=0.8,
+    stroked=True,
+    filled=True,
+    extruded=False,
+    wireframe=True,
+    getLineColor="properties.color",
+    getFillColor="properties.color",
+    getLineWidth=11,
+    getRadius=7,
+    pickable=True,  # Enable hovering
+    auto_highlight=True,  # Highlight object on hover
+    tooltip={
+        "html": "<b>Name:</b> {properties.Name}",
+        "style": {
+            "backgroundColor": "steelblue",
+            "color": "white"
+        }
+    }
+)
 
     view_state = pdk.ViewState(
         latitude=40.765313, 
@@ -90,3 +99,19 @@ def generate_map():
 
     return r
 
+
+
+
+with zipfile.ZipFile('mygeodataUNIMAP.zip', 'r') as zip_ref:
+    zip_ref.extractall('unzipped_files')
+
+# Load the GeoJSON data
+with open('unzipped_files/mygeodata_merged.json', 'r') as f:
+    geojson_data = json.load(f)
+
+for feature in geojson_data['features']:
+
+    if feature['properties']['Name'] == '2DA CONCERNTRACION, 10:00-22:00':
+        feature['properties']['color'] = [255, 0, 0, 95]  # RGB color for red
+        print(f"2DA CONCERNTRACION color: {feature['properties']['color']}")
+    
