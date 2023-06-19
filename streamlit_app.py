@@ -742,9 +742,5 @@ r = pdk.Deck(
 # Display the map using Streamlit
 st.pydeck_chart(r)
 
-# Generate the map
-r = generate_map()
-
-st.pydeck_chart(generate_map())
 
 
