@@ -29,7 +29,7 @@ def generate_map():
     for feature in geojson_data['features']:
         # existing conditions
         if feature['properties']['Name'] == '1RA CONCETRACION, 8:45-19:45':
-            feature['properties']['color'] = [2, 0, 0, 95]  # RGB color for red
+            feature['properties']['color'] = [255, 0, 0, 95]  # RGB color for red
         elif feature['properties']['Name'] == '2DA CONCERNTRACION, 10:00-22:00':
             feature['properties']['color'] = [44, 165, 0, 95]
         elif feature['properties']['Name'] == '3RA CONCENTRACION, 10:00-22:00':
@@ -54,8 +54,7 @@ def generate_map():
             feature['properties']['color'] = [128, 128, 128]  # RGB color for gray
         elif feature['properties']['Name'] in ['STADIO', 'ESTADIO']:
             feature['properties']['color'] = [255, 0, 0]
-        elif 'DORMITORIO' in feature['properties']['Name']:  
-            feature['properties']['color'] = [34, 139, 34]
+        
         elif feature['properties']['Name'] == 'GYM BASKET':  
             feature['properties']['color'] = [0, 0, 255]  # RGB color for yellow
         elif feature['properties']['Name'] == 'GYM':
