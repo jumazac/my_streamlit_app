@@ -3,6 +3,7 @@ import json
 import os
 import pydeck as pdk
 
+
 def generate_map():
     os.environ["MAPBOX_API_KEY"] = 'pk.eyJ1IjoianVtYXphYyIsImEiOiJjbGowb3RjdTQwZzViM25sbDRjOXI3YzFyIn0.DkUhZZ6V7Y9fKSYUUXhnHw'
 
@@ -71,7 +72,7 @@ def generate_map():
     getLineColor="properties.color",
     getFillColor="properties.color",
     getLineWidth=11,
-    getRadius=7,
+    getPointRadius=7,
     pickable=True,  # Enable hovering
     auto_highlight=True,  # Highlight object on hover
     tooltip={
