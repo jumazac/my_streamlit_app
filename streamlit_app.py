@@ -746,7 +746,7 @@ r = generate_map()
 
 st.markdown("""
     <iframe 
-        width='100%' 
+        width='101%' 
         height='500px' 
         src="https://api.mapbox.com/styles/v1/jumazac/clj1wx5ue00rm01r7hr755dsv.html?title=false&access_token=pk.eyJ1IjoianVtYXphYyIsImEiOiJjbGowZHhxZXIwNTh4M2R0OHZzNW5oamhoIn0.22XzPjwDWm9etY_unBN4Qg&zoomwheel=false#15.9/40.764035/-111.841069" 
         title="Streets" 
