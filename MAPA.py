@@ -30,7 +30,10 @@ def generate_map():
         # existing conditions
         if feature['properties']['Name'] == '1RA CONCETRACION, 8:45-19:45':
             feature['properties']['color'] = [255, 0, 0, 95]  # RGB color for red
-       
+        elif feature['properties']['Name'] == '2DA CONCERNTRACION, 10:00-22:00':
+            feature['properties']['color'] = [0, 165, 0, 95]
+        elif feature['properties']['Name'] == '3RA CONCENTRACION, 10:00-22:00':
+            feature['properties']['color'] = [255, 255, 0, 95]  # RGB color for yellow
         elif feature['properties']['Name'] == 'Polygon 150':
             feature['properties']['color'] = [0, 0, 0,]
         elif feature['properties']['Name'] in ['Polygon 135', 'Polygon 138', 'Polygon 139', 'Polygon 148', 'Polygon 147', 'Polygon 133', 'Polygon 140', 'UNION']:
