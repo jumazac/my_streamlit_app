@@ -1,8 +1,19 @@
+[global]
+
+[server]
+
 [logger]
 level = "debug"
+
 [theme]
 primaryColor="#E694FF"
 backgroundColor="#00172B"
 secondaryBackgroundColor="#0083B8"
 textColor="#DCDCDC"
 font="sans serif"
+
+[mapbox]
+# Configure Streamlit to use a custom Mapbox token for elements like st.pydeck_chart and st.map.
+# To get a token for yourself, create an account at https://mapbox.com.
+# It's free (for moderate usage levels)!
+token = "pk.eyJ1IjoianVtYXphYyIsImEiOiJjbGowb3RjdTQwZzViM25sbDRjOXI3YzFyIn0.DkUhZZ6V7Y9fKSYUUXhnHw"
