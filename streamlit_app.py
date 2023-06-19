@@ -744,7 +744,7 @@ st.pydeck_chart(r)
 r = generate_map()
 
 
-    st.markdown("""
+st.markdown("""
     <iframe 
         width='100%' 
         height='400px' 
@@ -755,6 +755,9 @@ r = generate_map()
     """, unsafe_allow_html=True)
 
 
+st.pydeck_chart(r)
 
+# Generate the map
+r = generate_map()
 
 
