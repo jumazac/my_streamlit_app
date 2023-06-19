@@ -456,9 +456,11 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 # Create the "MAP" section
 st.markdown("<h2 id='map'>MAP</h2>", unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns((1, 2, 1))
-with col2:
-    st.image("https://i.imgur.com/PSrs3vF.png", width=800)
+# Generate the map
+r = generate_map()
+
+st.pydeck_chart(generate_map())
+
 
 st.markdown("<h1 id='why-it-is-imperative'>Why it is imperative</h1>", unsafe_allow_html=True)
 
