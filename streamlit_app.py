@@ -744,7 +744,7 @@ st.pydeck_chart(r)
 r = generate_map()
 
 
-col1, col2, col3 = st.columns([0.1,6,0.1])
+col1, col2, col3 = st.columns([2,4,2])
 
 with col2:
     st.pydeck_chart(generate_map())
