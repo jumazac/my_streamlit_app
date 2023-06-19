@@ -747,6 +747,13 @@ r = generate_map()
 col1, col2, col3 = st.columns([0.1,6,0.1])
 
 with col2:
-    st.pydeck_chart(generate_map())
+    st.markdown("""
+    <iframe
+      src="https://api.mapbox.com/styles/v1/jumazac/clj1wx5ue00rm01r7hr755dsv/embed?access_token=pk.eyJ1IjoianVtYXphYyIsImEiOiJjbGowb3RjdTQwZzViM25sbDRjOXI3YzFyIn0.DkUhZZ6V7Y9fKSYUUXhnHw"
+      width="100%"
+      height="500px"
+      title="My Mapbox Map"
+    ></iframe>
+    """, unsafe_allow_html=True)
 
 
