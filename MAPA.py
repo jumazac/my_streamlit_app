@@ -87,18 +87,18 @@ def generate_map():
     )
 
     # Legend layer
+    # Legend layer
     legend = pdk.Layer(
     "TextLayer",
     pd.DataFrame({
         'text': ['\u2B1B Red: Label 1', '\u2B1B Blue: Label 2', '\u2B1B Green: Label 3'],
         'position': [[-111.838860, 40.765313+0.01*i] for i in range(3)],
-        'color': [[255, 0, 0], [0, 0, 255], [0, 255, 0]]
     }),
     get_position='position',
     get_text='text',
-    get_color='color',  # Change color according to the data
     get_size=20,
     get_alignment_baseline="'bottom'",
+    get_color=[255, 255, 255],  # white text
 )
 
     view_state = pdk.ViewState(
