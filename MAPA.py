@@ -95,7 +95,7 @@ def generate_map():
         }),
         get_position='position',
         get_text='text',
-        get_color="[0, 0, 0]",  # Set color for the legend text to black
+        get_color="[255, 255, 255]",  # Set color for the legend text to black
         get_size=20,
         get_alignment_baseline="'bottom'",
     )
