@@ -91,11 +91,11 @@ def generate_map():
         "TextLayer",
         pd.DataFrame({
             'text': ['Red: Label 1', 'Blue: Label 2', 'Green: Label 3'],
-            'position': [[-111.838860, 40.765313+0.01] for _ in range(3)],  # Slightly shift the legend position
+            'position': [[-111.838860, 40.765313] for _ in range(3)],  # Set your desired legend position
         }),
         get_position='position',
         get_text='text',
-        get_color="[0, 0, 0]",  # Set color for the legend text to black
+        get_color="[255, 255, 255]",  # Set color for the legend text
         get_size=20,
         get_alignment_baseline="'bottom'",
     )
@@ -121,5 +121,16 @@ def generate_map():
 
 
 
+with zipfile.ZipFile('mygeodataUNIMAP.zip', 'r') as zip_ref:
+    zip_ref.extractall('unzipped_files')
 
+# Load the GeoJSON data
+with open('unzipped_files/mygeodata_merged.json', 'r') as f:
+    geojson_data = json.load(f)
+
+for feature in geojson_data['features']:
+
+    if feature['properties']['Name'] == '2DA CONCERNTRACION, 10:00-22:00':
+        feature['properties']['color'] = [255, 0, 0, 95]  # RGB color for red
+        print(f"2DA CONCERNTRACION color: {feature['properties']['color']}")
     
