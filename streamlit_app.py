@@ -102,6 +102,10 @@ col4.markdown("""
 """, unsafe_allow_html=True)
 
 
+col4.markdown("<p style='font-size:17px;'>BUS<br>TRAX<br>WALKING<br>SPIN</p>", unsafe_allow_html=True)
+
+
+
 # Add space
 st.markdown("""
     <div style="height:190px;"></div>
