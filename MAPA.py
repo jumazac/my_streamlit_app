@@ -91,7 +91,7 @@ def generate_map():
         "TextLayer",
         pd.DataFrame({
             'text': ['Red: Label 1', 'Blue: Label 2', 'Green: Label 3'],
-            'position': [[-111.819842, 40.766060+0.001*i] for i in range(3)],  # Slightly shift the legend position
+            'position': [[-111.826685, 40.762023+0.001*i] for i in range(3)],  # Slightly shift the legend position
         }),
         get_position='position',
         get_text='text',
