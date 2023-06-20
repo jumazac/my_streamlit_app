@@ -104,7 +104,7 @@ col4.markdown("""
 st.markdown("<br><br><br><br><br>", unsafe_allow_html=True)
 
 
-st.markdown("<p style='font-size:17px;'>BUS<br>TRAX<br>WALKING<br>SPIN</p>", unsafe_allow_html=True)
+st.markdown("<p style='font-size:20px;'>BUS<br>TRAX<br>WALKING<br>SPIN</p>", unsafe_allow_html=True)
 
 
 
