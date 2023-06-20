@@ -519,6 +519,8 @@ st.markdown("<br><br>", unsafe_allow_html=True)
 st.markdown("""
     <div style="text-align: center;">
         <img src="https://i.imgur.com/bmItdcR.png" width="1400"/>
+        <h2>How this venture tocuhes is alinged with distric, country and global objectives</h2>
+        <p>- Good health and wellbeing, industry innovation and infrastructure, sustainable cities and communities, climate action</p>
     </div>
     """, unsafe_allow_html=True)
 
