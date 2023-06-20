@@ -520,7 +520,7 @@ st.markdown("<h3 id='market-analysis'>Sustainability Goals</h3>", unsafe_allow_h
 st.markdown("""
     <div style="text-align: center;">
         <img src="https://i.imgur.com/bmItdcR.png" width="1400"/>
-        <h2>How this venture tocuhes is alinged with distric, country and global objectives</h2>
+        <h2>How this venture is alinged with distric, country and global objectives</h2>
         <ul style="font-size:29px;">
             <li>Good health and wellbeing</li>
             <li>Industry innovation and infrastructure</li>
