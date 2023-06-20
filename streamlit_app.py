@@ -104,40 +104,10 @@ col4.markdown("""
 st.markdown("<br><br>", unsafe_allow_html=True)
 
 
-st.markdown("<p style='font-size:37px;'>BUS<br><br>TRAX<br><br>WALKING<br><br>SPIN</p>", unsafe_allow_html=True)
+st.markdown("![Transportation Image](https://i.imgur.com/N4qjyec.png)")
 
 
-# Define the vehicles and their speeds
-# Define the vehicles
-vehicles = ['Bus', 'Trax', 'Walking', 'Spin', 'Ubike Go']
 
-# Create the table header
-table_html = """
-<table>
-<tr>
-<th></th>
-<th>Time</th>
-<th>Comfort</th>
-<th>Cost</th>
-</tr>
-"""
-
-# Add a row for each vehicle
-for vehicle in vehicles:
-    table_html += f"""
-    <tr>
-    <td>{vehicle}</td>
-    <td><img src='image.png' width='50' height='50'></td>
-    <td><img src='image.png' width='50' height='50'></td>
-    <td><img src='image.png' width='50' height='50'></td>
-    </tr>
-    """
-
-# Close the table
-table_html += "</table>"
-
-# Display the table
-st.markdown(table_html, unsafe_allow_html=True)
 
 
 ##########
