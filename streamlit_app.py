@@ -101,7 +101,7 @@ col4.markdown("""
 - Aligned with Government Objectives: In line with current federal and district commuting goals.
 """, unsafe_allow_html=True)
 
-st.markdown("<br><br><br>", unsafe_allow_html=True)
+st.markdown("<br><br>", unsafe_allow_html=True)
 
 
 st.markdown("<p style='font-size:37px;'>BUS<br><br>TRAX<br><br>WALKING<br><br>SPIN</p>", unsafe_allow_html=True)
