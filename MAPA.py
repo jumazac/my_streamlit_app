@@ -90,13 +90,13 @@ def generate_map():
     legend = pdk.Layer(
     "TextLayer",
     pd.DataFrame({
-        'text': ['■ Red: Label 1', '■ Blue: Label 2', '■ Green: Label 3'],
-        'position': [[-111.838860, 40.765313+0.01*i] for i in range(3)],  # Shift each label position slightly
-        'color': [[255,0,0], [0,0,255], [0,255,0]]  # Colors for red, blue, green
+        'text': ['\u2B1B Red: Label 1', '\u2B1B Blue: Label 2', '\u2B1B Green: Label 3'],
+        'position': [[-111.838860, 40.765313+0.01*i] for i in range(3)],
+        'color': [[255, 0, 0], [0, 0, 255], [0, 255, 0]]
     }),
     get_position='position',
     get_text='text',
-    get_color='color',  # Use the color column for the text color
+    get_color='color',  # Change color according to the data
     get_size=20,
     get_alignment_baseline="'bottom'",
 )
