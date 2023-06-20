@@ -108,38 +108,39 @@ st.markdown("<p style='font-size:37px;'>BUS<br><br>TRAX<br><br>WALKING<br><br>SP
 
 
 # Define the vehicles and their speeds
-vehicles = ['Bus', 'Scooter', 'Automobile']
-times = [30, 15, 5]  # example times in minutes
-max_time = max(times)
+# Define the vehicles
+vehicles = ['Bus', 'Trax', 'Walking', 'Spin', 'Ubike Go']
 
-# Create a colored bar for each vehicle
-for vehicle, time in zip(vehicles, times):
-    # Calculate the percentage of the bar that should be filled
-    filled_percentage = 100 * (1 - time / max_time)
+# Create the table header
+table_html = """
+<table>
+<tr>
+<th></th>
+<th>Time</th>
+<th>Comfort</th>
+<th>Cost</th>
+</tr>
+"""
 
-    # Create the HTML for the bar
-    bar_html = f"""
-    <style>
-    .outer {{
-        width: 100%;
-        height: 32px;
-        border: 1px solid black;
-    }}
-
-    .inner {{
-        height: 32px;
-        width: {filled_percentage}%;
-        background-color: skyblue;
-        text-align: right;
-    }}
-    </style>
-
-    <div class="outer">
-        <div class="inner">{vehicle}</div>
-    </div>
+# Add a row for each vehicle
+for vehicle in vehicles:
+    table_html += f"""
+    <tr>
+    <td>{vehicle}</td>
+    <td><img src='image.png' width='50' height='50'></td>
+    <td><img src='image.png' width='50' height='50'></td>
+    <td><img src='image.png' width='50' height='50'></td>
+    </tr>
     """
-    st.markdown(bar_html, unsafe_allow_html=True)
-    # Display the bar
+
+# Close the table
+table_html += "</table>"
+
+# Display the table
+st.markdown(table_html, unsafe_allow_html=True)
+
+
+##########
 
 
 # Add space
