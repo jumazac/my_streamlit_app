@@ -105,7 +105,7 @@ st.markdown("<br><br>", unsafe_allow_html=True)
 
 ###################
 
-st.markdown("<h3 id='market-analysis'>Our competitive edge in relation to our envieroment</h3>", unsafe_allow_html=True)
+st.markdown("<h3 id='market-analysis'>Our competitive edge in relation to the U enviroment</h3>", unsafe_allow_html=True)
 
 
 st.markdown("""
