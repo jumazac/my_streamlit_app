@@ -113,7 +113,7 @@ times = [30, 15, 5]  # example times in minutes
 plt.barh(vehicles, times, color='skyblue')
 plt.xlabel('Time (minutes)')
 plt.title('Travel Times')
-plt.show()
+st.pyplot(plt)
 
 
 # Add space
