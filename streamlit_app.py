@@ -107,6 +107,14 @@ st.markdown("<br><br>", unsafe_allow_html=True)
 st.markdown("<p style='font-size:37px;'>BUS<br><br>TRAX<br><br>WALKING<br><br>SPIN</p>", unsafe_allow_html=True)
 
 
+vehicles = ['Bus', 'Scooter', 'Automobile']
+times = [30, 15, 5]  # example times in minutes
+
+plt.barh(vehicles, times, color='skyblue')
+plt.xlabel('Time (minutes)')
+plt.title('Travel Times')
+plt.show()
+
 
 # Add space
 st.markdown("""
