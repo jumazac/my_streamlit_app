@@ -506,8 +506,14 @@ with col4:
 
     
 
-# Create a DataFrame
-df = pd.DataFrame(data)
 
 
+st.markdown("<br><br>", unsafe_allow_html=True)
+
+
+st.markdown("""
+    <div style="text-align: center;">
+        <img src="https://i.imgur.com/bmItdcR.png" width="1400"/>
+    </div>
+    """, unsafe_allow_html=True)
 
