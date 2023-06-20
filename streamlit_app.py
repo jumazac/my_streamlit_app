@@ -138,7 +138,7 @@ for vehicle, time in zip(vehicles, times):
         <div class="inner">{vehicle}</div>
     </div>
     """
-
+    st.markdown(bar_html, unsafe_allow_html=True)
     # Display the bar
 
 
