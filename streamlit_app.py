@@ -104,10 +104,11 @@ col4.markdown("""
 st.markdown("<br><br>", unsafe_allow_html=True)
 
 
-st.markdown("![Transportation Image](https://i.imgur.com/N4qjyec.png)")
-
-
-
+st.markdown("""
+    <div style="text-align: center;">
+        <img src="https://i.imgur.com/N4qjyec.png" />
+    </div>
+    """, unsafe_allow_html=True)
 
 
 ##########
