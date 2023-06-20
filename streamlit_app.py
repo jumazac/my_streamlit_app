@@ -458,23 +458,10 @@ st.markdown("<br>"*2, unsafe_allow_html=True)
 # Create the "MAP" section
 st.markdown("<h2 id='map'>MAP</h2>", unsafe_allow_html=True)
 
-col1, col2 = st.columns(2)
-with col1:
-    colors = ['red', 'blue', 'green']
-    labels = ['label1', 'label2', 'label3']
-    patches = [mpatches.Patch(color=color, label=label) for color, label in zip(colors, labels)]
-    plt.legend(handles=patches)
-    st.pyplot()
-
-
-
-
-
 # Generate the map
-with col2:
-    r = generate_map()
-    st.pydeck_chart(r)
+r = generate_map()
 
+st.pydeck_chart(generate_map())
 
 
 st.markdown("<h1 id='why-it-is-imperative'>Why it is imperative</h1>", unsafe_allow_html=True)
