@@ -107,13 +107,39 @@ st.markdown("<br><br>", unsafe_allow_html=True)
 st.markdown("<p style='font-size:37px;'>BUS<br><br>TRAX<br><br>WALKING<br><br>SPIN</p>", unsafe_allow_html=True)
 
 
+# Define the vehicles and their speeds
 vehicles = ['Bus', 'Scooter', 'Automobile']
 times = [30, 15, 5]  # example times in minutes
+max_time = max(times)
 
-plt.barh(vehicles, times, color='skyblue')
-plt.xlabel('Time (minutes)')
-plt.title('Travel Times')
-st.pyplot(plt)
+# Create a colored bar for each vehicle
+for vehicle, time in zip(vehicles, times):
+    # Calculate the percentage of the bar that should be filled
+    filled_percentage = 100 * (1 - time / max_time)
+
+    # Create the HTML for the bar
+    bar_html = f"""
+    <style>
+    .outer {{
+        width: 100%;
+        height: 32px;
+        border: 1px solid black;
+    }}
+
+    .inner {{
+        height: 32px;
+        width: {filled_percentage}%;
+        background-color: skyblue;
+        text-align: right;
+    }}
+    </style>
+
+    <div class="outer">
+        <div class="inner">{vehicle}</div>
+    </div>
+    """
+
+    # Display the bar
 
 
 # Add space
