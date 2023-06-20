@@ -513,14 +513,20 @@ st.markdown("<h3 id='market-analysis'>Sustainability Goals</h3>", unsafe_allow_h
 
 
 
-st.markdown("<br><br>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
 
 
 st.markdown("""
     <div style="text-align: center;">
         <img src="https://i.imgur.com/bmItdcR.png" width="1400"/>
-        <h2>How this venture tocuhes is alinged with distric, country and global objectives</h2>
-        <p>- Good health and wellbeing, industry innovation and infrastructure, sustainable cities and communities, climate action</p>
+        <h2>Your Subtitle Here</h2>
+        <ul>
+            <li>Good health and wellbeing</li>
+            <li>Industry innovation and infrastructure</li>
+            <li>Sustainable cities and communities</li>
+            <li>Climate action</li>
+        </ul>
     </div>
     """, unsafe_allow_html=True)
+
 
