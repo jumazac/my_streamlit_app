@@ -509,13 +509,12 @@ with col4:
 
 
     
-st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br><br>", unsafe_allow_html=True)
 
 st.markdown("<h3 id='market-analysis'>Sustainability Goals</h3>", unsafe_allow_html=True)
 
 
 
-st.markdown("<br>", unsafe_allow_html=True)
 
 
 st.markdown("""
