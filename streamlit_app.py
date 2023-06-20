@@ -520,8 +520,7 @@ st.markdown("""
     <div style="text-align: center;">
         <img src="https://i.imgur.com/bmItdcR.png" width="1400"/>
         <h2>Your Subtitle Here</h2>
-          <ul style="font-size:25px;">
-        <ul>
+        <ul style="font-size:20px;">
             <li>Good health and wellbeing</li>
             <li>Industry innovation and infrastructure</li>
             <li>Sustainable cities and communities</li>
