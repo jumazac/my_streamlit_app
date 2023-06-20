@@ -2,6 +2,8 @@ import zipfile
 import json
 import os
 import pydeck as pdk
+import pandas as pd
+
 
 
 def generate_map():
@@ -62,27 +64,41 @@ def generate_map():
             feature['properties']['color'] = [0, 0, 255]  # RGB color for yellow
 
     layer = pdk.Layer(
-    'GeoJsonLayer',
-    geojson_data,
-    opacity=0.8,
-    stroked=True,
-    filled=True,
-    extruded=False,
-    wireframe=True,
-    getLineColor="properties.color",
-    getFillColor="properties.color",
-    getLineWidth=11,
-    getPointRadius=7,
-    pickable=True,  # Enable hovering
-    auto_highlight=True,  # Highlight object on hover
-    tooltip={
-        "html": "<b>Name:</b> {properties.Name}",
-        "style": {
-            "backgroundColor": "steelblue",
-            "color": "white"
+        'GeoJsonLayer',
+        geojson_data,
+        opacity=0.8,
+        stroked=True,
+        filled=True,
+        extruded=False,
+        wireframe=True,
+        getLineColor="properties.color",
+        getFillColor="properties.color",
+        getLineWidth=11,
+        getPointRadius=7,
+        pickable=True,  # Enable hovering
+        auto_highlight=True,  # Highlight object on hover
+        tooltip={
+            "html": "<b>Name:</b> {properties.Name}",
+            "style": {
+                "backgroundColor": "steelblue",
+                "color": "white"
+            }
         }
-    }
-)
+    )
+
+    # Legend layer
+    legend = pdk.Layer(
+        "TextLayer",
+        pd.DataFrame({
+            'text': ['Red: Label 1', 'Blue: Label 2', 'Green: Label 3'],
+            'position': [[-111.838860, 40.765313] for _ in range(3)],  # Set your desired legend position
+        }),
+        get_position='position',
+        get_text='text',
+        get_color="[255, 255, 255]",  # Set color for the legend text
+        get_size=20,
+        get_alignment_baseline="'bottom'",
+    )
 
     view_state = pdk.ViewState(
         latitude=40.765313, 
@@ -92,11 +108,13 @@ def generate_map():
         pitch=0
     )
 
-    r = pdk.Deck(layers=[layer], 
-                  initial_view_state=view_state, 
-                  map_style='mapbox://styles/jumazac/clj1wx5ue00rm01r7hr755dsv',
-                  api_keys={'mapbox': os.environ["MAPBOX_API_KEY"]},
-                  map_provider='mapbox')
+    r = pdk.Deck(
+        layers=[layer, legend],  # Include your main layer and the legend layer
+        initial_view_state=view_state, 
+        map_style='mapbox://styles/jumazac/clj1wx5ue00rm01r7hr755dsv',
+        api_keys={'mapbox': os.environ["MAPBOX_API_KEY"]},
+        map_provider='mapbox'
+    )
 
     return r
 
