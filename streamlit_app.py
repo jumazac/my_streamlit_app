@@ -103,6 +103,10 @@ col4.markdown("""
 
 st.markdown("<br><br>", unsafe_allow_html=True)
 
+###################
+
+st.markdown("<h3 id='market-analysis'>Our competitive edge in relation to our envieroment</h3>", unsafe_allow_html=True)
+
 
 st.markdown("""
     <div style="text-align: center;">
