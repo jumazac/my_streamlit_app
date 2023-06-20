@@ -519,7 +519,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("""
     <div style="text-align: center;">
         <img src="https://i.imgur.com/bmItdcR.png" width="1400"/>
-        <h2>Your Subtitle Here</h2>
+        <h2>How this venture tocuhes is alinged with distric, country and global objectives</h2>
         <ul style="font-size:29px;">
             <li>Good health and wellbeing</li>
             <li>Industry innovation and infrastructure</li>
