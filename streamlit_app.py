@@ -106,7 +106,7 @@ st.markdown("<br><br>", unsafe_allow_html=True)
 
 st.markdown("""
     <div style="text-align: center;">
-        <img src="https://i.imgur.com/O3Ov6lW.png" width="1200"/>
+        <img src="https://i.imgur.com/O3Ov6lW.png" width="1400"/>
     </div>
     """, unsafe_allow_html=True)
 
