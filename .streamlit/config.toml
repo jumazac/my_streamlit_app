@@ -6,7 +6,7 @@
 level = "debug"
 
 [theme]
-primaryColor="#E694FF"
+primaryColor="#ffffff"
 backgroundColor="#00172B"
 secondaryBackgroundColor="#0083B8"
 textColor="#DCDCDC"
