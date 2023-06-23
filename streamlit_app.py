@@ -30,6 +30,15 @@ body {
 </style>
     """, unsafe_allow_html=True)
 
+st.markdown("""
+    <style>
+    body {
+        background-image: url("https://i.imgur.com/KyEIAjy.jpg");
+        background-size: cover;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 # Define two columns
 col1, col2 = st.columns([1, 2])
 
